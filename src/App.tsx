@@ -184,7 +184,7 @@ export default function App() {
           
           {/* QUIÉNES SOMOS */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#reviews" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a href="#quienes-somos" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               QUIÉNES SOMOS
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -192,7 +192,7 @@ export default function App() {
 
           {/* VER SERVICIOS */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#industries" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a href="#services" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               VER SERVICIOS
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -428,20 +428,12 @@ export default function App() {
                 </div>
               </div>
             </div>
-
           </div>
-
         </div>
-
-        {/* CAPA DE OVERLAYS / INTERFAZ FLOTANTE (Z-40) */}
-
-
-
-        {/* Scroll anchor arrow removed to keep bottom of head section clean and empty */}
       </section>
 
-      {/* SECCIÓN 3: GRID DE INDUSTRIAS ULTRA-VERTICALES (Réplica Imagen 2 y 3) */}
-      <section id="industries" className="bg-black text-white pt-28 pb-16 px-6 relative z-20">
+      {/* SECCIÓN 3: ¿QUIÉNES SOMOS? */}
+      <section id="quienes-somos" className="bg-black text-white pt-28 pb-16 px-6 relative z-20">
         
         {/* Contenedor Superior Centrado */}
         <div className="max-w-4xl mx-auto text-center mb-16">
@@ -455,46 +447,29 @@ export default function App() {
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
             </span>
           </h2>
-          <p className="text-xs sm:text-sm text-white font-sans max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
+          <p className="text-xs sm:text-sm text-white font-sans max-w-2xl mx-auto mb-4 leading-relaxed font-semibold">
             Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras.{" "}
             Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.
           </p>
         </div>
 
-        {/* El Grid de Aspect Ratio Alto aspect-[2/3] */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-28">
+        {/* Las tres tarjetas debajo de ¿Quiénes somos? (Banderas en orden México - Izquierda, Argentina - Centro, Ecuador - Derecha) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-10">
           {INDUSTRIES_DATA.map((ind, idx) => {
-            const IconComponent = ind.icon;
             return (
               <div 
                 key={idx}
-                className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl hover:border-[#9D7BFF]/40 transition-all duration-500 bg-zinc-950 cursor-pointer"
+                className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950"
               >
-                {/* Background image component scaled on hover */}
+                {/* Background image component */}
                 <div className="w-full h-full absolute inset-0 select-none">
-                  {idx === 0 || idx === 1 || idx === 2 ? (
-                    <>
-                      {/* Premium gradient to guarantee high-contrast readability for white text */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
-                      <img
-                        src={ind.image}
-                        alt={ind.category}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-black/35 z-10 mix-blend-multiply" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 md:via-black/30 to-black/25 z-10 duration-500 group-hover:via-black/20" />
-                      <img
-                        src={ind.image}
-                        alt={ind.category}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-90 contrast-[1.02]"
-                      />
-                    </>
-                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
+                  <img
+                    src={ind.image}
+                    alt={ind.category}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
+                  />
                 </div>
 
                 {/* Floating Industry Category Badge */}
@@ -506,166 +481,106 @@ export default function App() {
                 </div>
 
                 {/* Superposición de texto inferior */}
-                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/95 to-transparent z-20 transition-all duration-300">
+                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/95 to-transparent z-20">
                   {idx === 0 ? (
                     <div className="text-left py-2">
-                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                      <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
                         En México trabajamos con clientes locales e internacionales para desarrollar sitios web y soluciones digitales que reflejan la identidad de cada marca, con el mismo nivel de calidad, atención personalizada y excelencia técnica que ofrecemos en todos nuestros proyectos.
                       </p>
-                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                      <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
                         Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Ciudad de México</span> y <span className="font-extrabold text-[#9D7BFF]">Monterrey</span>.
                       </p>
                     </div>
                   ) : idx === 1 ? (
                     <div className="text-left py-2">
-                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                      <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
                         En Argentina desarrollamos sitios web y soluciones digitales para empresas de todo tipo, acompañando cada proyecto con el mismo nivel de calidad, atención personalizada y compromiso técnico que caracteriza a Aurora Services.
                       </p>
-                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                      <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
                         Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Buenos Aires</span> y <span className="font-extrabold text-[#9D7BFF]">Córdoba</span>.
                       </p>
                     </div>
-                  ) : idx === 2 ? (
+                  ) : (
                     <div className="text-left py-2">
-                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                      <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
                         En Ecuador acompañamos a empresas y emprendedores en el desarrollo de sitios web y soluciones digitales pensadas para destacar su marca y conectar con su audiencia, con el mismo cuidado en el diseño, la funcionalidad y el acompañamiento post‑entrega que Aurora Services ofrece en todos sus proyectos.
                       </p>
-                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                      <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
                         Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Quito</span> y <span className="font-extrabold text-[#9D7BFF]">Guayaquil</span>.
                       </p>
                     </div>
-                  ) : (
-                    <>
-                      <div className="flex items-center gap-2 mb-2">
-                        <IconComponent className="w-4.5 h-4.5 text-[#9D7BFF]" />
-                        <span className="text-[#9D7BFF] font-bold">—</span>
-                        <span className="text-[10px] font-mono tracking-widest text-[#9D7BFF] uppercase font-bold">Core Module</span>
-                      </div>
-
-                      <h3 className="text-2xl font-bold text-white mb-2 ml-1 leading-tight tracking-tight">
-                        {ind.title}
-                      </h3>
-
-                      <p className="text-gray-300 text-xs leading-relaxed mb-4 ml-1">
-                        {ind.description}
-                      </p>
-
-                      {/* Highlights list visible or highlighting on hover */}
-                      <div className="space-y-1.5 border-t border-white/10 pt-4 mt-2 ml-1">
-                        {ind.highlights.map((h, hIdx) => (
-                          <div key={hIdx} className="flex items-center gap-2 text-[10.5px] text-gray-400">
-                            <span className="w-1 h-1 rounded-full bg-[#9D7BFF]" />
-                            <span>{h}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Action Link overlay */}
-                      <div className="mt-5 flex justify-end">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-[#9D7BFF] flex items-center gap-1 group-hover:translate-x-1.5 duration-300 transition-transform">
-                          Deploy Model Weight <ChevronRight className="w-3.5 h-3.5" />
-                        </span>
-                      </div>
-                    </>
                   )}
                 </div>
               </div>
             );
           })}
         </div>
+      </section>
 
-        {/* Bloque Intermedio Diagonal (Imagen 3) */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-10 border-t border-white/5 relative">
+      {/* SECCIÓN 3.5: NUESTROS SERVICIOS */}
+      <section id="services" className="bg-black text-white py-24 px-6 relative z-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto relative">
           
-          {/* Left: Collage image rotated -5deg with floral and face blends */}
-          <div className="lg:col-span-6 relative flex justify-center">
-            
-            {/* Background absolute floating neon orb strictly styled */}
-            <div className="absolute h-96 w-96 rounded-full bg-[#9D7BFF]/10 blur-[130px] -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-
-            <div 
-              className="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-              style={{
-                transform: "rotate(-5deg)",
-                transition: "transform 0.5s ease-out"
-              }}
-            >
-              {/* Main image representing collage of faces and floral textures */}
-              <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800"
-                alt="Collage Base Studio Headshot"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover select-none"
-              />
-
-              {/* Flower graphics removed and simplified to keep pristine clean layout below the action */}
-
-              {/* Bottom tag indicator overlay */}
-              <div className="absolute bottom-6 right-6 z-20 bg-black/75 backdrop-blur-md px-4 py-2 rounded-xl text-[10px] font-mono border border-white/10 uppercase tracking-widest text-[#9D7BFF] font-bold">
-                MGD-WEIGHT: BRAND_COHERENCE
-              </div>
-
-              {/* Frame text outline relative layout detailing custom style */}
-              <div className="absolute top-4 left-6 z-20 select-none">
-                <span className="text-[10px] font-mono tracking-widest text-white/50 bg-black/30 px-2 py-1 rounded">PERSPECTIVE OVERRIDE</span>
-              </div>
-            </div>
+          {/* Centered underlined title */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute h-96 w-96 rounded-full bg-[#9D7BFF]/5 blur-[120px] -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.05]">
+              <span className="relative inline-block pb-3">
+                Nuestros Servicios
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+              </span>
+            </h2>
           </div>
 
-          {/* Right: Minimalist Text Content vertically aligned */}
-          <div className="lg:col-span-6 flex flex-col justify-center text-left px-4 lg:pl-12">
+          {/* Three columns layout for the service blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div className="flex items-center gap-2 mb-4">
-              <span className="h-1.5 w-6 bg-[#9D7BFF] rounded-full" />
-              <span className="font-mono text-xs uppercase text-[#9D7BFF] tracking-widest font-bold">Enterprise Custom Engine</span>
-            </div>
-
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tighter text-white leading-none mb-6">
-              Solve creative<br />
-              problems <span className="opacity-40">without<br />creating new ones.</span>
-            </h3>
-
-            <p className="text-sm text-gray-400 font-sans mb-8 leading-relaxed max-w-md">
-              Our business solutions are built for stable real-world output schedules. Obtain the full customization, managed virtual weight hosting, and detailed deployment support you need for production pipelines, without any legacy technical friction.
-            </p>
-
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3">
-                <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/10 text-[#9D7BFF]">
-                  <Check className="h-3 w-3" />
+            {/* Bloque 1 - Desarrollo Web */}
+            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
+                  <Check className="h-3.5 w-3.5" />
                 </span>
-                <span className="text-xs text-gray-300">
-                  <strong>Granular model fine-tuning:</strong> Train only on curated style sets with specific license safety.
-                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                  Desarrollo Web
+                </h3>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/10 text-[#9D7BFF]">
-                  <Check className="h-3 w-3" />
-                </span>
-                <span className="text-xs text-gray-300">
-                  <strong>Unified on-prem hosting:</strong> Secure private API pipelines that adhere to standard local strict policies.
-                </span>
-              </div>
+              <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
+                Creamos sitios web modernos, rápidos y optimizados para todos los dispositivos. Una arquitectura sólida pensada para atraer clientes y convertir visitas en resultados reales.
+              </p>
             </div>
 
-            <div>
-              <a 
-                href="#contact" 
-                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#9D7BFF] hover:text-[#8A66FF] transition-colors"
-              >
-                Book custom consultation demo 
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-              </a>
+            {/* Bloque 2 - Diseño Visual */}
+            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
+                  <Check className="h-3.5 w-3.5" />
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                  Diseño Visual
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
+                Diseñamos experiencias visuales únicas que capturan la esencia de tu marca. Estética premium y minimalista para transmitir confianza y profesionalismo desde el primer segundo.
+              </p>
             </div>
+
+            {/* Bloque 3 - Soporte */}
+            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
+                  <Check className="h-3.5 w-3.5" />
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                  Soporte
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
+                Tu sitio web necesita atención constante. Ofrecemos mantenimiento proactivo, actualizaciones de seguridad y soporte técnico para garantizar una presencia digital impecable.
+              </p>
+            </div>
+
           </div>
-        </div>
-
-        {/* Floating cream brand block from Sleek Interface */}
-        <div className="absolute bottom-0 right-0 z-0 bg-[#F2EFE9] w-72 h-32 transform translate-x-12 translate-y-12 rotate-[-5deg] flex items-center justify-center p-8 border-l-[12px] border-[#9D7BFF] shadow-2xl overflow-hidden hidden lg:flex select-none">
-          <p className="text-black font-black text-sm tracking-tighter leading-tight">
-            NEW WORKFLOW<br />
-            <span className="opacity-40">MORE THAN A PROMPT.</span>
-          </p>
         </div>
       </section>
 
