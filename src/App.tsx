@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
-  ArrowUpRight,
-  ArrowUp, 
+  ArrowUpRight, 
   ChevronRight, 
   Sparkles, 
   Globe, 
@@ -164,49 +163,52 @@ export default function App() {
       
       {/* SECCIÓN 1: NAVBAR (Transparente y Fijo) */}
       <nav id="app-navbar" className="w-full absolute top-0 left-0 z-50 flex justify-between items-center px-8 py-6 bg-transparent">
-        <div 
+        <button 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex items-center gap-2 cursor-pointer group select-none"
+          className="flex items-center gap-2 cursor-pointer group select-none bg-transparent border-none p-0 focus:outline-none text-left"
           title="Volver al inicio"
         >
           <div className="w-8 h-8 bg-[#9D7BFF] rounded-sm flex items-center justify-center font-bold text-black group-hover:bg-[#B49BFF] transition-colors duration-300">
             A
           </div>
-          <span className="font-bold tracking-tighter text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300">
-            AURORA SERVICES
-          </span>
-        </div>
+          <div className="flex flex-col items-center">
+            <span className="font-bold tracking-tighter text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1">
+              AURORA SERVICES
+            </span>
+            <span className="h-[1.5px] w-[70%] bg-[#9D7BFF] rounded-full transition-all duration-300 group-hover:bg-[#B49BFF] group-hover:w-[85%]" />
+          </div>
+        </button>
 
         {/* Central links with interactive indicator status */}
         <div className="hidden lg:flex items-center gap-8 bg-black/10 backdrop-blur-md px-8 py-2.5 rounded-full border border-white/10 select-none">
           
           {/* QUIÉNES SOMOS */}
-          <div className="flex flex-col items-center gap-1">
-            <a href="#reviews" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+          <div className="group flex flex-col items-center gap-1">
+            <a href="#reviews" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               QUIÉNES SOMOS
             </a>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
 
           {/* VER SERVICIOS */}
-          <div className="flex flex-col items-center gap-1">
-            <a href="#industries" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+          <div className="group flex flex-col items-center gap-1">
+            <a href="#industries" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               VER SERVICIOS
             </a>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
           
           {/* Selector de Idiomas */}
-          <div className="relative flex flex-col items-center gap-1">
+          <div className="relative group flex flex-col items-center gap-1">
             <button
               id="lang-selector-btn"
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
+              className="flex items-center gap-1.5 text-white/80 group-hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
             >
               <span>{selectedLang === "es" ? "🇦🇷" : "🇺🇸"}</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180 text-[#9D7BFF]' : 'text-white/40'}`} />
             </button>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
             
             <AnimatePresence>
               {isLangMenuOpen && (
@@ -246,11 +248,11 @@ export default function App() {
           </div>
 
           {/* PORTAFOLIO */}
-          <div className="flex flex-col items-center gap-1">
-            <a href="#deployment" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+          <div className="group flex flex-col items-center gap-1">
+            <a href="#deployment" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               PORTAFOLIO
             </a>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
         </div>
 
@@ -307,20 +309,15 @@ export default function App() {
             <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
               
               {/* Tag indicator */}
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="group flex items-center gap-2 mb-2 pointer-events-auto cursor-pointer focus:outline-none select-none transition-all duration-300"
-                title="Volver al inicio"
-              >
-                <div className="relative flex items-center justify-center w-3 h-3">
-                  <span className="absolute w-2.5 h-2.5 rounded-full bg-[#9D7BFF] opacity-75 animate-ping group-hover:scale-150 group-hover:bg-white transition-all duration-300" />
-                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF] group-hover:bg-white group-hover:scale-110 transition-transform duration-300" />
+              <div className="flex items-center gap-2 mb-2 select-none">
+                <div className="relative flex items-center justify-center w-2.5 h-2.5">
+                  <span className="absolute w-2 h-2 rounded-full bg-[#9D7BFF] opacity-75 animate-ping" />
+                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF]" />
                 </div>
-                <span className="tracking-widest text-[#9D7BFF] group-hover:text-white font-mono text-xs uppercase font-extrabold transition-colors duration-300 relative flex items-center gap-1.5">
+                <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
                   aurora services
-                  <ArrowUp className="w-3 h-3 text-[#9D7BFF] group-hover:text-white transition-all duration-300 group-hover:-translate-y-0.5" />
                 </span>
-              </button>
+              </div>
 
               <motion.h1 
                 className="text-white text-5xl sm:text-6xl md:text-[85px] font-extrabold leading-[0.85] tracking-tighter mb-4 text-left w-full"
