@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   ArrowUpRight, 
@@ -125,6 +125,16 @@ export default function App() {
   const [isPrompting, setIsPrompting] = useState(false);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
 
+  const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
   // Prompt suggestions
   const PROMPT_SUGGESTIONS = [
     "Warm sunset cinematic light, golden studio vibes, hyper-detailed over-ear headphones, 8k",
@@ -150,10 +160,10 @@ export default function App() {
       <nav id="app-navbar" className="w-full absolute top-0 left-0 z-50 flex justify-between items-center px-8 py-6 bg-transparent">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-[#9D7BFF] rounded-sm flex items-center justify-center font-bold text-black select-none">
-            S
+            A
           </div>
           <span className="font-bold tracking-tighter text-xl text-white hover:opacity-85 transition-opacity cursor-pointer">
-            STABILITY.AI
+            AURORA SERVICES
           </span>
         </div>
 
@@ -177,7 +187,7 @@ export default function App() {
             }}
             className="bg-[#9D7BFF] text-black font-bold px-6 py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-xs tracking-wider uppercase cursor-pointer"
           >
-            GET STARTED
+            CONTÁCTANOS
           </button>
         </div>
       </nav>
@@ -215,7 +225,7 @@ export default function App() {
           <div className="flex items-center gap-2 mb-4 md:mb-6 pointer-events-auto">
             <span className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-ping" />
             <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
-              _ brand studio
+              aurora services
             </span>
           </div>
 
@@ -225,14 +235,25 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <span className="block">Creative</span>
-            <span className="block">production</span>
-            <span className="block opacity-40 italic font-medium">powered by</span>
-            <span className="block">your brand.</span>
+            <span className="block">Creamos tu</span>
+            <span className="relative block h-[1.2em] text-[#9D7BFF] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  initial={{ y: "80%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-80%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute left-0 top-0 block w-full whitespace-nowrap"
+                >
+                  {ROTATING_WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </motion.h1>
 
           <p className="text-sm md:text-base text-gray-300 max-w-md font-sans mb-8 leading-relaxed pointer-events-auto">
-            Train specialized weights on custom design parameters to output flawless assets that match your visual guidelines natively.
+            Con diseño web profesional donde cada detalle refleja la calidad que tu marca merece.
           </p>
 
           {/* Row of Buttons with pointer-events-auto enabled */}
@@ -243,7 +264,7 @@ export default function App() {
               }}
               className="bg-[#9D7BFF] text-black font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
             >
-              Start for free
+              Inicia tu proyecto
               <Sparkles className="w-3.5 h-3.5" />
             </button>
             <button 
@@ -252,7 +273,7 @@ export default function App() {
               }}
               className="border border-white/20 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-white/10 active:scale-95 transition-all text-xs tracking-wider uppercase cursor-pointer"
             >
-              Work with us
+              Planes
             </button>
           </div>
         </div>
