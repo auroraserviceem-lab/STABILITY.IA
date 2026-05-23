@@ -527,6 +527,10 @@ export default function App() {
           {/* Centered underlined title */}
           <div className="text-center mb-20 relative">
             <div className="absolute h-96 w-96 rounded-full bg-[#9D7BFF]/5 blur-[120px] -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
+              <Layers className="w-3.5 h-3.5" />
+              SOBRE NUESTROS SERVICIOS
+            </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.05]">
                <span className="relative inline-block pb-3">
                  Nuestros Servicios
