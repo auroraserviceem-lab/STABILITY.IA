@@ -450,9 +450,12 @@ export default function App() {
             SOBRE AURORA
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-[1.05]">
-            ¿Quiénes somos?
+            <span className="relative inline-block pb-3">
+              ¿Quiénes somos?
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+            </span>
           </h2>
-          <p className="text-xs sm:text-sm text-gray-400 font-sans max-w-2xl mx-auto mb-4 leading-relaxed">
+          <p className="text-xs sm:text-sm text-white font-sans max-w-2xl mx-auto mb-4 leading-relaxed font-medium">
             Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras.{" "}
             Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.
           </p>
