@@ -342,7 +342,7 @@ export default function App() {
                 </span>
               </motion.h1>
 
-              <p className="text-sm md:text-base text-gray-300 max-w-md font-sans mb-4 leading-relaxed pointer-events-auto text-left">
+              <p className="text-sm md:text-base text-white max-w-md font-sans mb-4 leading-relaxed pointer-events-auto text-left">
                 Con diseño web profesional donde cada detalle refleja la calidad que tu marca merece.
               </p>
 
@@ -404,7 +404,7 @@ export default function App() {
                 <div className="w-full h-[1px] bg-white/10" />
 
                 {/* Texto secundario */}
-                <p className="text-gray-400 text-[11px] md:text-xs font-sans leading-relaxed">
+                <p className="text-white text-[11px] md:text-xs font-sans leading-relaxed">
                   Analizamos tu idea y qué tipo de sitio se adapta mejor a tu negocio: landing page, multipágina o e-commerce.
                 </p>
 
