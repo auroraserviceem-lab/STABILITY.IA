@@ -16,7 +16,8 @@ import {
   Sliders, 
   ArrowRight,
   ChevronLeft,
-  ChevronDown
+  ChevronDown,
+  MessageCircle
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -249,8 +250,8 @@ export default function App() {
       <section id="hero" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-center">
         
         {/* Layer Base Z-10 of Right Column: Dynamic Big Image depending on model selection */}
-        <div className="w-full md:w-[62%] h-[60vh] md:h-full absolute right-0 top-0 md:top-0 object-cover opacity-60 transition-all duration-1000 z-10 select-none">
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/45 to-transparent z-15" />
+        <div className="w-full h-full absolute inset-0 object-cover opacity-35 transition-all duration-1000 z-10 select-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black to-black z-15" />
           <AnimatePresence mode="wait">
             <motion.img
               key={selectedBrandModel.id}
@@ -271,82 +272,116 @@ export default function App() {
           <p className="text-[120px] font-black text-outline uppercase tracking-tighter">HYPERFOCUS</p>
         </div>
 
-        {/* Capa de Texto (Z-30): Contenedor Asimétrico Editorial */}
-        <div className="relative z-30 max-w-2xl px-6 md:pl-16 text-left pt-36 md:pt-0 mt-auto md:mt-0 pointer-events-none pb-12 md:pb-0">
+        {/* Centered Main Layout Frame (Two column layout on lg+ with left aligned editorial and right side floating card) */}
+        <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex flex-col justify-center items-center z-30 pt-28 lg:pt-0">
           
-          {/* Tag indicator */}
-          <div className="flex items-center gap-2 mb-4 md:mb-6 pointer-events-auto">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-ping" />
-            <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
-              aurora services
-            </span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full py-12 lg:py-0">
+            
+            {/* Left Col: Capa de Texto (Z-30): Contenedor Asimétrico Editorial ALINEADO A LA IZQUIERDA */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
+              
+              {/* Tag indicator */}
+              <div className="flex items-center gap-2 mb-2 pointer-events-auto">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-ping" />
+                <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
+                  aurora services
+                </span>
+              </div>
 
-          <motion.h1 
-            className="text-white text-5xl sm:text-6xl md:text-[85px] font-extrabold leading-[0.85] tracking-tighter mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <span className="block">Creamos tu</span>
-            <span className="relative block h-[1.2em] text-[#9D7BFF] overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={wordIndex}
-                  initial={{ y: "80%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  exit={{ y: "-80%", opacity: 0 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-0 block w-full whitespace-nowrap"
+              <motion.h1 
+                className="text-white text-5xl sm:text-6xl md:text-[85px] font-extrabold leading-[0.85] tracking-tighter mb-4 text-left w-full"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <span className="block">Creamos tu</span>
+                <span className="relative block h-[1.2em] text-[#9D7BFF] overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={wordIndex}
+                      initial={{ y: "80%", opacity: 0 }}
+                      animate={{ y: "0%", opacity: 1 }}
+                      exit={{ y: "-80%", opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="absolute left-0 block w-full whitespace-nowrap text-left"
+                    >
+                      {ROTATING_WORDS[wordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </motion.h1>
+
+              <p className="text-sm md:text-base text-gray-300 max-w-md font-sans mb-4 leading-relaxed pointer-events-auto text-left">
+                Con diseño web profesional donde cada detalle refleja la calidad que tu marca merece.
+              </p>
+
+              {/* Row of Buttons with pointer-events-auto enabled */}
+              <div className="flex flex-wrap items-center gap-4 pointer-events-auto mb-2">
+                <button 
+                  onClick={() => {
+                    document.getElementById("industries")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="bg-[#9D7BFF] text-black font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
                 >
-                  {ROTATING_WORDS[wordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </motion.h1>
+                  Inicia tu proyecto
+                  <Sparkles className="w-3.5 h-3.5" />
+                </button>
+                <button 
+                  onClick={() => {
+                    document.getElementById("workflow")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="border border-white/20 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-white/10 active:scale-95 transition-all text-xs tracking-wider uppercase cursor-pointer"
+                >
+                  Planes
+                </button>
+              </div>
+            </div>
 
-          <p className="text-sm md:text-base text-gray-300 max-w-md font-sans mb-8 leading-relaxed pointer-events-auto">
-            Con diseño web profesional donde cada detalle refleja la calidad que tu marca merece.
-          </p>
+            {/* Right Col: Tarjeta Unica: Garantía de satisfacción total (Alineada a la derecha de la sección en escritorio, pero internamente centrada) */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+              <div className="pointer-events-auto w-full max-w-[380px] backdrop-blur-xl bg-black/60 border border-white/15 rounded-2xl p-6 md:p-8 text-white shadow-2xl flex flex-col items-center text-center gap-4 hover:border-white/25 transition-all select-none">
+                
+                {/* Título de la tarjeta */}
+                <div className="flex flex-col items-center justify-center gap-2 text-center">
+                  <Sparkles className="w-5 h-5 text-[#9D7BFF] animate-pulse" />
+                  <h3 className="text-white font-black text-lg tracking-tight uppercase leading-tight">
+                    Garantía de satisfacción total
+                  </h3>
+                </div>
 
-          {/* Row of Buttons with pointer-events-auto enabled */}
-          <div className="flex flex-wrap items-center gap-4 pointer-events-auto">
-            <button 
-              onClick={() => {
-                document.getElementById("industries")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="bg-[#9D7BFF] text-black font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
-            >
-              Inicia tu proyecto
-              <Sparkles className="w-3.5 h-3.5" />
-            </button>
-            <button 
-              onClick={() => {
-                document.getElementById("workflow")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="border border-white/20 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-white/10 active:scale-95 transition-all text-xs tracking-wider uppercase cursor-pointer"
-            >
-              Planes
-            </button>
+                {/* Texto principal */}
+                <p className="text-gray-200 text-xs md:text-sm font-sans leading-relaxed font-semibold">
+                  Si no quedás conforme con el resultado, realizamos todas las revisiones que sean necesarias sin costo adicional hasta que el proyecto sea exactamente lo que necesitás. Tu satisfacción es nuestra prioridad.
+                </p>
+
+                {/* Separador */}
+                <div className="w-full h-[1px] bg-white/10" />
+
+                {/* Texto secundario */}
+                <p className="text-gray-400 text-[11px] md:text-xs font-sans leading-relaxed">
+                  Analizamos tu idea y qué tipo de sitio se adapta mejor a tu negocio: landing page, multipágina o e-commerce.
+                </p>
+
+                {/* Botones */}
+                <div className="w-full flex justify-center mt-2 px-1">
+                  <button
+                    onClick={() => {
+                      window.open("https://wa.me/5491176219808", "_blank");
+                    }}
+                    className="w-full bg-[#9D7BFF] text-black font-extrabold py-3.5 px-6 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366] shrink-0" />
+                    CONSULTA GRATUITA
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
+
         </div>
 
         {/* CAPA DE OVERLAYS / INTERFAZ FLOTANTE (Z-40) */}
-        
-        {/* Overlays right flower with clip-organic and extraction tag */}
-        <div className="absolute top-[6%] md:top-[8%] right-2 md:right-8 z-40 rotate-[14deg] hover:rotate-[20deg] hover:scale-105 transition-all duration-700 pointer-events-auto group">
-          <div className="w-28 h-28 md:w-48 md:h-48 bg-[#F2EFE9] clip-organic overflow-hidden border border-white/20 shadow-2xl relative">
-            <img 
-              src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=400" 
-              alt="Organic Floral Accent" 
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-700"
-            />
-          </div>
-          <div className="absolute -bottom-4 -left-8 bg-black p-2 border border-[#9D7BFF]/30">
-            <p className="text-[10px] tracking-widest font-mono uppercase text-white font-bold">EXTRACT_001</p>
-          </div>
-        </div>
 
         {/* 3D Overlaid Headphone Text (on the headphone, absolute positioned nicely over model photo) */}
         <div className="absolute bottom-[28%] md:bottom-[42%] right-[10%] md:right-[32%] z-40 transform rotate-[-12deg] select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] filter">
@@ -356,93 +391,6 @@ export default function App() {
           <span className="block text-[10px] md:text-xs font-mono tracking-widest text-[#9D7BFF] mt-[-6px] font-bold text-center">
             CUSTOMIZED IN 0.8S
           </span>
-        </div>
-
-        {/* Selector floating widget: Brand ID Model styled like Sleek template Active Profile */}
-        <div className="absolute top-[20%] md:top-[22%] right-[4%] md:right-[26%] z-40 backdrop-blur-md bg-black/40 border border-white/20 rounded-xl p-4 shadow-2xl flex flex-col gap-1 min-w-[200px] pointer-events-auto transition-all duration-300 hover:border-[#9D7BFF]/40 transform rotate-[-4deg]">
-          <span className="text-[10px] text-[#9D7BFF] font-bold uppercase tracking-widest">Active Profile</span>
-          <h3 className="text-white font-bold text-base uppercase">GEN-3 STUDIO</h3>
-          <div className="w-full h-[1px] bg-white/10 my-1"></div>
-          
-          <span className="block text-gray-400 text-[10px] mb-1">Select Active Core:</span>
-          
-          <div className="space-y-1 cursor-pointer my-1">
-            {BRANDS_MODELS.map((m) => (
-              <div 
-                key={m.id}
-                onClick={() => setSelectedBrandModel(m)}
-                className={`flex items-center justify-between px-2 py-1 rounded-lg transition-all ${selectedBrandModel.id === m.id ? 'bg-white/10 text-white font-medium border border-[#9D7BFF]/20' : 'text-white/60 hover:bg-white/5'}`}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className={`w-1.5 h-1.5 rounded-full ${m.badgeColor}`} />
-                  <span className="text-[11px] font-sans">{m.name}</span>
-                </div>
-                {selectedBrandModel.id === m.id && <Check className="w-2.5 h-2.5 text-[#9D7BFF]" />}
-              </div>
-            ))}
-          </div>
-
-          <div className="w-full h-[1px] bg-white/10 my-1"></div>
-          <p className="text-white/60 text-[10px] uppercase font-mono mt-1">
-            Brand ID Model: <span className="text-white font-bold">{selectedBrandModel.name}</span>
-          </p>
-          <div className="space-y-0.5 text-[8.5px] font-mono text-gray-400">
-            <div>Acoustic: <span className="text-white">{selectedBrandModel.details.acoustic}</span></div>
-            <div>Isolation: <span className="text-white">{selectedBrandModel.details.anc}</span></div>
-          </div>
-          
-          <div className="absolute -top-3 -right-3 w-6 h-6 bg-[#9D7BFF] rounded-full flex items-center justify-center animate-pulse">
-            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-          </div>
-        </div>
-
-        {/* Floating advanced Prompting Control */}
-        <div className="absolute bottom-[8%] md:bottom-[12%] right-[4%] md:right-[15%] z-40 backdrop-blur-xl bg-black/60 border border-white/10 rounded-2xl p-4 text-xs text-white w-80 md:w-96 shadow-2xl pointer-events-auto hover:border-white/20 transition-all">
-          <div className="flex items-center gap-2 mb-2 text-white/70">
-            <Sliders className="w-4.5 h-4.5 text-[#9D7BFF]" />
-            <span className="font-mono text-[10px] uppercase tracking-wider">Advanced Prompt Tuner</span>
-          </div>
-
-          <div className="relative mb-3">
-            <textarea
-              value={promptText}
-              onChange={(e) => setPromptText(e.target.value)}
-              className="w-full bg-white/5 rounded-xl p-2.5 text-[11px] leading-normal text-white border border-white/5 focus:border-[#9D7BFF]/50 focus:outline-none resize-none h-16 font-mono"
-              placeholder="Enter custom prompt guidance..."
-            />
-            {isPrompting && (
-              <div className="absolute inset-0 bg-black/75 rounded-xl flex items-center justify-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#9D7BFF] animate-bounce" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#9D7BFF] animate-bounce delay-100" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#9D7BFF] animate-bounce delay-200" />
-                <span className="text-[10px] font-mono font-bold text-white uppercase tracking-wider">Compiling Weights...</span>
-              </div>
-            )}
-          </div>
-
-          {/* Quick choices */}
-          <div className="mb-3 space-y-1">
-            <span className="text-[9px] uppercase tracking-wider text-white/40 font-mono font-bold">Suggestions:</span>
-            <div className="flex flex-col gap-1">
-              {PROMPT_SUGGESTIONS.map((s, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handlePromptChange(s)}
-                  className="w-full text-left truncate text-[10px] text-gray-400 hover:text-white hover:bg-white/5 px-2 py-1 rounded transition-colors block border border-transparent hover:border-white/5"
-                >
-                  "{s}"
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <button
-            onClick={executePromptAnimation}
-            className="w-full bg-white text-black font-mono font-bold py-2 rounded-xl text-[10px] hover:bg-[#9D7BFF] transition-all flex items-center justify-center gap-1 uppercase tracking-wider"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            Synthesize New Model Preset
-          </button>
         </div>
 
         {/* Scroll anchor arrow & Sleek Interface Pagination Lines */}
@@ -574,25 +522,7 @@ export default function App() {
                 className="w-full h-full object-cover select-none"
               />
 
-              {/* Overlaid purple flowers mask/collage with absolute coordinates */}
-              <div className="absolute top-0 right-0 w-[60%] h-[75%] overflow-hidden border-l border-b border-black/30 z-10 clip-path-[polygon(20%_0%,_100%_0%,_100%_80%,_0%_100%)]">
-                <img 
-                  src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&q=80&w=600"
-                  alt="Vibrant Purple Blooms"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover select-none brightness-110 contrast-105"
-                />
-              </div>
-
-              {/* Overlaid secondary flower sticker */}
-              <div className="absolute bottom-4 left-4 w-32 h-32 rounded-full overflow-hidden border border-[#9D7BFF]/20 backdrop-blur-sm p-1 bg-black/60 z-20">
-                <img 
-                  src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&q=80&w=300"
-                  alt="Red Floral Accent"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
+              {/* Flower graphics removed and simplified to keep pristine clean layout below the action */}
 
               {/* Bottom tag indicator overlay */}
               <div className="absolute bottom-6 right-6 z-20 bg-black/75 backdrop-blur-md px-4 py-2 rounded-xl text-[10px] font-mono border border-white/10 uppercase tracking-widest text-[#9D7BFF] font-bold">
