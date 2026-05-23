@@ -412,9 +412,9 @@ export default function App() {
                 <div className="w-full flex justify-center mt-2 px-1">
                   <button
                     onClick={() => {
-                      window.open("https://wa.me/5491176219808", "_blank");
+                       window.open("https://wa.me/5491176219808", "_blank");
                     }}
-                    className="w-full bg-[#9D7BFF] text-black font-extrabold py-3.5 px-6 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center justify-center gap-2"
+                    className="w-full bg-[#1FAF38] text-white font-extrabold py-3.5 px-6 rounded-full hover:bg-[#179530] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(31,175,56,0.25)] flex items-center justify-center gap-2"
                   >
                     <svg 
                       viewBox="0 0 24 24" 
