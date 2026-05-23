@@ -608,16 +608,18 @@ export default function App() {
         
         {/* Massive Centered Header */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#5c3bf2] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
-            <Command className="w-3.5 h-3.5" />
-            Adaptive Pipelines
+          <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
+            <Layers className="w-3.5 h-3.5" />
+            SOBRE NUESTRO PROCESO
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[0.95] tracking-tighter mb-6 text-[#1A1A1A]">
-            Your future workflow is<br />
-            more than <span className="text-[#9D7BFF]">a prompt.</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-[#1A1A1A]">
+            <span className="relative inline-block pb-3">
+              Nuestro Proceso
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+            </span>
           </h2>
-          <p className="text-xs sm:text-sm text-gray-600 font-sans max-w-md mx-auto leading-relaxed">
-            Keep the power of creativity where it belongs: in human hands. Train weight schemas, review steps, and render absolute consistency.
+          <p className="text-xs sm:text-sm text-[#444444] font-sans max-w-2xl mx-auto leading-relaxed">
+            Nuestro proceso está pensado para acompañarte desde la concepción del proyecto hasta la entrega y más allá. Diseñamos y desarrollamos tu sitio web de forma ordenada, con tiempos estimados transparentes, revisiones colaborativas y un acompañamiento constante antes y después del lanzamiento, para que siempre te sientas seguro y en control de tu proyecto digital.
           </p>
         </div>
 
@@ -628,137 +630,106 @@ export default function App() {
           <div className="bg-white rounded-[2.5rem] overflow-hidden border border-black/5 p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center shadow-xl">
             
             {/* Left Col: Text Description */}
-            <div className="lg:col-span-5 text-left">
-              <span className="font-mono text-[10px] uppercase font-bold text-[#9D7BFF] tracking-widest block mb-1">
-                PIPELINES v3.2
-              </span>
-              <h3 className="text-4xl font-extrabold tracking-tighter text-black mb-4">
-                Stay in control
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Your creative process isn't just one input and output. Our custom brand tools enable generating and editing in sequential workflows that reflect actual production pipelines, with precise control at every step from idea to high-fidelity output.
-              </p>
-
-              <div className="space-y-3.5 mb-8">
-                <div className="flex items-center gap-2.5 text-xs text-gray-800">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#9D7BFF]" />
-                  <span>Iterative step tuning controls</span>
+            <div className="lg:col-span-5 text-left space-y-6">
+              {/* Step 1 – Desarrollo */}
+              <div className="flex items-start gap-4 p-1">
+                <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=Dr0n9Rgyl5Lp&format=png&color=000000"
+                    alt="Desarrollo"
+                    referrerPolicy="no-referrer"
+                    className="w-6 h-6 object-contain"
+                  />
                 </div>
-                <div className="flex items-center gap-2.5 text-xs text-gray-800">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#9D7BFF]" />
-                  <span>Advanced spatial depth layout masking</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-gray-800">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#9D7BFF]" />
-                  <span>Interactive canvas weight brush painting</span>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Desarrollo</h4>
+                  <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
+                    Diseñamos y desarrollamos tu sitio con profesionalismo.
+                  </p>
                 </div>
               </div>
 
-              <div>
-                <a 
-                  href="#contact" 
-                  className="group inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest font-extrabold text-black hover:text-[#9D7BFF] transition-colors"
-                >
-                  Speak with an expert 
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
+              {/* Step 2 – Tiempos */}
+              <div className="flex items-start gap-4 p-1">
+                <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=43666&format=png&color=000000"
+                    alt="Tiempos"
+                    referrerPolicy="no-referrer"
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Tiempos</h4>
+                  <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
+                    Landing Page: 7 días · Multipágina: 10 días aprox.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 – Revisión */}
+              <div className="flex items-start gap-4 p-1">
+                <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=48003&format=png&color=000000"
+                    alt="Revisión"
+                    referrerPolicy="no-referrer"
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Revisión</h4>
+                  <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
+                    Revisamos juntos cada detalle e imagen hasta que estés conforme.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 – Entrega */}
+              <div className="flex items-start gap-4 p-1">
+                <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=69463&format=png&color=000000"
+                    alt="Entrega"
+                    referrerPolicy="no-referrer"
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Entrega</h4>
+                  <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
+                    Una vez aprobado, publicamos tu sitio para todo el mundo.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 5 – Soporte */}
+              <div className="flex items-start gap-4 p-1">
+                <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=44804&format=png&color=000000"
+                    alt="Soporte"
+                    referrerPolicy="no-referrer"
+                    className="w-6 h-6 object-contain"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Soporte</h4>
+                  <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
+                    Estamos disponibles para ayudarte ante cualquier duda post‑entrega.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Right Col: High-Fidelity Collage representing screen assets (Imagen 5 Graphic) */}
-            <div className="lg:col-span-7 relative bg-black rounded-[2rem] p-4 md:p-8 min-h-[440px] flex items-center justify-center overflow-hidden border border-black/10 shadow-inner group">
-              
-              {/* Background ambient pattern */}
-              <div className="absolute inset-0 bg-[radial-gradient(#301f5c_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
-
-              {/* FLOATING SCREENS INNER CONTAINER */}
-              <div className="relative w-full h-full min-h-[400px]">
-                
-                {/* 1. Shoe asset mockup (Left center, tilted) */}
-                <div className="absolute top-[8%] left-[2%] w-[42%] z-20 transform -rotate-[4deg] hover:rotate-0 hover:scale-105 duration-500 transition-all pointer-events-auto">
-                  <div className="bg-zinc-950 rounded-2xl p-2 border border-white/10 shadow-2xl">
-                    <img 
-                      src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&q=80&w=400" 
-                      alt="Product Boot Preview" 
-                      referrerPolicy="no-referrer"
-                      className="w-full aspect-square object-cover rounded-xl mb-1.5"
-                    />
-                    <div className="flex justify-between items-center text-[8px] font-mono text-gray-400 px-1">
-                      <span>STABLE MUD CORE_3</span>
-                      <span className="text-[#9D7BFF]">98.2% TRUE</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. Phone display preview card mock (Center right, tall) */}
-                <div className="absolute bottom-[2%] left-[34%] w-[33%] z-30 transform hover:-translate-y-2 hover:scale-105 duration-500 transition-all pointer-events-auto">
-                  <div className="bg-[#4D3399]/40 backdrop-blur-md rounded-2xl p-2.5 border border-[#9D7BFF]/30 shadow-2xl text-white">
-                    <div className="flex justify-between items-center text-[7px] font-mono text-white/50 mb-1">
-                      <span>O-MOBILE DETECT</span>
-                      <Globe className="w-2.5 h-2.5 text-[#9D7BFF]" />
-                    </div>
-                    <div className="aspect-[9/16] bg-zinc-950 rounded-xl overflow-hidden relative mb-2 group-hover:brightness-110">
-                      <img 
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" 
-                        alt="Phone UI Overlay mockup"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-2 left-2 text-left">
-                        <span className="block text-[8px] uppercase tracking-wider text-[#9D7BFF] font-black leading-none">STABLE</span>
-                        <span className="block text-[8px] uppercase tracking-wider text-white/90 font-bold leading-none">AUDIO v4.0</span>
-                        <span className="text-[6px] font-mono text-white/40 block">0.8s synthesis</span>
-                      </div>
-                    </div>
-                    <div className="bg-black/40 rounded-lg p-1 text-[8.5px] font-mono flex items-center justify-between">
-                      <span className="truncate pr-1">"STABLE MUD"</span>
-                      <span className="text-[7.5px] bg-[#9D7BFF] text-black px-1 rounded font-bold uppercase">OUT</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 3. Billboard card mockup (Right edge, tilted) */}
-                <div className="absolute top-[21%] right-[2%] w-[44%] z-20 transform rotate-[6deg] hover:rotate-0 hover:scale-105 duration-500 transition-all pointer-events-auto">
-                  <div className="bg-zinc-950 rounded-[1.5rem] p-3 border border-white/10 shadow-2xl">
-                    <div className="aspect-[1.8/1] rounded-xl overflow-hidden mb-2 relative">
-                      <img 
-                        src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=400" 
-                        alt="Outdoor Billboard Canvas mockup" 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-[#9D7BFF]/10 mix-blend-color" />
-                    </div>
-                    <div className="flex justify-between items-center text-[7.5px] font-mono text-white/40">
-                      <span>OUTDOOR WEIGHT PROXY</span>
-                      <span className="text-[#9D7BFF]">ROTATING</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. Small details overlay: Vector stamp grid */}
-                <div className="absolute bottom-[10%] left-[4%] z-40 bg-black/90 rounded-xl p-2 border border-white/5 shadow-md flex items-center gap-2 max-w-[130px] pointer-events-auto hover:bg-zinc-900 transition-colors">
-                  <div className="h-6 w-6 rounded bg-[#9D7BFF]/20 flex items-center justify-center">
-                    <Cpu className="text-[#9D7BFF] h-3.5 w-3.5" />
-                  </div>
-                  <div className="text-left">
-                    <span className="block text-[7.5px] font-mono text-white/40 uppercase">Latency Engine</span>
-                    <span className="block text-[8.5px] font-mono text-white font-bold leading-none">12.5ms RT</span>
-                  </div>
-                </div>
-
-                {/* 5. Poster mockup from Street frame */}
-                <div className="absolute -top-[5%] left-[30%] w-[33%] z-10 opacity-70 border border-white/5 rounded-xl overflow-hidden shadow-lg hover:opacity-100 transition-opacity">
-                  <img 
-                    src="https://images.unsplash.com/photo-1496181130204-755241524eab?auto=format&fit=crop&q=80&w=200" 
-                    alt="Laptop render layout" 
-                    referrerPolicy="no-referrer"
-                    className="w-full h-24 object-cover"
-                  />
-                </div>
-
-              </div>
+            {/* Right Col: High-Fidelity Showcase Image */}
+            <div className="lg:col-span-7 relative rounded-[2rem] min-h-[440px] h-full overflow-hidden border border-black/10 shadow-inner">
+              <img 
+                src="https://images.unsplash.com/photo-1651684195895-38708dc94cfa?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="Nuestro Proceso" 
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
             </div>
 
           </div>
