@@ -205,7 +205,7 @@ export default function App() {
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
               className="flex items-center gap-1.5 text-white/80 group-hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
             >
-              <span>{selectedLang === "es" ? "🇦🇷" : "🇺🇸"}</span>
+              <span>{selectedLang === "es" ? "🇪🇸" : "🇺🇸"}</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180 text-[#9D7BFF]' : 'text-white/40'}`} />
             </button>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -228,7 +228,7 @@ export default function App() {
                       }}
                       className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'es' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}
                     >
-                      <span className="text-sm">🇦🇷</span>
+                      <span className="text-sm">🇪🇸</span>
                       <span>Español</span>
                     </button>
                     <button
