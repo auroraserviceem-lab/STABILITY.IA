@@ -548,7 +548,7 @@ export default function App() {
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
-                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
                   Desarrollo Web
                 </h3>
               </div>
@@ -567,7 +567,7 @@ export default function App() {
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
-                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
                   Diseño Visual
                 </h3>
               </div>
@@ -586,7 +586,7 @@ export default function App() {
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
-                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
                   Soporte
                 </h3>
               </div>
