@@ -84,12 +84,12 @@ const INDUSTRIES_DATA = [
     icon: Sparkles
   },
   {
-    category: "Gaming",
-    title: "Next-gen volumetric mechanics",
-    image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&q=80&w=1000",
-    description: "Build immersive worlds with our 3D and 4D video models that take volumetric generative media to the next level.",
-    highlights: ["Instant high-poly assets", "4D temporal coherence", "Native esbuild meshes output"],
-    icon: Gamepad2
+    category: "Argentina",
+    title: "Desarrollo y Compromiso Autónomo",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Argentina_%28vertical_with_Sol_de_Mayo%29.svg/1280px-Flag_of_Argentina_%28vertical_with_Sol_de_Mayo%29.svg.png",
+    description: "Desarrollamos sitios web y soluciones de alto nivel para marcas de todo tipo.",
+    highlights: ["Compromiso local", "Calidad garantizada", "Atención ultra personalizada"],
+    icon: Sparkles
   },
   {
     category: "Entertainment",
@@ -469,7 +469,7 @@ export default function App() {
               >
                 {/* Background image component scaled on hover */}
                 <div className="w-full h-full absolute inset-0 select-none">
-                  {idx === 0 ? (
+                  {idx === 0 || idx === 1 ? (
                     <>
                       {/* Premium gradient to guarantee high-contrast readability for white text */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
@@ -511,6 +511,15 @@ export default function App() {
                       </p>
                       <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
                         Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Ciudad de México</span> y <span className="font-extrabold text-[#9D7BFF]">Monterrey</span>.
+                      </p>
+                    </div>
+                  ) : idx === 1 ? (
+                    <div className="text-left py-2">
+                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                        En Argentina desarrollamos sitios web y soluciones digitales para empresas de todo tipo, acompañando cada proyecto con el mismo nivel de calidad, atención personalizada y compromiso técnico que caracteriza a Aurora Services.
+                      </p>
+                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Buenos Aires</span> y <span className="font-extrabold text-[#9D7BFF]">Córdoba</span>.
                       </p>
                     </div>
                   ) : (
