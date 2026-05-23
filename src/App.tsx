@@ -163,11 +163,15 @@ export default function App() {
       
       {/* SECCIÓN 1: NAVBAR (Transparente y Fijo) */}
       <nav id="app-navbar" className="w-full absolute top-0 left-0 z-50 flex justify-between items-center px-8 py-6 bg-transparent">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#9D7BFF] rounded-sm flex items-center justify-center font-bold text-black select-none">
+        <div 
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2 cursor-pointer group select-none"
+          title="Volver al inicio"
+        >
+          <div className="w-8 h-8 bg-[#9D7BFF] rounded-sm flex items-center justify-center font-bold text-black group-hover:bg-[#B49BFF] transition-colors duration-300">
             A
           </div>
-          <span className="font-bold tracking-tighter text-xl text-white hover:opacity-85 transition-opacity cursor-pointer">
+          <span className="font-bold tracking-tighter text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300">
             AURORA SERVICES
           </span>
         </div>
@@ -302,12 +306,23 @@ export default function App() {
             <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
               
               {/* Tag indicator */}
-              <div className="flex items-center gap-2 mb-2 pointer-events-auto">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-ping" />
-                <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="group flex items-center gap-2 mb-2 pointer-events-auto cursor-pointer focus:outline-none select-none transition-all duration-300"
+                title="Volver al inicio"
+              >
+                <div className="relative flex items-center justify-center w-3 h-3">
+                  <span className="absolute w-2.5 h-2.5 rounded-full bg-[#9D7BFF] opacity-75 animate-ping group-hover:scale-150 group-hover:bg-[#B49BFF] transition-all duration-300" />
+                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="tracking-widest text-[#9D7BFF] group-hover:text-white font-mono text-xs uppercase font-extrabold transition-colors duration-300 relative flex items-center gap-1">
                   aurora services
+                  <span className="text-[10px] opacity-45 group-hover:opacity-100 group-hover:translate-y-[-2px] transition-all duration-300">
+                    ↑
+                  </span>
+                  <span className="absolute bottom-[-1px] left-0 w-0 h-[1px] bg-white/40 group-hover:w-full transition-all duration-300" />
                 </span>
-              </div>
+              </button>
 
               <motion.h1 
                 className="text-white text-5xl sm:text-6xl md:text-[85px] font-extrabold leading-[0.85] tracking-tighter mb-4 text-left w-full"
@@ -338,15 +353,22 @@ export default function App() {
 
               {/* Row of Buttons with pointer-events-auto enabled */}
               <div className="flex flex-wrap items-center gap-4 pointer-events-auto mb-2">
-                <button 
+                <motion.button 
                   onClick={() => {
                     document.getElementById("industries")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
+                  initial={{ scale: 1 }}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 0.6,
+                    ease: "easeInOut"
+                  }}
+                  className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] hover:shadow-[0_4px_30px_rgba(157,123,255,0.45)] hover:scale-[1.02] active:scale-95 transition-all duration-300 text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer"
                 >
                   Inicia tu proyecto
                   <Star className="w-3.5 h-3.5 fill-[#FFD700] text-[#FFD700]" />
-                </button>
+                </motion.button>
                 <button 
                   onClick={() => {
                     document.getElementById("workflow")?.scrollIntoView({ behavior: "smooth" });
