@@ -1,0 +1,6 @@
+{
+  "name": "Brand Studio",
+  "description": "Premium, highly animated asymmetric landing page for creative brand production, powered by Stability AI design patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
