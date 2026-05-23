@@ -309,10 +309,10 @@ export default function App() {
             <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
               
               {/* Tag indicator */}
-              <div className="flex items-center gap-2 mb-2 select-none">
-                <div className="relative flex items-center justify-center w-2.5 h-2.5">
-                  <span className="absolute w-2 h-2 rounded-full bg-[#9D7BFF] opacity-75 animate-ping" />
-                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF]" />
+              <div className="inline-flex items-center gap-2 mb-2 select-none bg-[#9D7BFF]/15 border border-[#9D7BFF]/30 px-3.5 py-1.5 rounded-full">
+                <div className="relative flex items-center justify-center w-2 h-2">
+                  <span className="absolute w-3.5 h-3.5 rounded-full bg-white/70 opacity-75 animate-ping" />
+                  <span className="relative w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_#ffffff]" />
                 </div>
                 <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
                   aurora services
