@@ -92,12 +92,12 @@ const INDUSTRIES_DATA = [
     icon: Sparkles
   },
   {
-    category: "Entertainment",
-    title: "Cinematic final-cut deployment",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000",
-    description: "From storyboarding to color grading, our image and video tools help you get to the final cut faster.",
-    highlights: ["Vector storyboard generation", "Intelligent rotoscoping pro", "Automated LUTs transfer"],
-    icon: Music
+    category: "Ecuador",
+    title: "Acompañamiento y Desarrollo Digital",
+    image: "https://w0.peakpx.com/wallpaper/242/817/HD-wallpaper-flag-ecuador-ecuador-flag.jpg",
+    description: "Acompañamos a empresas y emprendedores en soluciones de alta calidad.",
+    highlights: ["Asesoría personalizada", "Diseño responsivo", "Soporte permanente"],
+    icon: Sparkles
   }
 ];
 
@@ -469,7 +469,7 @@ export default function App() {
               >
                 {/* Background image component scaled on hover */}
                 <div className="w-full h-full absolute inset-0 select-none">
-                  {idx === 0 || idx === 1 ? (
+                  {idx === 0 || idx === 1 || idx === 2 ? (
                     <>
                       {/* Premium gradient to guarantee high-contrast readability for white text */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
@@ -520,6 +520,15 @@ export default function App() {
                       </p>
                       <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
                         Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Buenos Aires</span> y <span className="font-extrabold text-[#9D7BFF]">Córdoba</span>.
+                      </p>
+                    </div>
+                  ) : idx === 2 ? (
+                    <div className="text-left py-2">
+                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                        En Ecuador acompañamos a empresas y emprendedores en el desarrollo de sitios web y soluciones digitales pensadas para destacar su marca y conectar con su audiencia, con el mismo cuidado en el diseño, la funcionalidad y el acompañamiento post‑entrega que Aurora Services ofrece en todos sus proyectos.
+                      </p>
+                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Quito</span> y <span className="font-extrabold text-[#9D7BFF]">Guayaquil</span>.
                       </p>
                     </div>
                   ) : (
