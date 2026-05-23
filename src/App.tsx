@@ -17,7 +17,8 @@ import {
   ArrowRight,
   ChevronLeft,
   ChevronDown,
-  MessageCircle
+  MessageCircle,
+  Star
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -264,22 +265,27 @@ export default function App() {
       {/* SECCIÓN 2: HERO ASIMÉTRICO DE CAPAS SUPERPUESTAS (Réplica Imagen 1) */}
       <section id="hero" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-center">
         
-        {/* Layer Base Z-10 of Right Column: Dynamic Big Image depending on model selection */}
-        <div className="w-full h-full absolute inset-0 object-cover opacity-35 transition-all duration-1000 z-10 select-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black to-black z-15" />
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={selectedBrandModel.id}
-              src={selectedBrandModel.image}
-              alt={selectedBrandModel.name}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            />
-          </AnimatePresence>
+        {/* Cinematic Backdrop with Subtle Violet Grid/Texture Detail */}
+        <div className="absolute inset-0 w-full h-full z-10 select-none overflow-hidden bg-gradient-to-b from-black via-[#0a0a0d] to-black">
+          {/* Subtle glowing radial accent in the background */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(157,123,255,0.07),transparent_70%)]" />
+          
+          {/* Grid pattern with low-opacity #9D7BFF strokes */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs>
+              <pattern id="micro-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9D7BFF" strokeWidth="0.5" />
+                <circle cx="40" cy="40" r="1.2" fill="#9D7BFF" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#micro-grid)" />
+          </svg>
+
+          {/* Elegant oblique trace lines for extra depth and cinematic style */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <line x1="-10%" y1="10%" x2="110%" y2="90%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
+            <line x1="-10%" y1="40%" x2="110%" y2="120%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
+          </svg>
         </div>
 
         {/* Background outline text layer */}
@@ -336,16 +342,16 @@ export default function App() {
                   onClick={() => {
                     document.getElementById("industries")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="bg-[#9D7BFF] text-black font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
+                  className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer animate-pulse"
                 >
                   Inicia tu proyecto
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Star className="w-3.5 h-3.5 fill-[#FFD700] text-[#FFD700]" />
                 </button>
                 <button 
                   onClick={() => {
                     document.getElementById("workflow")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="border border-white/20 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-white/10 active:scale-95 transition-all text-xs tracking-wider uppercase cursor-pointer"
+                  className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer"
                 >
                   Planes
                 </button>
@@ -358,7 +364,15 @@ export default function App() {
                 
                 {/* Título de la tarjeta */}
                 <div className="flex flex-col items-center justify-center gap-2 text-center">
-                  <Sparkles className="w-5 h-5 text-[#9D7BFF] animate-pulse" />
+                  <div className="flex gap-1 justify-center mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star 
+                        key={i} 
+                        className="w-4 h-4 fill-[#FFD700] text-[#FFD700] animate-pulse" 
+                        style={{ animationDelay: `${i * 150}ms` }}
+                      />
+                    ))}
+                  </div>
                   <h3 className="text-white font-black text-lg tracking-tight uppercase leading-tight">
                     Garantía de satisfacción total
                   </h3>
@@ -404,15 +418,7 @@ export default function App() {
 
         {/* CAPA DE OVERLAYS / INTERFAZ FLOTANTE (Z-40) */}
 
-        {/* 3D Overlaid Headphone Text (on the headphone, absolute positioned nicely over model photo) */}
-        <div className="absolute bottom-[28%] md:bottom-[42%] right-[10%] md:right-[32%] z-40 transform rotate-[-12deg] select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] filter">
-          <span className="font-sans font-black text-4xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-white/95 to-white/40 tracking-tighter block opacity-90">
-            YOUR BRAND
-          </span>
-          <span className="block text-[10px] md:text-xs font-mono tracking-widest text-[#9D7BFF] mt-[-6px] font-bold text-center">
-            CUSTOMIZED IN 0.8S
-          </span>
-        </div>
+
 
         {/* Scroll anchor arrow removed to keep bottom of head section clean and empty */}
       </section>
