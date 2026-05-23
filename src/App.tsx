@@ -184,7 +184,7 @@ export default function App() {
           
           {/* QUIÉNES SOMOS */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#reviews" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a href="#reviews" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               QUIÉNES SOMOS
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -192,7 +192,7 @@ export default function App() {
 
           {/* VER SERVICIOS */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#industries" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a href="#industries" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               VER SERVICIOS
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -203,9 +203,9 @@ export default function App() {
             <button
               id="lang-selector-btn"
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-              className="flex items-center gap-1.5 text-white/80 group-hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
+              className="flex items-center gap-1.5 text-white group-hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
             >
-              <span>{selectedLang === "es" ? "🇪🇸" : "🇺🇸"}</span>
+              <span>{selectedLang === "es" ? "🇪🇸 ES" : "🇺🇸 US"}</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180 text-[#9D7BFF]' : 'text-white/40'}`} />
             </button>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -219,27 +219,27 @@ export default function App() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3.5 w-32 bg-[#0E0E10]/95 backdrop-blur-md border border-white/15 rounded-xl p-1.5 shadow-2xl z-50 flex flex-col gap-1"
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3.5 w-[150px] bg-[#0E0E10]/95 backdrop-blur-md border border-white/15 rounded-xl p-1.5 shadow-2xl z-50 flex flex-col gap-1"
                   >
                     <button
                       onClick={() => {
                         setSelectedLang("es");
                         setIsLangMenuOpen(false);
                       }}
-                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'es' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}
+                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'es' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white hover:bg-white/5 hover:text-white'}`}
                     >
                       <span className="text-sm">🇪🇸</span>
-                      <span>Español</span>
+                      <span>Español (ES)</span>
                     </button>
                     <button
                       onClick={() => {
                         setSelectedLang("en");
                         setIsLangMenuOpen(false);
                       }}
-                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'en' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}
+                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'en' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white hover:bg-white/5 hover:text-white'}`}
                     >
                       <span className="text-sm">🇺🇸</span>
-                      <span>English</span>
+                      <span>English (US)</span>
                     </button>
                   </motion.div>
                 </>
@@ -249,7 +249,7 @@ export default function App() {
 
           {/* PORTAFOLIO */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#deployment" className="text-white/60 group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a href="#deployment" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
               PORTAFOLIO
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -262,7 +262,7 @@ export default function App() {
             onClick={() => {
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="bg-[#9D7BFF] text-black font-bold px-6 py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-xs tracking-wider uppercase cursor-pointer"
+            className="bg-[#9D7BFF] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-xs tracking-wider uppercase cursor-pointer"
           >
             CONTÁCTANOS
           </button>
