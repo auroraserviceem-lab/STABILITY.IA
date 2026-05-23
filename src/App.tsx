@@ -447,15 +447,14 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
             <Layers className="w-3.5 h-3.5" />
-            Adaptive Engine Capabilities
+            SOBRE AURORA
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-[1.05]">
-            We’ll help <span className="opacity-30">you make it</span><br />
-            like nobody’s business.
+            ¿Quiénes somos?
           </h2>
-          <p className="text-xs sm:text-sm text-gray-400 font-sans max-w-xl mx-auto mb-4 leading-relaxed">
-            No creative challenge too big, no timeline too tight. Get to production with Stability AI, your enterprise-ready creative partner.{" "}
-            <a href="#contact" className="text-[#9D7BFF] underline cursor-pointer hover:text-[#8A66FF] transition-colors font-medium">Work with us.</a>
+          <p className="text-xs sm:text-sm text-gray-400 font-sans max-w-2xl mx-auto mb-4 leading-relaxed">
+            Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras.{" "}
+            Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.
           </p>
         </div>
 
