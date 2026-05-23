@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
-  ArrowUpRight, 
+  ArrowUpRight,
+  ArrowUp, 
   ChevronRight, 
   Sparkles, 
   Globe, 
@@ -312,15 +313,12 @@ export default function App() {
                 title="Volver al inicio"
               >
                 <div className="relative flex items-center justify-center w-3 h-3">
-                  <span className="absolute w-2.5 h-2.5 rounded-full bg-[#9D7BFF] opacity-75 animate-ping group-hover:scale-150 group-hover:bg-[#B49BFF] transition-all duration-300" />
-                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-110 transition-transform duration-300" />
+                  <span className="absolute w-2.5 h-2.5 rounded-full bg-[#9D7BFF] opacity-75 animate-ping group-hover:scale-150 group-hover:bg-white transition-all duration-300" />
+                  <span className="relative w-1.5 h-1.5 rounded-full bg-[#9D7BFF] group-hover:bg-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="tracking-widest text-[#9D7BFF] group-hover:text-white font-mono text-xs uppercase font-extrabold transition-colors duration-300 relative flex items-center gap-1">
+                <span className="tracking-widest text-[#9D7BFF] group-hover:text-white font-mono text-xs uppercase font-extrabold transition-colors duration-300 relative flex items-center gap-1.5">
                   aurora services
-                  <span className="text-[10px] opacity-45 group-hover:opacity-100 group-hover:translate-y-[-2px] transition-all duration-300">
-                    ↑
-                  </span>
-                  <span className="absolute bottom-[-1px] left-0 w-0 h-[1px] bg-white/40 group-hover:w-full transition-all duration-300" />
+                  <ArrowUp className="w-3 h-3 text-[#9D7BFF] group-hover:text-white transition-all duration-300 group-hover:-translate-y-0.5" />
                 </span>
               </button>
 
