@@ -521,7 +521,7 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 3.5: NUESTROS SERVICIOS */}
-      <section id="services" className="bg-black text-white pt-72 pb-24 px-6 relative z-20 border-t border-white/5">
+      <section id="services" className="bg-black text-white pt-96 pb-24 px-6 relative z-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto relative">
           
           {/* Centered underlined title */}
