@@ -15,7 +15,8 @@ import {
   Layers, 
   Sliders, 
   ArrowRight,
-  ChevronLeft
+  ChevronLeft,
+  ChevronDown
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -127,6 +128,8 @@ export default function App() {
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
+  const [selectedLang, setSelectedLang] = useState<"es" | "en">("es");
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -168,15 +171,65 @@ export default function App() {
         </div>
 
         {/* Central links with interactive indicator status */}
-        <div className="hidden lg:flex items-center gap-10 bg-black/10 backdrop-blur-md px-8 py-2.5 rounded-full border border-white/10">
-          <a href="#models" className="text-white/60 hover:text-white transition-opacity text-xs font-medium uppercase tracking-widest">Models</a>
-          <a href="#solutions" className="text-white/60 hover:text-white transition-opacity text-xs font-medium uppercase tracking-widest">Solutions</a>
-          <a href="#brand-studio" className="text-white hover:text-[#9D7BFF] transition-colors text-xs font-medium uppercase tracking-widest flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#9D7BFF] animate-pulse"></span>
-            Brand Studio
+        <div className="hidden lg:flex items-center gap-8 bg-black/10 backdrop-blur-md px-8 py-2.5 rounded-full border border-white/10 select-none">
+          <a href="#reviews" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            QUIÉNES SOMOS
           </a>
-          <a href="#deployment" className="text-white/60 hover:text-white transition-opacity text-xs font-medium uppercase tracking-widest">Deployment</a>
-          <a href="#insights" className="text-white/60 hover:text-white transition-opacity text-xs font-medium uppercase tracking-widest">Insights</a>
+          <a href="#industries" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            VER SERVICIOS
+          </a>
+          
+          {/* Selector de Idiomas */}
+          <div className="relative flex items-center">
+            <button
+              id="lang-selector-btn"
+              onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-all text-xs font-bold tracking-wider uppercase focus:outline-none cursor-pointer"
+            >
+              <span>{selectedLang === "es" ? "🇦🇷" : "🇺🇸"}</span>
+              <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180 text-[#9D7BFF]' : 'text-white/40'}`} />
+            </button>
+            
+            <AnimatePresence>
+              {isLangMenuOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setIsLangMenuOpen(false)} />
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute left-1/2 -translate-x-1/2 top-full mt-3.5 w-32 bg-[#0E0E10]/95 backdrop-blur-md border border-white/15 rounded-xl p-1.5 shadow-2xl z-50 flex flex-col gap-1"
+                  >
+                    <button
+                      onClick={() => {
+                        setSelectedLang("es");
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'es' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}
+                    >
+                      <span className="text-sm">🇦🇷</span>
+                      <span>Español</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSelectedLang("en");
+                        setIsLangMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium w-full text-left transition-all ${selectedLang === 'en' ? 'bg-[#9D7BFF]/20 text-[#9D7BFF] font-bold' : 'text-white/60 hover:bg-white/5 hover:text-white'}`}
+                    >
+                      <span className="text-sm">🇺🇸</span>
+                      <span>English</span>
+                    </button>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <a href="#deployment" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            PORTAFOLIO
+          </a>
         </div>
 
         {/* Right action button */}
