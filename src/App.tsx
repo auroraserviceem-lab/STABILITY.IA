@@ -18,7 +18,10 @@ import {
   ChevronLeft,
   ChevronDown,
   MessageCircle,
-  Star
+  Star,
+  Code,
+  Palette,
+  Shield
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -518,68 +521,80 @@ export default function App() {
       </section>
 
       {/* SECCIÓN 3.5: NUESTROS SERVICIOS */}
-      <section id="services" className="bg-black text-white py-24 px-6 relative z-20 border-t border-white/5">
+      <section id="services" className="bg-black text-white pt-72 pb-24 px-6 relative z-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto relative">
           
           {/* Centered underlined title */}
-          <div className="text-center mb-16 relative">
+          <div className="text-center mb-20 relative">
             <div className="absolute h-96 w-96 rounded-full bg-[#9D7BFF]/5 blur-[120px] -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.05]">
-              <span className="relative inline-block pb-3">
-                Nuestros Servicios
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+               <span className="relative inline-block pb-3">
+                 Nuestros Servicios
+                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
               </span>
             </h2>
           </div>
-
+ 
           {/* Three columns layout for the service blocks */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Bloque 1 - Desarrollo Web */}
-            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
-                  <Check className="h-3.5 w-3.5" />
-                </span>
+            <div className="flex flex-col text-left p-8 rounded-2xl border border-white/10 bg-zinc-950/60 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <div className="flex items-center gap-2.5 mb-5 select-none">
+                <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
+                <img
+                  src="https://img.icons8.com/?size=100&id=Dr0n9Rgyl5Lp&format=png&color=ffffff"
+                  alt="Desarrollo Web"
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 object-contain shrink-0 filter brightness-100"
+                />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
                   Desarrollo Web
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Creamos sitios web modernos, rápidos y optimizados para todos los dispositivos. Una arquitectura sólida pensada para atraer clientes y convertir visitas en resultados reales.
+                Creamos sitios web modernos, rápidos y completamente responsivos para todos los dispositivos. Una arquitectura robusta pensada para atraer clientes, mejorar la conversión y garantizar un rendimiento estable en el tiempo.
               </p>
             </div>
-
+ 
             {/* Bloque 2 - Diseño Visual */}
-            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
-                  <Check className="h-3.5 w-3.5" />
-                </span>
+            <div className="flex flex-col text-left p-8 rounded-2xl border border-white/10 bg-zinc-950/60 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <div className="flex items-center gap-2.5 mb-5 select-none">
+                <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
+                <img
+                  src="https://img.icons8.com/?size=100&id=4bRnRUyLzrOg&format=png&color=ffffff"
+                  alt="Diseño Visual"
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 object-contain shrink-0 filter brightness-100"
+                />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
                   Diseño Visual
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Diseñamos experiencias visuales únicas que capturan la esencia de tu marca. Estética premium y minimalista para transmitir confianza y profesionalismo desde el primer segundo.
+                Diseñamos experiencias visuales estratégicas que comunican la identidad de tu marca. Usamos un enfoque minimalista y premium para generar confianza, profesionalismo y reconocimiento inmediato.
               </p>
             </div>
-
+ 
             {/* Bloque 3 - Soporte */}
-            <div className="flex flex-col text-left p-6 rounded-2xl border border-white/5 bg-zinc-950/40 backdrop-blur-sm shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9D7BFF]/15 text-[#9D7BFF] border border-[#9D7BFF]/30">
-                  <Check className="h-3.5 w-3.5" />
-                </span>
+            <div className="flex flex-col text-left p-8 rounded-2xl border border-white/10 bg-zinc-950/60 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+              <div className="flex items-center gap-2.5 mb-5 select-none">
+                <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
+                <img
+                  src="https://img.icons8.com/?size=100&id=43657&format=png&color=ffffff"
+                  alt="Soporte"
+                  referrerPolicy="no-referrer"
+                  className="h-6 w-6 object-contain shrink-0 filter brightness-100"
+                />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight">
                   Soporte
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Tu sitio web necesita atención constante. Ofrecemos mantenimiento proactivo, actualizaciones de seguridad y soporte técnico para garantizar una presencia digital impecable.
+                Tu sitio web necesita mantenimiento continuo. Ofrecemos actualizaciones de seguridad, seguimiento de rendimiento y soporte técnico especializado para asegurar una presencia digital estable, segura y siempre operativa.
               </p>
             </div>
-
+ 
           </div>
         </div>
       </section>
