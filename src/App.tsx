@@ -173,15 +173,25 @@ export default function App() {
 
         {/* Central links with interactive indicator status */}
         <div className="hidden lg:flex items-center gap-8 bg-black/10 backdrop-blur-md px-8 py-2.5 rounded-full border border-white/10 select-none">
-          <a href="#reviews" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
-            QUIÉNES SOMOS
-          </a>
-          <a href="#industries" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
-            VER SERVICIOS
-          </a>
+          
+          {/* QUIÉNES SOMOS */}
+          <div className="flex flex-col items-center gap-1">
+            <a href="#reviews" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+              QUIÉNES SOMOS
+            </a>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+          </div>
+
+          {/* VER SERVICIOS */}
+          <div className="flex flex-col items-center gap-1">
+            <a href="#industries" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+              VER SERVICIOS
+            </a>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+          </div>
           
           {/* Selector de Idiomas */}
-          <div className="relative flex items-center">
+          <div className="relative flex flex-col items-center gap-1">
             <button
               id="lang-selector-btn"
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -190,6 +200,7 @@ export default function App() {
               <span>{selectedLang === "es" ? "🇦🇷" : "🇺🇸"}</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180 text-[#9D7BFF]' : 'text-white/40'}`} />
             </button>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
             
             <AnimatePresence>
               {isLangMenuOpen && (
@@ -228,9 +239,13 @@ export default function App() {
             </AnimatePresence>
           </div>
 
-          <a href="#deployment" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
-            PORTAFOLIO
-          </a>
+          {/* PORTAFOLIO */}
+          <div className="flex flex-col items-center gap-1">
+            <a href="#deployment" className="text-white/60 hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+              PORTAFOLIO
+            </a>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+          </div>
         </div>
 
         {/* Right action button */}
