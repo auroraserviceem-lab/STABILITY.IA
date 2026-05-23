@@ -76,9 +76,9 @@ const BRANDS_MODELS: BrandModel[] = [
 
 const INDUSTRIES_DATA = [
   {
-    category: "Marketing",
+    category: "México",
     title: "On-demand asset amplification",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ornamental_Bandera_vertical_de_M%C3%A9xico.png",
     description: "Create high-quality on-brand assets for every campaign using our image generation and editing tools.",
     highlights: ["10x Output velocity", "Consistent brand guardrails", "Adaptive format aspect-ratios"],
     icon: Sparkles
@@ -469,13 +469,29 @@ export default function App() {
               >
                 {/* Background image component scaled on hover */}
                 <div className="w-full h-full absolute inset-0 select-none">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 md:via-black/20 to-transparent z-10 duration-500 group-hover:via-black/10" />
-                  <img
-                    src={ind.image}
-                    alt={ind.category}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-90 contrast-[1.02]"
-                  />
+                  {idx === 0 ? (
+                    <>
+                      {/* Premium gradient to guarantee high-contrast readability for white text */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
+                      <img
+                        src={ind.image}
+                        alt={ind.category}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-black/35 z-10 mix-blend-multiply" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 md:via-black/30 to-black/25 z-10 duration-500 group-hover:via-black/20" />
+                      <img
+                        src={ind.image}
+                        alt={ind.category}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out brightness-90 contrast-[1.02]"
+                      />
+                    </>
+                  )}
                 </div>
 
                 {/* Floating Industry Category Badge */}
@@ -487,37 +503,50 @@ export default function App() {
                 </div>
 
                 {/* Superposición de texto inferior */}
-                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/85 to-transparent z-20 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
-                    <IconComponent className="w-4.5 h-4.5 text-[#9D7BFF]" />
-                    <span className="text-[#9D7BFF] font-bold">—</span>
-                    <span className="text-[10px] font-mono tracking-widest text-[#9D7BFF] uppercase font-bold">Core Module</span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-white mb-2 ml-1 leading-tight tracking-tight">
-                    {ind.title}
-                  </h3>
-
-                  <p className="text-gray-300 text-xs leading-relaxed mb-4 ml-1">
-                    {ind.description}
-                  </p>
-
-                  {/* Highlights list visible or highlighting on hover */}
-                  <div className="space-y-1.5 border-t border-white/10 pt-4 mt-2 ml-1">
-                    {ind.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-2 text-[10.5px] text-gray-400">
-                        <span className="w-1 h-1 rounded-full bg-[#9D7BFF]" />
-                        <span>{h}</span>
+                <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/95 to-transparent z-20 transition-all duration-300">
+                  {idx === 0 ? (
+                    <div className="text-left py-2">
+                      <p className="text-gray-100 text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)]">
+                        En México trabajamos con clientes locales e internacionales para desarrollar sitios web y soluciones digitales que reflejan la identidad de cada marca, con el mismo nivel de calidad, atención personalizada y excelencia técnica que ofrecemos en todos nuestros proyectos.
+                      </p>
+                      <p className="text-gray-200 text-xs sm:text-[12.5px] leading-relaxed font-sans font-medium [text-shadow:_0_1px_4px_rgba(0,0,0,0.8)] pt-2 border-t border-white/10">
+                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Ciudad de México</span> y <span className="font-extrabold text-[#9D7BFF]">Monterrey</span>.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-2 mb-2">
+                        <IconComponent className="w-4.5 h-4.5 text-[#9D7BFF]" />
+                        <span className="text-[#9D7BFF] font-bold">—</span>
+                        <span className="text-[10px] font-mono tracking-widest text-[#9D7BFF] uppercase font-bold">Core Module</span>
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Action Link overlay */}
-                  <div className="mt-5 flex justify-end">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#9D7BFF] flex items-center gap-1 group-hover:translate-x-1.5 duration-300 transition-transform">
-                      Deploy Model Weight <ChevronRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
+                      <h3 className="text-2xl font-bold text-white mb-2 ml-1 leading-tight tracking-tight">
+                        {ind.title}
+                      </h3>
+
+                      <p className="text-gray-300 text-xs leading-relaxed mb-4 ml-1">
+                        {ind.description}
+                      </p>
+
+                      {/* Highlights list visible or highlighting on hover */}
+                      <div className="space-y-1.5 border-t border-white/10 pt-4 mt-2 ml-1">
+                        {ind.highlights.map((h, hIdx) => (
+                          <div key={hIdx} className="flex items-center gap-2 text-[10.5px] text-gray-400">
+                            <span className="w-1 h-1 rounded-full bg-[#9D7BFF]" />
+                            <span>{h}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Action Link overlay */}
+                      <div className="mt-5 flex justify-end">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-[#9D7BFF] flex items-center gap-1 group-hover:translate-x-1.5 duration-300 transition-transform">
+                          Deploy Model Weight <ChevronRight className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             );
