@@ -122,13 +122,13 @@ const REVIEWS_DATA = [
 ];
 
 export default function App() {
-  const [selectedBrandModel, setSelectedBrandModel] = useState<BrandModel>(BRANDS_MODELS[0]);
   const [promptText, setPromptText] = useState("Vivid rose-gold headphone, warm golden hour backlighting, photorealistic portrait shot, octane render, beautiful braid strands");
   const [isPrompting, setIsPrompting] = useState(false);
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
+  const selectedBrandModel = BRANDS_MODELS[wordIndex % BRANDS_MODELS.length];
   const [selectedLang, setSelectedLang] = useState<"es" | "en">("es");
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
@@ -399,24 +399,7 @@ export default function App() {
           </span>
         </div>
 
-        {/* Scroll anchor arrow & Sleek Interface Pagination Lines */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-12">
-          <div className="w-16 h-[1px] bg-white/20"></div>
-          <div className="flex gap-3">
-            {BRANDS_MODELS.map((m) => {
-              const isActive = selectedBrandModel.id === m.id;
-              return (
-                <button
-                  key={m.id}
-                  onClick={() => setSelectedBrandModel(m)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${isActive ? 'bg-[#9D7BFF] scale-125 shadow-lg shadow-[#9D7BFF]/50' : 'bg-white/20 hover:bg-white/50'}`}
-                  title={`View ${m.name}`}
-                />
-              );
-            })}
-          </div>
-          <div className="w-16 h-[1px] bg-white/20"></div>
-        </div>
+        {/* Scroll anchor arrow removed to keep bottom of head section clean and empty */}
       </section>
 
       {/* SECCIÓN 3: GRID DE INDUSTRIAS ULTRA-VERTICALES (Réplica Imagen 2 y 3) */}
