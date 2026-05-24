@@ -1029,13 +1029,15 @@ export default function App() {
       <section id="deployment" className="bg-[#F2EFE9] text-black py-24 px-6 md:px-12 relative z-20 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-[#1A1A1A]">
-              Gen AI that works with you,<br />
-              <span className="text-[#9D7BFF]">where you work.</span>
-            </h2>
-            <p className="text-gray-600 text-xs md:text-sm font-sans max-w-md mx-auto">
-              Maintain full flexibility. Compile and bind your weights on-prem, self-hosted, via robust APIs, or safely isolated using our Cloud Service.
+          <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
+            <div className="inline-block relative pb-3 mb-5">
+              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
+                Nuestros Planes
+              </h2>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[1.5px] bg-[#9D7BFF]" />
+            </div>
+            <p className="text-[#1A1A1A] text-sm font-sans font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-center">
+              Contamos con diferentes planes adaptados a tus necesidades: desde proyectos simples hasta sitios completos, pasando por tiendas online y páginas corporativas con integraciones avanzadas y soporte continuo.
             </p>
           </div>
 
