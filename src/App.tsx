@@ -1424,10 +1424,10 @@ export default function App() {
             <div className="lg:col-span-5 space-y-8 text-left">
               <div>
                 <div className="inline-block relative pb-3 mb-4">
-                  <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A1A1A] font-sans">
+                  <h3 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
                     Contáctanos
                   </h3>
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF]" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
                 </div>
                 <p className="text-gray-800 text-sm font-sans font-medium leading-relaxed">
                   Queremos ayudarte a materializar tu proyecto digital. Escríbenos y te responderemos a la brevedad.
@@ -1494,10 +1494,10 @@ export default function App() {
             {/* Columna derecha – Preguntas frecuentes (FAQ) */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-block relative pb-3 mb-4">
-                <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A1A1A] font-sans">
+                <h3 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
                   Preguntas frecuentes
                 </h3>
-                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF]" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
               </div>
 
               <div className="space-y-4">
