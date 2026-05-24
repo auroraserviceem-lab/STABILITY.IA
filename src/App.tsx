@@ -1282,14 +1282,14 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Plan personalizado</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Personalizado</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      Desde $400.000 ARS / $280 USD
+                      Desde $480.000 ARS / $340 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      Mantenimiento desde $100.000 ARS/mes / $70 USD/mes
+                      Mantenimiento desde $130.000 ARS / $92 USD
                     </span>
                   </div>
 
