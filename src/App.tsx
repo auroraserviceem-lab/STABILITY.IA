@@ -1010,20 +1010,15 @@ export default function App() {
           </div>
 
           {/* Textos ordenados secuencialmente debajo de las tres tarjetas */}
-          <div className="text-center w-full mt-12 pb-10">
-            <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-[#ffffff] block mb-8 leading-[1.05]">
-              Proyectos que impulsan marcas
-            </span>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 px-6 text-center w-full">
-              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
-                Landing Page
-              </div>
-              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
-                Multipágina
-              </div>
-              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
-                E‑Commerce
-              </div>
+          <div className="text-center w-full mt-14 pb-10 flex flex-col items-center justify-center">
+            <div className="inline-block relative pb-3 mb-5">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-[#ffffff] block leading-tight">
+                Proyectos que impulsan marcas
+              </span>
+              <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF] mx-auto" />
+            </div>
+            <div className="text-lg sm:text-xl md:text-2xl font-bold text-[#ffffff] tracking-tight">
+              Landing Page – Multipágina – E‑Commerce
             </div>
           </div>
 
