@@ -817,23 +817,33 @@ export default function App() {
             </div>
           </div>
 
-          {/* Trusted partners bottom band (Inspired by Imagen 4 UMG/EA/Warner/Arm) */}
-          <div className="mt-28 pt-10 border-t border-white/5 text-center">
-            <span className="font-mono text-[9px] text-gray-500 uppercase tracking-widest font-black block mb-8">
-              Trusted by the world's most innovative companies
+          {/* Tres tarjetas separadas, una al lado de la otra, con espacio entre ellas (igual diseño que Argentina - México - Ecuador) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16 px-4">
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+            </div>
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+            </div>
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Textos ordenados secuencialmente debajo de las tres tarjetas */}
+          <div className="text-center w-full mt-12 pb-10">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-[#ffffff] block mb-8 leading-[1.05]">
+              Proyectos que impulsan marcas
             </span>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-items-center opacity-40 px-6">
-              <div className="text-xl md:text-2xl font-black text-white hover:opacity-100 transition-opacity cursor-pointer tracking-tighter">
-                Electronic Arts
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-16 md:gap-24 px-6 text-center w-full">
+              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
+                Landing Page
               </div>
-              <div className="text-xl md:text-2xl font-black text-white hover:opacity-100 transition-opacity cursor-pointer tracking-tighter">
-                Universal Music Group
+              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
+                Multipágina
               </div>
-              <div className="text-xl md:text-2xl font-black text-white hover:opacity-100 transition-opacity cursor-pointer tracking-tighter">
-                WARNER MUSIC GROUP
-              </div>
-              <div className="text-xl md:text-2xl font-black text-white hover:opacity-100 transition-opacity cursor-pointer tracking-tighter font-mono">
-                ARM ARCHITECTURE
+              <div className="text-lg md:text-xl font-black text-[#ffffff] hover:text-white/80 transition-colors cursor-pointer tracking-tighter text-center">
+                E‑Commerce
               </div>
             </div>
           </div>
