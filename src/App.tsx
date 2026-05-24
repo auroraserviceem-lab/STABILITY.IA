@@ -114,6 +114,7 @@ export default function App() {
   const [isLandingPageDetailsOpen, setIsLandingPageDetailsOpen] = useState(false);
   const [isMultipaginaDetailsOpen, setIsMultipaginaDetailsOpen] = useState(false);
   const [isEcommerceDetailsOpen, setIsEcommerceDetailsOpen] = useState(false);
+  const [isPersonalizadoDetailsOpen, setIsPersonalizadoDetailsOpen] = useState(false);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -1277,17 +1278,131 @@ export default function App() {
               </button>
             </div>
 
-            {/* 4. Cloud Service */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] hover:scale-[1.02] duration-300 transition-transform">
-              <div className="text-left">
-                <span className="font-mono text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">MODULE 04</span>
-                <h4 className="text-xl font-bold mb-3 tracking-tight">Cloud Service</h4>
-                <p className="text-gray-600 text-xs leading-relaxed">
-                  Direct hosting across our secure global matrix servers. Automatic scale architecture that resolves peak demands instantly.
-                </p>
+            {/* 4. Plan personalizado */}
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+              <div className="text-center flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Plan personalizado</h4>
+                  
+                  <div className="mb-4 space-y-1 text-center font-sans">
+                    <span className="text-sm font-extrabold text-black block">
+                      Desde $400.000 ARS / $280 USD
+                    </span>
+                    <span className="text-xs font-semibold text-gray-700 block">
+                      Mantenimiento desde $100.000 ARS/mes / $70 USD/mes
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
+                    Soluciones digitales a medida para tu negocio: gestor de tareas y sistema de gestión de stock e inventario, pensados para optimizar tu operación diaria.
+                  </p>
+                </div>
+
+                {/* Collapsible Details */}
+                <AnimatePresence>
+                  {isPersonalizadoDetailsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5 space-y-6"
+                    >
+                      {/* Plan: Gestión de tareas */}
+                      <div className="border border-black/5 bg-black/5 rounded-2xl p-4">
+                        <h5 className="text-xs font-bold text-black font-sans flex items-center gap-1.5 mb-1 text-left">
+                          <span className="text-xs">🔹</span> Plan: Gestión de tareas
+                        </h5>
+                        <div className="mb-3 space-y-0.5 font-sans text-left">
+                          <span className="text-xs font-extrabold text-black block">
+                            Desde $480.000 ARS / $340 USD
+                          </span>
+                          <span className="text-[10px] font-semibold text-gray-700 block">
+                            Mantenimiento: desde $130.000 ARS / $92 USD
+                          </span>
+                        </div>
+                        
+                        <ul className="space-y-2 mb-4">
+                          {[
+                            "Panel interactivo",
+                            "Integración con Airtable / Notion",
+                            "Gestión de equipos y proyectos",
+                            "Control de flujos y estados de avance"
+                          ].map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-[11px] text-black font-sans font-medium leading-tight">
+                              <span className="flex-shrink-0 mt-0.5 w-3.5 h-3.5 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
+                                <Check className="w-2 h-2 stroke-[3]" />
+                              </span>
+                              <span className="text-gray-900">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Gesti%C3%B3n%20de%20tareas%20del%20Plan%20Personalizado", "_blank");
+                          }}
+                          className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
+                        >
+                          Contratar plan
+                        </button>
+                      </div>
+
+                      {/* Plan: Stock e inventario */}
+                      <div className="border border-black/5 bg-black/5 rounded-2xl p-4">
+                        <h5 className="text-xs font-bold text-black font-sans flex items-center gap-1.5 mb-1 text-left">
+                          <span className="text-xs">🔹</span> Plan: Stock e inventario
+                        </h5>
+                        <div className="mb-3 space-y-0.5 font-sans text-left">
+                          <span className="text-xs font-extrabold text-black block">
+                            Desde $500.000 ARS / $355 USD
+                          </span>
+                          <span className="text-[10px] font-semibold text-gray-700 block">
+                            Mantenimiento: desde $130.000 ARS / $92 USD
+                          </span>
+                        </div>
+
+                        <ul className="space-y-2 mb-4">
+                          {[
+                            "Control en tiempo real de productos",
+                            "Integración con Google Sheets",
+                            "Registro de entradas y salidas",
+                            "Alertas automáticas de stock bajo",
+                            "Gestión de categorías y movimientos"
+                          ].map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-[11px] text-black font-sans font-medium leading-tight">
+                              <span className="flex-shrink-0 mt-0.5 w-3.5 h-3.5 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
+                                <Check className="w-2 h-2 stroke-[3]" />
+                              </span>
+                              <span className="text-gray-900">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <button
+                          type="button"
+                          onClick={() => {
+                            window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Stock%20e%20inventario%20del%20Plan%20Personalizado", "_blank");
+                          }}
+                          className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
+                        >
+                          Contratar plan
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <button className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8">
-                See plans
+
+              <button 
+                type="button"
+                onClick={() => {
+                  setIsPersonalizadoDetailsOpen(!isPersonalizadoDetailsOpen);
+                }}
+                className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
+              >
+                {isPersonalizadoDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
               </button>
             </div>
 
