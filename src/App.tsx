@@ -1535,18 +1535,23 @@ export default function App() {
                   return (
                     <div 
                       key={index} 
-                      className="border-b border-black/10 pb-4 transition-all"
+                      className="bg-white border border-black/5 rounded-[1.4rem] p-5 md:p-6 shadow-sm hover:shadow transition-all duration-300"
                     >
                       <button
                         type="button"
                         onClick={() => setActiveFaqIndex(isOpen ? null : index)}
-                        className="w-full flex justify-between items-center text-left py-3 font-sans font-extrabold text-black hover:text-[#8B66FF] transition-colors focus:outline-none"
+                        className="w-full flex justify-between items-start text-left font-sans font-extrabold text-black hover:text-[#8B66FF] transition-colors focus:outline-none gap-4 group cursor-pointer"
                       >
-                        <span className="text-base md:text-lg tracking-tight leading-snug">
-                          {item.q}
-                        </span>
+                        <div className="flex items-start gap-3">
+                          <span className="flex-shrink-0 mt-0.5 w-6 h-6 rounded-lg bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center">
+                            <Check className="w-3.5 h-3.5 stroke-[3]" />
+                          </span>
+                          <span className="text-base md:text-lg tracking-tight leading-snug text-gray-900 group-hover:text-[#8B66FF] transition-colors">
+                            {item.q}
+                          </span>
+                        </div>
                         <ChevronDown 
-                          className={`w-5 h-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180 text-[#8B66FF]" : ""}`} 
+                          className={`w-5 h-5 text-gray-500 transition-transform duration-300 flex-shrink-0 mt-1 ${isOpen ? "rotate-180 text-[#8B66FF]" : ""}`} 
                         />
                       </button>
 
@@ -1559,7 +1564,7 @@ export default function App() {
                             transition={{ duration: 0.25 }}
                             className="overflow-hidden"
                           >
-                            <div className="pt-2 pb-4 text-gray-800 text-sm font-sans font-medium leading-relaxed whitespace-pre-line">
+                            <div className="border-t border-black/5 pt-4 mt-4 text-gray-800 text-sm font-sans font-medium leading-relaxed whitespace-pre-line">
                               {item.a}
                             </div>
                           </motion.div>
@@ -1576,79 +1581,20 @@ export default function App() {
       </section>
 
       {/* FOOTER SECTION */}
-      <footer id="contact" className="bg-black text-white border-t border-white/5 pt-20 pb-12 px-6 relative z-20">
+      <footer id="contact" className="bg-black text-white border-t border-white/5 py-12 px-6 relative z-20">
         
         {/* Absolute glow background block */}
-        <div className="absolute bottom-0 left-[20%] h-[200px] w-[500px] rounded-full bg-[#5c3bf2]/5 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-[20%] h-[150px] w-[500px] rounded-full bg-[#5c3bf2]/5 blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/5">
-            
-            {/* Brand column */}
-            <div className="lg:col-span-5 space-y-6">
-              <span className="text-3xl font-extrabold tracking-tighter text-white">stability.ai</span>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-                Empowering artistic expression through robust open models. Build future workflow architectures that adapt automatically to professional guidelines.
-              </p>
-              
-              <div className="flex items-center gap-3">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">All systems operational — v4.1.14</span>
-              </div>
-            </div>
-
-            {/* Link directories */}
-            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <span className="block text-[10px] font-mono uppercase text-[#9D7BFF] tracking-widest font-extrabold">Models Core</span>
-                <ul className="space-y-2 text-xs text-gray-400">
-                  <li><a href="#" className="hover:text-white transition-colors">Stable Diffusion 3</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Stable Video 3D</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Stable Audio 2.0</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Fine-tuning weights</a></li>
-                </ul>
-              </div>
-
-              <div className="space-y-4">
-                <span className="block text-[10px] font-mono uppercase text-[#9D7BFF] tracking-widest font-extrabold">Developers</span>
-                <ul className="space-y-2 text-xs text-gray-400">
-                  <li><a href="#" className="hover:text-white transition-colors">API Documentation</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">SDK weights loader</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">GitHub Repository</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">On-prem installation</a></li>
-                </ul>
-              </div>
-
-              <div className="space-y-4 col-span-2 sm:col-span-1">
-                <span className="block text-[10px] font-mono uppercase text-[#9D7BFF] tracking-widest font-extrabold">Stay in touch</span>
-                <p className="text-[11px] text-gray-400 leading-normal mb-3">
-                  Submit email for monthly fine-tuning releases notes.
-                </p>
-                <div className="flex gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="name@company.com" 
-                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-[#9D7BFF]/50 text-white w-full font-sans"
-                  />
-                  <button className="bg-[#9D7BFF] text-black font-bold p-2 px-3 rounded-lg text-xs hover:bg-[#8A66FF] transition-colors">
-                    Join
-                  </button>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Sub footer */}
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
             <div>
-              <span>© {new Date().getFullYear()} Stability AI Ltd. All rights reserved.</span>
+              <span>© {new Date().getFullYear()} Aurora Services Web. Todos los derechos reservados.</span>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-              <a href="#" className="hover:text-white transition-colors">SLA Guarantees</a>
+              <a href="https://instagram.com/auroraservicesweb" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
+              <a href="mailto:auroraserviceem@gmail.com" className="hover:text-white transition-colors">Contacto</a>
             </div>
           </div>
 
