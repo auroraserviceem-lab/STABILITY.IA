@@ -1048,7 +1048,7 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             
             {/* 1. Landing Page */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
                   <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Landing Page</h4>
@@ -1123,7 +1123,7 @@ export default function App() {
             </div>
 
             {/* 2. Multipágina */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
                   <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Multipágina</h4>
@@ -1200,7 +1200,7 @@ export default function App() {
             </div>
 
             {/* 3. E-Commerce */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
                   <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">E‑Commerce</h4>
@@ -1279,7 +1279,7 @@ export default function App() {
             </div>
 
             {/* 4. Plan personalizado */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
                   <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Personalizado</h4>
