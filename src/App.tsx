@@ -662,7 +662,9 @@ export default function App() {
                 <div>
                   <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Tiempos</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Landing Page: 7 días · Multipágina: 10 días aprox.
+                    Landing page: aproximadamente 7 días.<br />
+                    Sitio multipágina: aproximadamente 10 días.<br />
+                    Tienda / E‑commerce: tiempos según complejidad e integraciones.
                   </p>
                 </div>
               </div>
@@ -738,72 +740,74 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch pt-2">
             
             {/* Left Col (Tall Image aspect container) */}
-            <div className="md:col-span-7 bg-white rounded-[2.5rem] overflow-hidden border border-black/5 p-4 flex flex-col justify-between relative shadow-lg min-h-[380px]">
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Proven woman looking up in clear blue sky" 
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700 brightness-95"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10" />
-              </div>
-
-              {/* Stamp graphic breaking the corners */}
-              <div className="relative z-20 self-start p-4">
-                <div className="bg-transparent backdrop-blur-md rounded-full border border-black/10 p-2 transform rotate-12 flex items-center justify-center h-20 w-20">
-                  <span className="font-mono text-[7px] font-black text-center text-black/80 tracking-tighter uppercase leading-none block">
-                    TRUSTED SYSTEM • MODEL AUDITED
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom detail text Overlay */}
-              <div className="relative z-20 p-6 self-start text-left mt-auto">
-                <span className="font-mono text-[9px] uppercase font-bold text-[#5c3bf2] bg-[#9D7BFF]/20 px-2.5 py-1 rounded-full tracking-wider inline-block mb-1.5">
-                  _ ENTERPRISE CERTIFIED
-                </span>
-                <h4 className="text-xl font-bold text-black tracking-tight leading-tight">
-                  Strict weight isolation protocols for financial and security compliance.
-                </h4>
-              </div>
+            <div className="md:col-span-7 bg-white rounded-[2.5rem] overflow-hidden border border-black/5 relative shadow-lg min-h-[380px]">
+              <img 
+                src="https://images.unsplash.com/photo-1764044371545-dfd065b01e6f?q=80&w=1169&auto=format&fit=crop" 
+                alt="Material Necesario" 
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
             </div>
 
             {/* Right Col: Detailed Content Description text */}
             <div className="md:col-span-5 bg-white rounded-[2.5rem] border border-black/5 p-8 md:p-12 flex flex-col justify-center text-left shadow-lg">
               
-              <div className="h-10 w-10 rounded-xl bg-[#9D7BFF]/10 flex items-center justify-center mb-6">
-                <Globe className="text-[#9D7BFF] h-5 w-5" />
+              <div className="text-center w-full mb-5">
+                <h3 className="text-3xl font-extrabold tracking-tighter text-black leading-tight relative inline-block pb-2">
+                  Material Necesario
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+                </h3>
               </div>
 
-              <h3 className="text-3xl font-extrabold tracking-tighter text-black mb-4 leading-none">
-                Proven.<br />
-                Trusted.<br />
-                Ready.
-              </h3>
-
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Everything you need for confident enterprise implementation, backed by robust SLA metrics, rigorous model safety guarantees, and deep structural parameters fine-tuning authority.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-2.5">
-                  <span className="mt-1 font-mono text-xs font-bold text-[#9D7BFF]">SLA</span>
-                  <span className="text-xs text-gray-600">99.99% Guaranteed private endpoint uptime orchestration with deep load balancing logic.</span>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <span className="mt-1 font-mono text-xs font-bold text-[#9D7BFF]">SEC</span>
-                  <span className="text-xs text-gray-600">Weights encryption at rest and in transit. Your prompts and fine-tuning datasets remain isolated from base model updates.</span>
-                </div>
-              </div>
-
-              <div>
-                <a 
-                  href="#contact" 
-                  className="bg-black text-white font-mono font-bold px-6 py-3 rounded-full hover:bg-zinc-800 transition-colors text-xs inline-block text-center tracking-wider uppercase"
-                >
-                  Contact enterprise sales
-                </a>
+              <div className="space-y-3.5 mt-2">
+                {[
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=43604&format=png&color=000000",
+                    text: "Fotos profesionales",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=49436&format=png&color=000000",
+                    text: "Logo en buena calidad",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=ndJssbHAnr7w&format=png&color=000000",
+                    text: "Textos e información",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000",
+                    text: "Colores y estilo",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=44048&format=png&color=000000",
+                    text: "Redes sociales",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=43677&format=png&color=000000",
+                    text: "WhatsApp",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=43622&format=png&color=000000",
+                    text: "Dirección o ubicación",
+                  },
+                  {
+                    icon: "https://img.icons8.com/?size=100&id=XBJfETMfZHpS&format=png&color=000000",
+                    text: "¡Y tu idea!",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="p-1.5 bg-[#9D7BFF]/10 rounded-lg shrink-0">
+                      <img
+                        src={item.icon}
+                        alt={item.text}
+                        referrerPolicy="no-referrer"
+                        className="w-5 h-5 object-contain"
+                      />
+                    </div>
+                    <span className="text-sm font-sans font-medium text-zinc-600">
+                      {item.text}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
