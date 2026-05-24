@@ -111,6 +111,8 @@ export default function App() {
   const [isProject1Open, setIsProject1Open] = useState(false);
   const [isProject2Open, setIsProject2Open] = useState(false);
   const [isProject3Open, setIsProject3Open] = useState(false);
+  const [isLandingPageDetailsOpen, setIsLandingPageDetailsOpen] = useState(false);
+  const [isMultipaginaDetailsOpen, setIsMultipaginaDetailsOpen] = useState(false);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -1043,31 +1045,155 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             
-            {/* 1. Self-Hosted */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] hover:scale-[1.02] duration-300 transition-transform">
-              <div className="text-left">
-                <span className="font-mono text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">MODULE 01</span>
-                <h4 className="text-xl font-bold mb-3 tracking-tight">Self-Hosted</h4>
-                <p className="text-gray-600 text-xs leading-relaxed">
-                  Deploy our precise model weights inside your own air-gapped secure environment for ultimate customized security policies and total guardrail control.
-                </p>
+            {/* 1. Landing Page */}
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+              <div className="text-center flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Landing Page</h4>
+                  
+                  <div className="mb-4 space-y-1 text-center">
+                    <span className="text-sm font-extrabold text-black block font-sans">
+                      Desde $150.000 ARS / $110 USD
+                    </span>
+                    <span className="text-xs font-semibold text-gray-700 block font-sans">
+                      Mantenimiento: $50.000 ARS/mes / $35 USD/mes
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
+                    Plan ideal para quienes necesitan una landing page rápida, clara y enfocada en una sola acción: contactar, vender o generar leads.
+                  </p>
+                </div>
+
+                {/* Collapsible Details */}
+                <AnimatePresence>
+                  {isLandingPageDetailsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
+                    >
+                      <ul className="space-y-3">
+                        {[
+                          "Diseño personalizado exclusivo",
+                          "Adaptada a celular y tablet",
+                          "Formulario de contacto",
+                          "Integración directa con WhatsApp",
+                          "Galería de imágenes optimizada",
+                          "Integración de redes sociales",
+                          "Ubicación en Google Maps",
+                          "Hasta 7 secciones de contenido"
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
+                            <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            </span>
+                            <span className="text-gray-900">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Landing%20Page%20personalizado", "_blank");
+                        }}
+                        className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
+                      >
+                        Contratar plan
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <button className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8">
-                Get license
+
+              <button 
+                type="button"
+                onClick={() => {
+                  setIsLandingPageDetailsOpen(!isLandingPageDetailsOpen);
+                }}
+                className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
+              >
+                {isLandingPageDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
               </button>
             </div>
 
-            {/* 2. Applications */}
-            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] hover:scale-[1.02] duration-300 transition-transform">
-              <div className="text-left">
-                <span className="font-mono text-[10px] font-bold text-gray-500 uppercase tracking-wider block mb-1">MODULE 02</span>
-                <h4 className="text-xl font-bold mb-3 tracking-tight">Applications</h4>
-                <p className="text-gray-600 text-xs leading-relaxed">
-                  Utilize Brand Studio, our fully managed drag-and-drop orchestration suite made specifically for design production and creative directors.
-                </p>
+            {/* 2. Multipágina */}
+            <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-fit hover:scale-[1.02] duration-300 transition-all">
+              <div className="text-center flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Multipágina</h4>
+                  
+                  <div className="mb-4 space-y-1 text-center font-sans">
+                    <span className="text-sm font-extrabold text-black block">
+                      Desde $250.000 ARS / $180 USD
+                    </span>
+                    <span className="text-xs font-semibold text-gray-700 block">
+                      Mantenimiento: $90.000 ARS/mes / $65 USD/mes
+                    </span>
+                  </div>
+
+                  <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
+                    Ideal para marcas que necesitan una web con múltiples páginas claras, pensadas para informar, vender y generar confianza.
+                  </p>
+                </div>
+
+                {/* Collapsible Details */}
+                <AnimatePresence>
+                  {isMultipaginaDetailsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
+                    >
+                      <ul className="space-y-3">
+                        {[
+                          "Arquitectura de múltiples páginas",
+                          "Diseño personalizado de alta gama",
+                          "Adaptabilidad total (responsive)",
+                          "Formulario de contacto profesional",
+                          "Botón de WhatsApp flotante",
+                          "Gestión de contenidos SEO",
+                          "Integración de mapas interactivos",
+                          "Múltiples secciones",
+                          "Menú de navegación completo",
+                          "Hasta 15 secciones distribuidas"
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
+                            <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
+                              <Check className="w-2.5 h-2.5 stroke-[3]" />
+                            </span>
+                            <span className="text-gray-900">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Multip%C3%A1gina%20personalizado", "_blank");
+                        }}
+                        className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
+                      >
+                        Contratar plan
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <button className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8">
-                See plans
+
+              <button 
+                type="button"
+                onClick={() => {
+                  setIsMultipaginaDetailsOpen(!isMultipaginaDetailsOpen);
+                }}
+                className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
+              >
+                {isMultipaginaDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
               </button>
             </div>
 
