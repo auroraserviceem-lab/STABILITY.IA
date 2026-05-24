@@ -109,6 +109,7 @@ export default function App() {
   const [promptText, setPromptText] = useState("Vivid rose-gold headphone, warm golden hour backlighting, photorealistic portrait shot, octane render, beautiful braid strands");
   const [isPrompting, setIsPrompting] = useState(false);
   const [isProject1Open, setIsProject1Open] = useState(false);
+  const [isProject2Open, setIsProject2Open] = useState(false);
   const [isProject3Open, setIsProject3Open] = useState(false);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
@@ -881,8 +882,71 @@ export default function App() {
               </div>
             </div>
 
-            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+            {/* Tarjeta 2 (Multipágina) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Odontología */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {[
+                  {
+                    title: "Inicio",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png"
+                  },
+                  {
+                    title: "Sobre la dentista",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png"
+                  },
+                  {
+                    title: "Tratamientos",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png"
+                  },
+                  {
+                    title: "Todos los tratamientos",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png"
+                  },
+                  {
+                    title: "Consultorio",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png"
+                  },
+                  {
+                    title: "Galería de imágenes",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png"
+                  },
+                  {
+                    title: "Agendá tu turno",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png"
+                  },
+                  {
+                    title: "Área de contacto",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png"
+                  }
+                ].map((sec, idx) => (
+                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                      <img 
+                        src={sec.img} 
+                        alt={sec.title} 
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                      {sec.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject2Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>Abrir proyecto</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
 
             {/* Tarjeta 3 (E‑Commerce) con imágenes y botón "Abrir proyecto" */}
@@ -1246,6 +1310,149 @@ export default function App() {
                     className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
                     <span>Cotizar Proyecto Similar</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Immersive slide-up drawer for the dentistry multipaging project */}
+      <AnimatePresence>
+        {isProject2Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 220 }}
+              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: Multipágina – Consultorio de odontología</h3>
+                    <p className="font-sans text-[11px] text-gray-400">Plataforma digital integral para consultorios médicos y profesionales de la salud</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject2Open(false)}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title="Cerrar proyecto"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Estructura Multipágina</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Multipágina – Consultorio de odontología con galería y formulario de contacto</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    Multipágina desarrollada para un consultorio de odontología, con múltiples secciones para presentar a la dentista, describir los tratamientos, mostrar la galería de imágenes del consultorio y facilitar la gestión de turnos y el contacto.
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {[
+                    {
+                      label: "Inicio",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png",
+                      desc: "Página de inicio elegante con presentación del consultorio, mensajes de confianza para los pacientes y accesos directos principales."
+                    },
+                    {
+                      label: "Sobre la dentista",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png",
+                      desc: "Sección de biografía del profesional, su trayectoria académica, certificaciones y el enfoque humano en la atención odontológica."
+                    },
+                    {
+                      label: "Tratamientos",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png",
+                      desc: "Bloque principal con el catálogo descriptivo de servicios destacados de salud bucal, estética dental y ortodoncia."
+                    },
+                    {
+                      label: "Todos los tratamientos",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
+                      desc: "Página dedicada con detalles expandidos de cada tratamiento odontológico, resolviendo todas las dudas de manera clara."
+                    },
+                    {
+                      label: "Consultorio",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png",
+                      desc: "Un recorrido visual interactivo por las instalaciones para transmitir un ambiente seguro, limpio y moderno equipado de última tecnología."
+                    },
+                    {
+                      label: "Galería de imágenes",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
+                      desc: "Galería completa en alta definición de nuestras instalaciones para transmitir tranquilidad y profesionalismo a los futuros pacientes."
+                    },
+                    {
+                      label: "Agendá tu turno",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png",
+                      desc: "Sección especial diseñada para facilitar el autoservicio de reservas y agendamiento de turnos de manera ágil y digital."
+                    },
+                    {
+                      label: "Área de contacto",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png",
+                      desc: "Formulario limpio de contacto, datos de ubicación, teléfono de urgencias y mapa dinámico para la fácil llegada."
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                            {index + 1}
+                          </span>
+                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                          Sección {index + 1}
+                        </span>
+                      </div>
+                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                        <img 
+                          src={item.img} 
+                          alt={item.label} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                        />
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-white mb-2">¿Querés un sitio web profesional multipágina para tu consultorio?</h5>
+                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
+                    Aumentá la confianza de tus pacientes con una presencia digital impecable, ágil y totalmente adaptada a dispositivos móviles.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setIsProject2Open(false);
+                      const contactSection = document.getElementById("deployment");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>Cotizar Sitio Médico</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
