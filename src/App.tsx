@@ -18,6 +18,9 @@ import {
   ChevronLeft,
   ChevronDown,
   MessageCircle,
+  Mail,
+  Instagram,
+  Phone,
   Star,
   Code,
   Palette,
@@ -115,6 +118,7 @@ export default function App() {
   const [isMultipaginaDetailsOpen, setIsMultipaginaDetailsOpen] = useState(false);
   const [isEcommerceDetailsOpen, setIsEcommerceDetailsOpen] = useState(false);
   const [isPersonalizadoDetailsOpen, setIsPersonalizadoDetailsOpen] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -1408,6 +1412,166 @@ export default function App() {
 
           </div>
 
+        </div>
+      </section>
+
+      {/* 5. CONTACT & FAQ SECTION */}
+      <section id="faq-section" className="bg-[#F2EFE9] text-black py-24 px-6 md:px-12 relative z-20 border-t border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Columna izquierda – Contáctanos */}
+            <div className="lg:col-span-5 space-y-8 text-left">
+              <div>
+                <div className="inline-block relative pb-3 mb-4">
+                  <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A1A1A] font-sans">
+                    Contáctanos
+                  </h3>
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF]" />
+                </div>
+                <p className="text-gray-800 text-sm font-sans font-medium leading-relaxed">
+                  Queremos ayudarte a materializar tu proyecto digital. Escríbenos y te responderemos a la brevedad.
+                </p>
+              </div>
+
+              <div className="space-y-6 pt-2">
+                {/* WhatsApp */}
+                <div className="group">
+                  <span className="block text-[11px] font-mono uppercase text-[#8B66FF] tracking-wider font-bold mb-1">
+                    WhatsApp:
+                  </span>
+                  <a
+                    href="https://wa.me/5492664372384"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                      </svg>
+                    </span>
+                    +54 9 2664 372384
+                  </a>
+                </div>
+
+                {/* E-mail */}
+                <div className="group">
+                  <span className="block text-[11px] font-mono uppercase text-[#8B66FF] tracking-wider font-bold mb-1">
+                    E‑mail:
+                  </span>
+                  <a
+                    href="mailto:auroraserviceem@gmail.com"
+                    className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Mail className="w-4 h-4" />
+                    </span>
+                    auroraserviceem@gmail.com
+                  </a>
+                </div>
+
+                {/* Instagram */}
+                <div className="group">
+                  <span className="block text-[11px] font-mono uppercase text-[#8B66FF] tracking-wider font-bold mb-1">
+                    Instagram:
+                  </span>
+                  <a
+                    href="https://instagram.com/auroraservicesweb"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Instagram className="w-4 h-4" />
+                    </span>
+                    @auroraservicesweb
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Columna derecha – Preguntas frecuentes (FAQ) */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-block relative pb-3 mb-4">
+                <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#1A1A1A] font-sans">
+                  Preguntas frecuentes
+                </h3>
+                <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF]" />
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    q: "¿Cómo se realiza el pago?",
+                    a: "Aceptamos transferencias bancarias y otros medios de pago acordados al inicio del proyecto."
+                  },
+                  {
+                    q: "¿Cuánto tiempo tarda en estar lista mi página?",
+                    a: "Depende de la complejidad del proyecto.\nUna Landing Page suele estar lista en aproximadamente 7 días.\nUna Multipágina suele estar lista en alrededor de 10 días."
+                  },
+                  {
+                    q: "¿Cuántas revisiones incluye el proyecto?",
+                    a: "Incluimos varias instancias de revisión durante el desarrollo para asegurar que el resultado final cumpla con tus expectativas."
+                  },
+                  {
+                    q: "¿Qué pasa si no me gusta el resultado?",
+                    a: "Trabajamos mediante revisiones constantes a lo largo del proceso, adaptando el proyecto a tus comentarios en cada paso, para que el resultado final sea el que esperás."
+                  },
+                  {
+                    q: "¿Necesito tener hosting y dominio propios?",
+                    a: "No es necesario.\nAl crear tu página, el alojamiento (hosting) y dominio están incluidos durante el primer año y continúan incluidos con el mantenimiento mensual."
+                  },
+                  {
+                    q: "¿Puedo pedir cambios después de la entrega?",
+                    a: "Sí. A través de nuestro servicio de mantenimiento mensual puedes solicitar cambios, actualizaciones de contenido y mejoras en tu sitio."
+                  },
+                  {
+                    q: "¿Trabajan con clientes de otros países?",
+                    a: "¡Claro! Trabajamos con clientes de todo el mundo mediante reuniones virtuales y herramientas colaborativas, manteniendo la comunicación clara y constante."
+                  }
+                ].map((item, index) => {
+                  const isOpen = activeFaqIndex === index;
+                  return (
+                    <div 
+                      key={index} 
+                      className="border-b border-black/10 pb-4 transition-all"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveFaqIndex(isOpen ? null : index)}
+                        className="w-full flex justify-between items-center text-left py-3 font-sans font-extrabold text-black hover:text-[#8B66FF] transition-colors focus:outline-none"
+                      >
+                        <span className="text-base md:text-lg tracking-tight leading-snug">
+                          {item.q}
+                        </span>
+                        <ChevronDown 
+                          className={`w-5 h-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180 text-[#8B66FF]" : ""}`} 
+                        />
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pt-2 pb-4 text-gray-800 text-sm font-sans font-medium leading-relaxed whitespace-pre-line">
+                              {item.a}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
