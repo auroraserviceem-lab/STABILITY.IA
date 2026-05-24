@@ -21,7 +21,8 @@ import {
   Star,
   Code,
   Palette,
-  Shield
+  Shield,
+  X
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -107,6 +108,8 @@ const INDUSTRIES_DATA = [
 export default function App() {
   const [promptText, setPromptText] = useState("Vivid rose-gold headphone, warm golden hour backlighting, photorealistic portrait shot, octane render, beautiful braid strands");
   const [isPrompting, setIsPrompting] = useState(false);
+  const [isProject1Open, setIsProject1Open] = useState(false);
+  const [isProject3Open, setIsProject3Open] = useState(false);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -819,14 +822,126 @@ export default function App() {
 
           {/* Tres tarjetas separadas, una al lado de la otra, con espacio entre ellas (igual diseño que Argentina - México - Ecuador) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16 px-4">
+            {/* Tarjeta 1 (Landing Page) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {[
+                  {
+                    title: "Inicio",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png"
+                  },
+                  {
+                    title: "Información del gimnasio",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png"
+                  },
+                  {
+                    title: "Nuestros planes",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png"
+                  },
+                  {
+                    title: "Galería de fotos",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png"
+                  },
+                  {
+                    title: "Nuestros profesores",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png"
+                  },
+                  {
+                    title: "Contáctanos",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png"
+                  }
+                ].map((sec, idx) => (
+                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                      <img 
+                        src={sec.img} 
+                        alt={sec.title} 
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                      {sec.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject1Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>Abrir proyecto</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
             </div>
-            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-            </div>
-            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden group border border-white/10 shadow-2xl bg-zinc-950">
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+
+            {/* Tarjeta 3 (E‑Commerce) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Keito */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {[
+                  {
+                    title: "Inicio",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png"
+                  },
+                  {
+                    title: "Novedades",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png"
+                  },
+                  {
+                    title: "Catálogo completo",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png"
+                  },
+                  {
+                    title: "Síguenos en redes sociales",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png"
+                  },
+                  {
+                    title: "Medios de pago y más",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png"
+                  },
+                  {
+                    title: "Área de contacto",
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png"
+                  }
+                ].map((sec, idx) => (
+                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                      <img 
+                        src={sec.img} 
+                        alt={sec.title} 
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                      {sec.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject3Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>Abrir proyecto</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -1007,6 +1122,272 @@ export default function App() {
 
         </div>
       </footer>
+
+      {/* Immersive slide-up drawer for the gym landing page project */}
+      <AnimatePresence>
+        {isProject1Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 220 }}
+              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: Landing Page (Gym & Fitness)</h3>
+                    <p className="font-sans text-[11px] text-gray-400">Presencia digital de alto rendimiento para centros de entrenamiento</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject1Open(false)}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title="Cerrar proyecto"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Presentación Completa</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Estructura Detallada del Proyecto</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimiazo para la retención del usuario y conversión de leads.
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {[
+                    {
+                      label: "Inicio",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png",
+                      desc: "Sección de bienvenida con alta carga de impacto visual, llamada a la acción clara (CTA) y propuesta de valor rotunda desde el primer segundo."
+                    },
+                    {
+                      label: "Información del gimnasio",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png",
+                      desc: "Detalle de nuestra visión de entrenamiento personalizado, equipamiento de última tecnología y ambiente diseñado para inspirar superación personal."
+                    },
+                    {
+                      label: "Nuestros planes",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png",
+                      desc: "Cuadros de precios interactivos y transparentes adaptados a cada necesidad, promoviendo suscripciones ágiles e incrementando las ventas."
+                    },
+                    {
+                      label: "Galería de fotos",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png",
+                      desc: "Muestra visual inmersiva de nuestras instalaciones premium y atmósfera vibrante, generando confianza y familiaridad en los futuros miembros."
+                    },
+                    {
+                      label: "Nuestros profesores",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png",
+                      desc: "Presentación del staff de entrenadores altamente calificados, sumando la calidez humana y profesionalismo que nos diferencia."
+                    },
+                    {
+                      label: "Contáctanos",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png",
+                      desc: "Formulario limpio de contacto junto a información de localización y redes para acelerar las consultas inmediatas de prospectos."
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                            {index + 1}
+                          </span>
+                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                          Sección {index + 1}
+                        </span>
+                      </div>
+                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                        <img 
+                          src={item.img} 
+                          alt={item.label} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                        />
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-white mb-2">¿Estás listo para concretar tu propia Landing Page?</h5>
+                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
+                    Llevamos tu proyecto al nivel que imaginas con un diseño premium, veloz y centrado en resultados.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setIsProject1Open(false);
+                      const contactSection = document.getElementById("deployment");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>Cotizar Proyecto Similar</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Immersive slide-up drawer for the Keito E‑Commerce project */}
+      <AnimatePresence>
+        {isProject3Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 220 }}
+              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: E‑Commerce – Keito</h3>
+                    <p className="font-sans text-[11px] text-gray-400">Tienda de ropa online con experiencia de diseño y compra premium</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject3Open(false)}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title="Cerrar proyecto"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">E‑COMMERCE PRESTIGIO</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">E‑Commerce desarrollado para Keito</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    E‑Commerce desarrollado para Keito, tienda de ropa online, con carrito de compras, múltiples páginas y soporte para todos los medios de pago, pensado para ofrecer una experiencia de compra completa y segura.
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {[
+                    {
+                      label: "Inicio",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png",
+                      desc: "Página de inicio diseñada con un fuerte enfoque visual, banner rotativo y accesos directos intuitivos a las últimas tendencias de indumentaria."
+                    },
+                    {
+                      label: "Novedades",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png",
+                      desc: "Sección dedicada a los lanzamientos de temporada y ofertas exclusivas, potenciando las conversiones inmediatas mediante curaduría de tendencias."
+                    },
+                    {
+                      label: "Catálogo completo",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png",
+                      desc: "Estructura de catálogo organizada por categorías con filtros avanzados de talle, color y precio para facilitar la búsqueda idónea del usuario."
+                    },
+                    {
+                      label: "Síguenos en redes sociales",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png",
+                      desc: "Integración estética de feeds sociales y llamados a interactuar en Instagram, consolidando una comunidad activa e incrementando la confianza de marca."
+                    },
+                    {
+                      label: "Medios de pago y más",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png",
+                      desc: "Módulo interactivo detallando las pasarelas de pago integradas, facilidades de financiamiento bancario y políticas seguras de envío y devolución."
+                    },
+                    {
+                      label: "Área de contacto",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png",
+                      desc: "Formulario directo de atención al cliente y soporte post-venta personalizado junto con mapas de retiro físico y canales rápidos de mensajería."
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                            {index + 1}
+                          </span>
+                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                        </div>
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                          Sección {index + 1}
+                        </span>
+                      </div>
+                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                        <img 
+                          src={item.img} 
+                          alt={item.label} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                        />
+                      </div>
+                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-white mb-2">¿Estás listo para tener tu propia tienda online autoadministrable?</h5>
+                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
+                    Multiplica tus ventas con un E‑Commerce premium, de carga ultrarrápida y compatible con todos los procesadores de pago modernos.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setIsProject3Open(false);
+                      const contactSection = document.getElementById("deployment");
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>Cotizar Tienda Keito</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
