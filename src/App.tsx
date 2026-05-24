@@ -104,31 +104,9 @@ const INDUSTRIES_DATA = [
   }
 ];
 
-const REVIEWS_DATA = [
-  {
-    logo: "ELECTRONIC ARTS",
-    quote: "Electronic Arts Partners With James Cameron-Backed Stability AI for Game Developer Tools That Serve as Smarter Paintbrushes",
-    source: "Variety",
-    date: "May 20, 2026"
-  },
-  {
-    logo: "UNIVERSAL MUSIC GROUP",
-    quote: "Universal Music Group integrates deep model weights to empower audio synthesis with structural brand safety rules",
-    source: "Billboard",
-    date: "April 18, 2026"
-  },
-  {
-    logo: "ARM ARCHITECTURE",
-    quote: "Arm licenses custom on-device silicon neural matrices designed to compute high-definition diffusion models under 1.5 Watts",
-    source: "Teardown News",
-    date: "February 11, 2026"
-  }
-];
-
 export default function App() {
   const [promptText, setPromptText] = useState("Vivid rose-gold headphone, warm golden hour backlighting, photorealistic portrait shot, octane render, beautiful braid strands");
   const [isPrompting, setIsPrompting] = useState(false);
-  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
 
   const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
   const [wordIndex, setWordIndex] = useState(0);
@@ -824,56 +802,19 @@ export default function App() {
         
         <div className="max-w-7xl mx-auto">
           
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 pb-6 border-b border-white/5">
-            <div>
-              <span className="font-mono text-xs text-[#9D7BFF] uppercase tracking-widest font-bold">Press & Partners</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter mt-1">In the Spotlight</h2>
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 pb-6 border-b border-white/5 relative">
+            <div className="flex-1 text-center">
+              <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
+                <Layers className="w-3.5 h-3.5" />
+                NUESTRO PORTAFOLIO
+              </div>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-white text-center">
+                <span className="relative inline-block pb-3">
+                  Portafolio
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
+                </span>
+              </h2>
             </div>
-            
-            {/* Slider triggers */}
-            <div className="flex items-center gap-2 mt-4 md:mt-0">
-              <button 
-                onClick={() => setActiveReviewIndex((val) => (val - 1 + REVIEWS_DATA.length) % REVIEWS_DATA.length)}
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#9D7BFF]/40 hover:bg-white/5 transition-all cursor-pointer"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={() => setActiveReviewIndex((val) => (val + 1) % REVIEWS_DATA.length)}
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-[#9D7BFF]/40 hover:bg-white/5 transition-all cursor-pointer"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
-          {/* Active Review Box */}
-          <div className="min-h-[220px] relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeReviewIndex}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6 max-w-4xl"
-              >
-                {/* Brand stylized logo badge */}
-                <div className="inline-block bg-white/5 border border-white/10 px-4 py-1.5 rounded-md text-[10px] font-mono tracking-widest text-[#9D7BFF] uppercase">
-                  {REVIEWS_DATA[activeReviewIndex].logo}
-                </div>
-
-                <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white/90 leading-tight">
-                  “{REVIEWS_DATA[activeReviewIndex].quote}”
-                </p>
-
-                <div className="flex items-center gap-3 pt-2 text-xs text-gray-400 font-mono">
-                  <span className="font-bold text-white">{REVIEWS_DATA[activeReviewIndex].source}</span>
-                  <span>•</span>
-                  <span>{REVIEWS_DATA[activeReviewIndex].date}</span>
-                </div>
-              </motion.div>
-            </AnimatePresence>
           </div>
 
           {/* Trusted partners bottom band (Inspired by Imagen 4 UMG/EA/Warner/Arm) */}
