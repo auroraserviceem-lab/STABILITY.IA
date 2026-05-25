@@ -350,7 +350,7 @@ export default function App() {
               <div className="flex flex-wrap items-center gap-4 pointer-events-auto mb-2">
                 <motion.button 
                   onClick={() => {
-                    window.open("https://wa.me/5492664372384", "_blank");
+                    window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20iniciar%20un%20proyecto%20web%20con%20ustedes.", "_blank");
                   }}
                   initial={{ scale: 1 }}
                   animate={{ scale: [1, 1.05, 1] }}
@@ -412,7 +412,7 @@ export default function App() {
                 <div className="w-full flex justify-center mt-2 px-1">
                   <button
                     onClick={() => {
-                       window.open("https://wa.me/5492664372384", "_blank");
+                       window.open("https://wa.me/5492664372384?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20la%20consulta%20gratuita%20por%20WhatsApp.", "_blank");
                     }}
                     className="w-full bg-[#1FAF38] text-white font-extrabold py-3.5 px-6 rounded-full hover:bg-[#179530] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(31,175,56,0.25)] flex items-center justify-center gap-2"
                   >
@@ -1448,7 +1448,7 @@ export default function App() {
                     WhatsApp:
                   </span>
                   <a
-                    href="https://wa.me/5492664372384"
+                    href="https://wa.me/5492664372384?text=Hola!%20Me%20gustar%C3%ADa%20hacerles%20una%20consulta."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
