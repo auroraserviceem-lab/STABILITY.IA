@@ -145,6 +145,27 @@ export default function App() {
     "Minimalist editorial beige clean backdrop, organic shadows, macro lens aesthetic"
   ];
 
+  const highlightCities = (text: string) => {
+    const citiesToHighlight = [
+      "Mexico City", "Monterrey", "Ciudad de México", 
+      "Buenos Aires", "Córdoba", "Quito", "Guayaquil"
+    ];
+    
+    const regex = new RegExp(`(${citiesToHighlight.join('|')})`, 'gi');
+    const parts = text.split(regex);
+    
+    return parts.map((part, i) => {
+      if (citiesToHighlight.some(city => city.toLowerCase() === part.toLowerCase())) {
+        return (
+          <span key={i} className="text-[#9D7BFF] font-bold">
+            {part}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   const handlePromptChange = (suggestion: string) => {
     setPromptText(suggestion);
   };
@@ -493,7 +514,7 @@ export default function App() {
                         {ind.description}
                       </p>
                       <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
-                        {ind.cities}
+                        {highlightCities(ind.cities)}
                       </p>
                     </div>
                 </div>
