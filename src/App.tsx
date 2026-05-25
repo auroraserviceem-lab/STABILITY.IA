@@ -4,29 +4,13 @@ import { translations } from "./translations";
 import { 
   ArrowUp,
   ArrowUpRight, 
-  ChevronRight, 
-  Sparkles, 
-  Globe, 
-  Command, 
-  Music, 
-  Cpu, 
-  Gamepad2, 
-  Play, 
-  Check, 
-  Volume2, 
   Layers, 
-  Sliders, 
   ArrowRight,
-  ChevronLeft,
   ChevronDown,
-  MessageCircle,
   Mail,
   Instagram,
-  Phone,
   Star,
-  Code,
-  Palette,
-  Shield,
+  Check,
   X
 } from "lucide-react";
 
@@ -50,7 +34,7 @@ const BRANDS_MODELS: BrandModel[] = [
     name: "Rose Quartz Aura",
     color: "#E297B2",
     badgeColor: "bg-pink-500",
-    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format,compress&fit=crop&q=auto&w=800",
     details: {
       acoustic: "99.8% Spatial Alignment",
       anc: "Active Isolation Pro (-42dB)",
@@ -62,7 +46,7 @@ const BRANDS_MODELS: BrandModel[] = [
     name: "Onyx Cyber Core",
     color: "#9D7BFF",
     badgeColor: "bg-[#9D7BFF]",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format,compress&fit=crop&q=auto&w=800",
     details: {
       acoustic: "99.9% Quantum Depth",
       anc: "Dynamic Neutralization (-45dB)",
@@ -74,7 +58,7 @@ const BRANDS_MODELS: BrandModel[] = [
     name: "Solar Titanium",
     color: "#FFBD3E",
     badgeColor: "bg-amber-400",
-    image: "https://images.unsplash.com/photo-1484755560695-a4c7477ab95b?auto=format&fit=crop&q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1484755560695-a4c7477ab95b?auto=format,compress&fit=crop&q=auto&w=800",
     details: {
       acoustic: "99.6% Warm Analog Tone",
       anc: "Hybrid Isolation (-38dB)",
@@ -188,7 +172,7 @@ export default function App() {
           title="Volver al inicio"
         >
           <img 
-            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1779721974/image_s39ibp.jpg" 
+            src="https://res.cloudinary.com/dkc39tw6r/image/upload/f_auto,q_auto/v1779721974/image_s39ibp.jpg" 
             alt="Logo" 
             className="w-8 h-8 rounded-sm object-cover"
           />
@@ -495,6 +479,7 @@ export default function App() {
                     src={ind.image}
                     alt={`${ind.title} - ${translations[selectedLang].headings.nuestroPortafolio}`}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                     className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
                   />
                 </div>
@@ -554,14 +539,15 @@ export default function App() {
                   src="https://img.icons8.com/?size=100&id=Dr0n9Rgyl5Lp&format=png&color=ffffff"
                   alt="Servicios de diseño web profesional y desarrollo a medida"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  {translations[selectedLang].services.web.title}
+                  {t.services.web.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                {translations[selectedLang].services.web.desc}
+                {t.services.web.desc}
               </p>
             </div>
  
@@ -573,14 +559,15 @@ export default function App() {
                   src="https://img.icons8.com/?size=100&id=4bRnRUyLzrOg&format=png&color=ffffff"
                   alt="Diseño visual personalizado e identidad de marca"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  {translations[selectedLang].services.design.title}
+                  {t.services.design.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                {translations[selectedLang].services.design.desc}
+                {t.services.design.desc}
               </p>
             </div>
  
@@ -592,14 +579,15 @@ export default function App() {
                   src="https://img.icons8.com/?size=100&id=43657&format=png&color=ffffff"
                   alt="Hosting confiable para tu sitio con soporte continuo"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  {translations[selectedLang].services.support.title}
+                  {t.services.support.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                {translations[selectedLang].services.support.desc}
+                {t.services.support.desc}
               </p>
             </div>
  
@@ -729,9 +717,10 @@ export default function App() {
             {/* Right Col: High-Fidelity Showcase Image */}
             <div className="lg:col-span-7 relative rounded-[2rem] min-h-[440px] h-full overflow-hidden border border-black/10 shadow-inner">
               <img 
-                src="https://images.unsplash.com/photo-1651684195895-38708dc94cfa?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                src="https://images.unsplash.com/photo-1651684195895-38708dc94cfa?q=auto&w=1000&auto=format&fit=crop" 
                 alt="Nuestro proceso de diseño web profesional con revisiones ilimitadas" 
                 referrerPolicy="no-referrer"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -744,9 +733,10 @@ export default function App() {
             {/* Left Col (Tall Image aspect container) */}
             <div className="md:col-span-7 bg-white rounded-[2.5rem] overflow-hidden border border-black/5 relative shadow-lg min-h-[380px]">
               <img 
-                src="https://images.unsplash.com/photo-1764044371545-dfd065b01e6f?q=80&w=1169&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1764044371545-dfd065b01e6f?q=auto&w=1000&auto=format&fit=crop" 
                 alt="Materiales y contenido para cotizar proyecto web y lanzar tu sitio" 
                 referrerPolicy="no-referrer"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
@@ -827,9 +817,10 @@ export default function App() {
                     <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
                       <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                         <img 
-                          src={images[idx]} 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
                           alt={`${sec.label} - Portafolio de Diseño Web Profesional`} 
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                           className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                         />
                       </div>
@@ -848,7 +839,7 @@ export default function App() {
                   onClick={() => setIsProject1Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
+                  <span>{t.planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -873,9 +864,10 @@ export default function App() {
                     <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
                       <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                         <img 
-                          src={images[idx]} 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
                           alt={`${sec.label} - Desarrollo de Sitio Web Profesional`} 
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                           className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                         />
                       </div>
@@ -894,7 +886,7 @@ export default function App() {
                   onClick={() => setIsProject2Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
+                  <span>{t.planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -917,9 +909,10 @@ export default function App() {
                     <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
                       <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                         <img 
-                          src={images[idx]} 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
                           alt={`${sec.label} - Plataforma de E-Commerce`} 
                           referrerPolicy="no-referrer"
+                          loading="lazy"
                           className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                         />
                       </div>
@@ -938,7 +931,7 @@ export default function App() {
                   onClick={() => setIsProject3Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
+                  <span>{t.planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
