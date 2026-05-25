@@ -242,7 +242,14 @@ export default function App() {
 
           {/* PORTAFOLIO */}
           <div className="group flex flex-col items-center gap-1">
-            <a href="#deployment" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
+            <a 
+              href="#reviews" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+              className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider"
+            >
               PORTAFOLIO
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
@@ -253,7 +260,7 @@ export default function App() {
         <div>
           <button 
             onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+              document.getElementById("faq-section")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="bg-[#9D7BFF] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-xs tracking-wider uppercase cursor-pointer"
           >
@@ -343,7 +350,7 @@ export default function App() {
               <div className="flex flex-wrap items-center gap-4 pointer-events-auto mb-2">
                 <motion.button 
                   onClick={() => {
-                    document.getElementById("industries")?.scrollIntoView({ behavior: "smooth" });
+                    window.open("https://wa.me/5492664372384", "_blank");
                   }}
                   initial={{ scale: 1 }}
                   animate={{ scale: [1, 1.05, 1] }}
@@ -359,7 +366,7 @@ export default function App() {
                 </motion.button>
                 <button 
                   onClick={() => {
-                    document.getElementById("workflow")?.scrollIntoView({ behavior: "smooth" });
+                    document.getElementById("deployment")?.scrollIntoView({ behavior: "smooth", block: "center" });
                   }}
                   className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer"
                 >
@@ -405,7 +412,7 @@ export default function App() {
                 <div className="w-full flex justify-center mt-2 px-1">
                   <button
                     onClick={() => {
-                       window.open("https://wa.me/5491176219808", "_blank");
+                       window.open("https://wa.me/5492664372384", "_blank");
                     }}
                     className="w-full bg-[#1FAF38] text-white font-extrabold py-3.5 px-6 rounded-full hover:bg-[#179530] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(31,175,56,0.25)] flex items-center justify-center gap-2"
                   >
@@ -1104,7 +1111,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Landing%20Page%20personalizado", "_blank");
+                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Landing%20Page%20personalizado", "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
@@ -1181,7 +1188,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Multip%C3%A1gina%20personalizado", "_blank");
+                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Multip%C3%A1gina%20personalizado", "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
@@ -1260,7 +1267,7 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20E-Commerce%20personalizado", "_blank");
+                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20E-Commerce%20personalizado", "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
@@ -1345,7 +1352,7 @@ export default function App() {
                         <button
                           type="button"
                           onClick={() => {
-                            window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Gesti%C3%B3n%20de%20tareas%20del%20Plan%20Personalizado", "_blank");
+                            window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Gesti%C3%B3n%20de%20tareas%20del%20Plan%20Personalizado", "_blank");
                           }}
                           className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
                         >
@@ -1387,7 +1394,7 @@ export default function App() {
                         <button
                           type="button"
                           onClick={() => {
-                            window.open("https://wa.me/5491176219808?text=Hola!%20Me%20interesa%20el%20Plan%20Stock%20e%20inventario%20del%20Plan%20Personalizado", "_blank");
+                            window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Stock%20e%20inventario%20del%20Plan%20Personalizado", "_blank");
                           }}
                           className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
                         >
