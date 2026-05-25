@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { translations } from "./translations";
 import { 
   ArrowUp,
   ArrowUpRight, 
@@ -82,32 +83,6 @@ const BRANDS_MODELS: BrandModel[] = [
   }
 ];
 
-const INDUSTRIES_DATA = [
-  {
-    category: "México",
-    title: "On-demand asset amplification",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Ornamental_Bandera_vertical_de_M%C3%A9xico.png",
-    description: "Create high-quality on-brand assets for every campaign using our image generation and editing tools.",
-    highlights: ["10x Output velocity", "Consistent brand guardrails", "Adaptive format aspect-ratios"],
-    icon: Sparkles
-  },
-  {
-    category: "Argentina",
-    title: "Desarrollo y Compromiso Autónomo",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Argentina_%28vertical_with_Sol_de_Mayo%29.svg/1280px-Flag_of_Argentina_%28vertical_with_Sol_de_Mayo%29.svg.png",
-    description: "Desarrollamos sitios web y soluciones de alto nivel para marcas de todo tipo.",
-    highlights: ["Compromiso local", "Calidad garantizada", "Atención ultra personalizada"],
-    icon: Sparkles
-  },
-  {
-    category: "Ecuador",
-    title: "Acompañamiento y Desarrollo Digital",
-    image: "https://w0.peakpx.com/wallpaper/242/817/HD-wallpaper-flag-ecuador-ecuador-flag.jpg",
-    description: "Acompañamos a empresas y emprendedores en soluciones de alta calidad.",
-    highlights: ["Asesoría personalizada", "Diseño responsivo", "Soporte permanente"],
-    icon: Sparkles
-  }
-];
 
 export default function App() {
   const [promptText, setPromptText] = useState("Vivid rose-gold headphone, warm golden hour backlighting, photorealistic portrait shot, octane render, beautiful braid strands");
@@ -121,10 +96,10 @@ export default function App() {
   const [isPersonalizadoDetailsOpen, setIsPersonalizadoDetailsOpen] = useState(false);
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
-  const ROTATING_WORDS = ["landing page", "multipágina", "e‑commerce"];
+  const [selectedLang, setSelectedLang] = useState<"es" | "en">(() => (localStorage.getItem("lang") as "es" | "en") || "es");
+  const ROTATING_WORDS = translations[selectedLang].headings.rotatingWords;
   const [wordIndex, setWordIndex] = useState(0);
   const selectedBrandModel = BRANDS_MODELS[wordIndex % BRANDS_MODELS.length];
-  const [selectedLang, setSelectedLang] = useState<"es" | "en">("es");
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -139,6 +114,10 @@ export default function App() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("lang", selectedLang);
+  }, [selectedLang]);
 
   useEffect(() => {
     if (isProject1Open || isProject2Open || isProject3Open) {
@@ -205,7 +184,7 @@ export default function App() {
           {/* QUIÉNES SOMOS */}
           <div className="group flex flex-col items-center gap-1">
             <a href="#quienes-somos" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
-              QUIÉNES SOMOS
+              {translations[selectedLang].navbar.quienesSomos}
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
@@ -213,7 +192,7 @@ export default function App() {
           {/* VER SERVICIOS */}
           <div className="group flex flex-col items-center gap-1">
             <a href="#services" className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider">
-              VER SERVICIOS
+              {translations[selectedLang].navbar.verServicios}
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
@@ -277,7 +256,7 @@ export default function App() {
               }}
               className="text-white group-hover:text-white transition-opacity text-xs font-semibold uppercase tracking-wider"
             >
-              PORTAFOLIO
+              {translations[selectedLang].navbar.portafolio}
             </a>
             <span className="w-1 h-1 rounded-full bg-[#9D7BFF] group-hover:bg-[#B49BFF] group-hover:scale-150 transition-all duration-300 shadow-[0_0_6px_rgba(157,123,255,0.6)]" />
           </div>
@@ -291,7 +270,7 @@ export default function App() {
             }}
             className="bg-[#9D7BFF] text-white font-bold px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-[10px] sm:text-xs tracking-wider uppercase cursor-pointer"
           >
-            CONTÁCTANOS
+            {translations[selectedLang].navbar.contactanos}
           </button>
         </div>
       </nav>
@@ -342,7 +321,7 @@ export default function App() {
                   <span className="relative w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_#ffffff]" />
                 </div>
                 <span className="tracking-widest text-[#9D7BFF] font-mono text-xs uppercase font-extrabold">
-                  aurora services
+                  {translations[selectedLang].hero.tag}
                 </span>
               </div>
 
@@ -352,7 +331,7 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <span className="block">Creamos tu</span>
+                <span className="block">{translations[selectedLang].hero.title}</span>
                 <span className="relative block h-[1.2em] text-[#9D7BFF] overflow-hidden">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -370,14 +349,14 @@ export default function App() {
               </motion.h1>
 
               <p className="text-sm md:text-base text-white max-w-md font-sans mb-4 leading-relaxed pointer-events-auto text-left">
-                Ofrecemos servicios de diseño web profesional con hosting para tu sitio, con diseños adaptativos e intuitivos. Puedes cotizar tu proyecto web hoy mismo con nuestro equipo.
+                {translations[selectedLang].hero.description}
               </p>
 
               {/* Row of Buttons with pointer-events-auto enabled */}
               <div className="flex flex-wrap items-center gap-4 pointer-events-auto mb-2">
                 <motion.button 
                   onClick={() => {
-                    window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20iniciar%20un%20proyecto%20web%20con%20ustedes.", "_blank");
+                    window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.general)}`, "_blank");
                   }}
                   initial={{ scale: 1 }}
                   animate={{ scale: [1, 1.05, 1] }}
@@ -388,7 +367,7 @@ export default function App() {
                   }}
                   className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] hover:shadow-[0_4px_30px_rgba(157,123,255,0.45)] hover:scale-[1.02] active:scale-95 transition-all duration-300 text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer"
                 >
-                  Inicia tu proyecto
+                  {translations[selectedLang].hero.boton}
                   <Star className="w-3.5 h-3.5 fill-[#FFD700] text-[#FFD700]" />
                 </motion.button>
                 <button 
@@ -397,7 +376,7 @@ export default function App() {
                   }}
                   className="bg-[#9D7BFF] text-white font-bold px-6 py-3.5 rounded-full hover:bg-[#8A66FF] active:scale-95 transition-all text-xs tracking-wider uppercase shadow-[0_4px_25px_rgba(157,123,255,0.25)] flex items-center gap-2 cursor-pointer"
                 >
-                  Planes
+                  {translations[selectedLang].navbar.planes}
                 </button>
               </div>
             </div>
@@ -418,13 +397,13 @@ export default function App() {
                     ))}
                   </div>
                   <h3 className="text-white font-black text-lg tracking-tight uppercase leading-tight">
-                    Garantía de satisfacción total
+                    {translations[selectedLang].headings.garantiaSatisfaccion}
                   </h3>
                 </div>
 
                 {/* Texto principal */}
                 <p className="text-gray-200 text-xs md:text-sm font-sans leading-relaxed font-semibold">
-                  Si no quedás conforme con el resultado, realizamos todas las revisiones que sean necesarias sin costo adicional hasta que el proyecto sea exactamente lo que necesitás. Tu satisfacción es nuestra prioridad.
+                  {translations[selectedLang].headings.garantiaTexto}
                 </p>
 
                 {/* Separador */}
@@ -432,14 +411,14 @@ export default function App() {
 
                 {/* Texto secundario */}
                 <p className="text-white text-[11px] md:text-xs font-sans leading-relaxed">
-                  Analizamos tu idea y qué tipo de sitio se adapta mejor a tu negocio: landing page, multipágina o e-commerce.
+                  {translations[selectedLang].headings.analisisIdea}
                 </p>
 
                 {/* Botones */}
                 <div className="w-full flex justify-center mt-2 px-1">
                   <button
                     onClick={() => {
-                       window.open("https://wa.me/5492664372384?text=Hola!%20Me%20gustar%C3%ADa%20solicitar%20la%20consulta%20gratuita%20por%20WhatsApp.", "_blank");
+                       window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.consultaGratuita)}`, "_blank");
                     }}
                     className="w-full bg-[#1FAF38] text-white font-extrabold py-3.5 px-6 rounded-full hover:bg-[#179530] active:scale-95 transition-all text-xs tracking-wider uppercase text-center cursor-pointer shadow-[0_4px_25px_rgba(31,175,56,0.25)] flex items-center justify-center gap-2"
                   >
@@ -450,7 +429,7 @@ export default function App() {
                     >
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.709 1.458h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
-                    CONSULTA GRATUITA
+                    {translations[selectedLang].headings.consultaGratuita}
                   </button>
                 </div>
               </div>
@@ -466,23 +445,22 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
             <Layers className="w-3.5 h-3.5" />
-            SOBRE AURORA
+            {translations[selectedLang].headings.quienesSomos}
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-6 leading-[1.05]">
             <span className="relative inline-block pb-3">
-              ¿Quiénes somos?
+              {translations[selectedLang].headings.seccionQuienesSomos}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
             </span>
           </h2>
           <p className="text-xs sm:text-sm text-white font-sans max-w-2xl mx-auto mb-4 leading-relaxed font-semibold">
-            Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras.{" "}
-            Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.
+            {translations[selectedLang].headings.descripcionSobre}
           </p>
         </div>
 
         {/* Las tres tarjetas debajo de ¿Quiénes somos? (Banderas en orden México - Izquierda, Argentina - Centro, Ecuador - Derecha) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-10">
-          {INDUSTRIES_DATA.map((ind, idx) => {
+          {translations[selectedLang].industries.map((ind, idx) => {
             return (
               <div 
                 key={idx}
@@ -493,7 +471,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
                   <img
                     src={ind.image}
-                    alt={`Servicios de diseño web profesional en ${ind.category} - Aurora Services`}
+                    alt={`${ind.title} - ${translations[selectedLang].headings.nuestroPortafolio}`}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
                   />
@@ -509,34 +487,14 @@ export default function App() {
 
                 {/* Superposición de texto inferior */}
                 <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black via-black/95 to-transparent z-20">
-                  {idx === 0 ? (
                     <div className="text-left py-2">
                       <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
-                        En México trabajamos con clientes locales e internacionales para desarrollar sitios web y soluciones digitales que reflejan la identidad de cada marca, con el mismo nivel de calidad, atención personalizada y excelencia técnica que ofrecemos en todos nuestros proyectos.
+                        {ind.description}
                       </p>
                       <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
-                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Ciudad de México</span> y <span className="font-extrabold text-[#9D7BFF]">Monterrey</span>.
+                        {ind.cities}
                       </p>
                     </div>
-                  ) : idx === 1 ? (
-                    <div className="text-left py-2">
-                      <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
-                        En Argentina desarrollamos sitios web y soluciones digitales para empresas de todo tipo, acompañando cada proyecto con el mismo nivel de calidad, atención personalizada y compromiso técnico que caracteriza a Aurora Services.
-                      </p>
-                      <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
-                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Buenos Aires</span> y <span className="font-extrabold text-[#9D7BFF]">Córdoba</span>.
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="text-left py-2">
-                      <p className="text-white text-xs sm:text-[13px] leading-relaxed mb-4 font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)]">
-                        En Ecuador acompañamos a empresas y emprendedores en el desarrollo de sitios web y soluciones digitales pensadas para destacar su marca y conectar con su audiencia, con el mismo cuidado en el diseño, la funcionalidad y el acompañamiento post‑entrega que Aurora Services ofrece en todos sus proyectos.
-                      </p>
-                      <p className="text-white text-xs sm:text-[12.5px] leading-relaxed font-sans font-semibold [text-shadow:_0_1px_4px_rgba(0,0,0,0.9)] pt-2 border-t border-white/10">
-                        Estamos presentes en ciudades como <span className="font-extrabold text-[#9D7BFF]">Quito</span> y <span className="font-extrabold text-[#9D7BFF]">Guayaquil</span>.
-                      </p>
-                    </div>
-                  )}
                 </div>
               </div>
             );
@@ -553,11 +511,11 @@ export default function App() {
             <div className="absolute h-96 w-96 rounded-full bg-[#9D7BFF]/5 blur-[120px] -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
             <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
               <Layers className="w-3.5 h-3.5" />
-              SOBRE NUESTROS SERVICIOS
+              {translations[selectedLang].headings.sobreNuestrosServicios}
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.05]">
                <span className="relative inline-block pb-3">
-                 Nuestros Servicios
+                 {translations[selectedLang].headings.nuestrosServicios}
                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
               </span>
             </h2>
@@ -577,11 +535,11 @@ export default function App() {
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  Desarrollo Web
+                  {translations[selectedLang].services.web.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Creamos sitios web modernos, rápidos y completamente responsivos para todos los dispositivos. Una arquitectura robusta pensada para atraer clientes, mejorar la conversión y garantizar un rendimiento estable en el tiempo.
+                {translations[selectedLang].services.web.desc}
               </p>
             </div>
  
@@ -596,11 +554,11 @@ export default function App() {
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  Diseño Visual
+                  {translations[selectedLang].services.design.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Diseñamos experiencias visuales estratégicas que comunican la identidad de tu marca. Usamos un enfoque minimalista y premium para generar confianza, profesionalismo y reconocimiento inmediato.
+                {translations[selectedLang].services.design.desc}
               </p>
             </div>
  
@@ -615,11 +573,11 @@ export default function App() {
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans tracking-tight underline decoration-[#9D7BFF] decoration-2 underline-offset-4">
-                  Soporte
+                  {translations[selectedLang].services.support.title}
                 </h3>
               </div>
               <p className="text-xs sm:text-sm text-white font-sans leading-relaxed font-semibold">
-                Tu sitio web necesita mantenimiento continuo. Ofrecemos actualizaciones de seguridad, seguimiento de rendimiento y soporte técnico especializado para asegurar una presencia digital estable, segura y siempre operativa.
+                {translations[selectedLang].services.support.desc}
               </p>
             </div>
  
@@ -634,16 +592,16 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
             <Layers className="w-3.5 h-3.5" />
-            SOBRE NUESTRO PROCESO
+            {translations[selectedLang].headings.sobreNuestroProceso}
           </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-[#1A1A1A]">
             <span className="relative inline-block pb-3">
-              Nuestro Proceso
+                {translations[selectedLang].headings.nuestroProceso}
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
             </span>
           </h2>
           <p className="text-xs sm:text-sm text-[#444444] font-sans max-w-2xl mx-auto leading-relaxed">
-            Nuestro proceso está pensado para acompañarte desde la concepción del proyecto hasta la entrega y más allá. Diseñamos y desarrollamos tu sitio web de forma ordenada, con tiempos estimados transparentes, revisiones colaborativas y un acompañamiento constante antes y después del lanzamiento, para que siempre te sientas seguro y en control de tu proyecto digital.
+            {translations[selectedLang].headings.textoProceso}
           </p>
         </div>
 
@@ -666,9 +624,9 @@ export default function App() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Desarrollo</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">{translations[selectedLang].headings.desarrollo.split(": ")[0]}</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Diseñamos y desarrollamos tu sitio con profesionalismo.
+                    {translations[selectedLang].headings.desarrollo.split(": ")[1]}
                   </p>
                 </div>
               </div>
@@ -678,17 +636,15 @@ export default function App() {
                 <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
                   <img
                     src="https://img.icons8.com/?size=100&id=43666&format=png&color=000000"
-                    alt="Tiempos"
+                    alt={translations[selectedLang].headings.tiemposTitle}
                     referrerPolicy="no-referrer"
                     className="w-6 h-6 object-contain"
                   />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Tiempos</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">{translations[selectedLang].headings.tiemposTitle}</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Landing page: aproximadamente 7 días.<br />
-                    Sitio multipágina: aproximadamente 10 días.<br />
-                    Tienda / E‑commerce: tiempos según complejidad e integraciones.
+                    {translations[selectedLang].headings.tiempos.split(". ").map((s, i) => s.trim() && <span key={i}>{s}.<br /></span>)}
                   </p>
                 </div>
               </div>
@@ -704,9 +660,9 @@ export default function App() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Revisión</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">{translations[selectedLang].headings.revision.split(": ")[0]}</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Revisamos juntos cada detalle e imagen hasta que estés conforme.
+                    {translations[selectedLang].headings.revision.split(": ")[1]}
                   </p>
                 </div>
               </div>
@@ -716,15 +672,15 @@ export default function App() {
                 <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
                   <img
                     src="https://img.icons8.com/?size=100&id=69463&format=png&color=000000"
-                    alt="Entrega"
+                    alt={translations[selectedLang].headings.entrega.split(": ")[0]}
                     referrerPolicy="no-referrer"
                     className="w-6 h-6 object-contain"
                   />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Entrega</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">{translations[selectedLang].headings.entrega.split(": ")[0]}</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Una vez aprobado, publicamos tu sitio para todo el mundo.
+                    {translations[selectedLang].headings.entrega.split(": ")[1]}
                   </p>
                 </div>
               </div>
@@ -734,15 +690,15 @@ export default function App() {
                 <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
                   <img
                     src="https://img.icons8.com/?size=100&id=44804&format=png&color=000000"
-                    alt="Soporte personalizado y hosting para tu sitio web"
+                    alt={translations[selectedLang].headings.soporte.split(": ")[0]}
                     referrerPolicy="no-referrer"
                     className="w-6 h-6 object-contain"
                   />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">Soporte</h4>
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-800 font-sans tracking-tight">{translations[selectedLang].headings.soporte.split(": ")[0]}</h4>
                   <p className="text-xs sm:text-sm font-sans text-zinc-600 leading-relaxed mt-0.5">
-                    Estamos disponibles para ayudarte ante cualquier duda post‑entrega.
+                    {translations[selectedLang].headings.soporte.split(": ")[1]}
                   </p>
                 </div>
               </div>
@@ -778,57 +734,24 @@ export default function App() {
               
               <div className="text-center w-full mb-5">
                 <h3 className="text-3xl font-extrabold tracking-tighter text-black leading-tight relative inline-block pb-2">
-                  Material Necesario
+                  {translations[selectedLang].headings.materialTitulo}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
                 </h3>
               </div>
 
               <div className="space-y-3.5 mt-2">
-                {[
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=43604&format=png&color=000000",
-                    text: "Fotos profesionales",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=49436&format=png&color=000000",
-                    text: "Logo en buena calidad",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=ndJssbHAnr7w&format=png&color=000000",
-                    text: "Textos e información",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000",
-                    text: "Colores y estilo",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=44048&format=png&color=000000",
-                    text: "Redes sociales",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=43677&format=png&color=000000",
-                    text: "WhatsApp",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=43622&format=png&color=000000",
-                    text: "Dirección o ubicación",
-                  },
-                  {
-                    icon: "https://img.icons8.com/?size=100&id=XBJfETMfZHpS&format=png&color=000000",
-                    text: "¡Y tu idea!",
-                  },
-                ].map((item, index) => (
+                {translations[selectedLang].material.items.map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="p-1.5 bg-[#9D7BFF]/10 rounded-lg shrink-0">
                       <img
                         src={item.icon}
-                        alt={item.text}
+                        alt={item.name}
                         referrerPolicy="no-referrer"
                         className="w-5 h-5 object-contain"
                       />
                     </div>
                     <span className="text-sm font-sans font-medium text-zinc-600">
-                      {item.text}
+                      {item.name}
                     </span>
                   </div>
                 ))}
@@ -852,11 +775,11 @@ export default function App() {
             <div className="flex-1 text-center">
               <div className="inline-flex items-center gap-2 bg-[#9D7BFF]/10 text-[#9D7BFF] px-3.5 py-1.5 rounded-full text-xs font-mono uppercase font-bold mb-4">
                 <Layers className="w-3.5 h-3.5" />
-                NUESTRO PORTAFOLIO
+                {translations[selectedLang].headings.nuestroPortafolio}
               </div>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-[1.05] mb-6 text-white text-center">
                 <span className="relative inline-block pb-3">
-                  Portafolio
+                  {translations[selectedLang].headings.portafolio}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#9D7BFF] rounded-full" />
                 </span>
               </h2>
@@ -918,7 +841,7 @@ export default function App() {
                   onClick={() => setIsProject1Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>Abrir proyecto</span>
+                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -985,7 +908,7 @@ export default function App() {
                   onClick={() => setIsProject2Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>Abrir proyecto</span>
+                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1044,7 +967,7 @@ export default function App() {
                   onClick={() => setIsProject3Open(true)}
                   className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>Abrir proyecto</span>
+                  <span>{translations[selectedLang].planes.abrirProyecto}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -1055,12 +978,12 @@ export default function App() {
           <div className="text-center w-full mt-14 pb-10 flex flex-col items-center justify-center">
             <div className="inline-block relative pb-3 mb-5">
               <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tighter text-[#ffffff] block leading-tight">
-                Proyectos que impulsan marcas
+                {translations[selectedLang].headings.proyectosTitulo}
               </span>
               <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9D7BFF] mx-auto" />
             </div>
             <div className="text-lg sm:text-xl md:text-2xl font-bold text-[#ffffff] tracking-tight">
-              Landing Page – Multipágina – E‑Commerce
+              {translations[selectedLang].headings.proyectosSubtitulo}
             </div>
           </div>
 
@@ -1074,12 +997,12 @@ export default function App() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
             <div className="inline-block relative pb-3 mb-5">
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
-                Nuestros Planes
+                {translations[selectedLang].planes.titulo}
               </h2>
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[1.5px] bg-[#9D7BFF]" />
             </div>
             <p className="text-[#1A1A1A] text-sm font-sans font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-center">
-              Contamos con diferentes planes adaptados a tus necesidades: desde proyectos simples hasta sitios completos, pasando por tiendas online y páginas corporativas con integraciones avanzadas y soporte continuo.
+              {translations[selectedLang].planes.descripcion}
             </p>
           </div>
 
@@ -1089,19 +1012,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Landing Page</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.landing.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center">
                     <span className="text-sm font-extrabold text-black block font-sans">
-                      Desde $150.000 ARS / $110 USD
+                      {translations[selectedLang].planes.desde} $150.000 ARS / $110 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block font-sans">
-                      Mantenimiento: $50.000 ARS/mes / $35 USD/mes
+                      {translations[selectedLang].planes.mantenimiento}: $50.000 ARS/{translations[selectedLang].planes.mes} / $35 USD/{translations[selectedLang].planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    Plan ideal para quienes necesitan una landing page rápida, clara y enfocada en una sola acción: contactar, vender o generar leads.
+                    {translations[selectedLang].planes.landing.descripcion}
                   </p>
                 </div>
 
@@ -1116,16 +1039,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {[
-                          "Diseño personalizado exclusivo",
-                          "Adaptada a celular y tablet",
-                          "Formulario de contacto",
-                          "Integración directa con WhatsApp",
-                          "Galería de imágenes optimizada",
-                          "Integración de redes sociales",
-                          "Ubicación en Google Maps",
-                          "Hasta 7 secciones de contenido"
-                        ].map((item, idx) => (
+                        {translations[selectedLang].planes.landing.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1138,11 +1052,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Landing%20Page%20personalizado", "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planLanding)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        Contratar plan
+                        {translations[selectedLang].planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1156,7 +1070,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isLandingPageDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
+                {isLandingPageDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
               </button>
             </div>
 
@@ -1164,19 +1078,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Multipágina</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.multipagina.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      Desde $250.000 ARS / $180 USD
+                      {translations[selectedLang].planes.desde} $250.000 ARS / $180 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      Mantenimiento: $90.000 ARS/mes / $65 USD/mes
+                      {translations[selectedLang].planes.mantenimiento}: $90.000 ARS/{translations[selectedLang].planes.mes} / $65 USD/{translations[selectedLang].planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    Ideal para marcas que necesitan una web con múltiples páginas claras, pensadas para informar, vender y generar confianza.
+                    {translations[selectedLang].planes.multipagina.descripcion}
                   </p>
                 </div>
 
@@ -1191,18 +1105,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {[
-                          "Arquitectura de múltiples páginas",
-                          "Diseño personalizado de alta gama",
-                          "Adaptabilidad total (responsive)",
-                          "Formulario de contacto profesional",
-                          "Botón de WhatsApp flotante",
-                          "Gestión de contenidos SEO",
-                          "Integración de mapas interactivos",
-                          "Múltiples secciones",
-                          "Menú de navegación completo",
-                          "Hasta 15 secciones distribuidas"
-                        ].map((item, idx) => (
+                        {translations[selectedLang].planes.multipagina.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1215,11 +1118,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Multip%C3%A1gina%20personalizado", "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planMultipagina)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        Contratar plan
+                        {translations[selectedLang].planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1233,7 +1136,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isMultipaginaDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
+                {isMultipaginaDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
               </button>
             </div>
 
@@ -1241,19 +1144,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">E‑Commerce</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.ecommerce.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      Desde $700.000 ARS / $500 USD
+                      {translations[selectedLang].planes.desde} $700.000 ARS / $500 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      Mantenimiento: desde $150.000 ARS/mes / $105 USD/mes
+                      {translations[selectedLang].planes.mantenimiento}: {translations[selectedLang].planes.desde.toLowerCase()} $150.000 ARS/{translations[selectedLang].planes.mes} / $105 USD/{translations[selectedLang].planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    Ideal para quienes quieren una tienda online potente, con catálogo, carrito de compras y pasarela de pago integrada, pensada para escalar y vender con solidez.
+                    {translations[selectedLang].planes.ecommerce.descripcion}
                   </p>
                 </div>
 
@@ -1268,20 +1171,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {[
-                          "Catálogo de productos dinámico",
-                          "Carrito de compras integrado",
-                          "Pasarela de pago MercadoPago",
-                          "Gestión de ventas y pedidos",
-                          "Panel de administración de productos",
-                          "Carga inicial de productos",
-                          "Categorías y filtros de productos",
-                          "Página individual por producto",
-                          "Control de stock básico",
-                          "Integración directa con WhatsApp",
-                          "Diseño responsive para celular y tablet",
-                          "Optimización visual del catálogo"
-                        ].map((item, idx) => (
+                        {translations[selectedLang].planes.ecommerce.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1294,11 +1184,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20E-Commerce%20personalizado", "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planEcommerce)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        Contratar plan
+                        {translations[selectedLang].planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1312,7 +1202,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isEcommerceDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
+                {isEcommerceDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
               </button>
             </div>
 
@@ -1320,19 +1210,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">Personalizado</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.personalizado.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      Desde $480.000 ARS / $340 USD
+                      {translations[selectedLang].planes.desde} $480.000 ARS / $340 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      Mantenimiento desde $130.000 ARS / $92 USD
+                      {translations[selectedLang].planes.mantenimiento} {translations[selectedLang].planes.desde.toLowerCase()} $130.000 ARS/{translations[selectedLang].planes.mes} / $92 USD/{translations[selectedLang].planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    Soluciones digitales a medida para tu negocio: gestor de tareas y sistema de gestión de stock e inventario, pensados para optimizar tu operación diaria.
+                    {translations[selectedLang].planes.personalizado.descripcion}
                   </p>
                 </div>
 
@@ -1349,24 +1239,19 @@ export default function App() {
                       {/* Plan: Gestión de tareas */}
                       <div className="border border-black/5 bg-black/5 rounded-2xl p-4">
                         <h5 className="text-xs font-bold text-black font-sans flex items-center gap-1.5 mb-1 text-left">
-                          <span className="text-xs">🔹</span> Plan: Gestión de tareas
+                          <span className="text-xs">🔹</span> {translations[selectedLang].planes.personalizado.gestionTareas.titulo}
                         </h5>
                         <div className="mb-3 space-y-0.5 font-sans text-left">
                           <span className="text-xs font-extrabold text-black block">
-                            Desde $480.000 ARS / $340 USD
+                            {translations[selectedLang].planes.desde} $480.000 ARS / $340 USD
                           </span>
                           <span className="text-[10px] font-semibold text-gray-700 block">
-                            Mantenimiento: desde $130.000 ARS / $92 USD
+                            {translations[selectedLang].planes.mantenimiento}: {translations[selectedLang].planes.desde.toLowerCase()} $130.000 ARS/{translations[selectedLang].planes.mes} / $92 USD/{translations[selectedLang].planes.mes}
                           </span>
                         </div>
                         
                         <ul className="space-y-2 mb-4">
-                          {[
-                            "Panel interactivo",
-                            "Integración con Airtable / Notion",
-                            "Gestión de equipos y proyectos",
-                            "Control de flujos y estados de avance"
-                          ].map((item, idx) => (
+                          {translations[selectedLang].planes.personalizado.gestionTareas.features.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-[11px] text-black font-sans font-medium leading-tight">
                               <span className="flex-shrink-0 mt-0.5 w-3.5 h-3.5 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                                 <Check className="w-2 h-2 stroke-[3]" />
@@ -1379,36 +1264,30 @@ export default function App() {
                         <button
                           type="button"
                           onClick={() => {
-                            window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Gesti%C3%B3n%20de%20tareas%20del%20Plan%20Personalizado", "_blank");
+                            window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planGestion)}`, "_blank");
                           }}
                           className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
                         >
-                          Contratar plan
+                          {translations[selectedLang].planes.contratar}
                         </button>
                       </div>
 
                       {/* Plan: Stock e inventario */}
                       <div className="border border-black/5 bg-black/5 rounded-2xl p-4">
                         <h5 className="text-xs font-bold text-black font-sans flex items-center gap-1.5 mb-1 text-left">
-                          <span className="text-xs">🔹</span> Plan: Stock e inventario
+                          <span className="text-xs">🔹</span> {translations[selectedLang].planes.personalizado.stockInventario.titulo}
                         </h5>
                         <div className="mb-3 space-y-0.5 font-sans text-left">
                           <span className="text-xs font-extrabold text-black block">
-                            Desde $500.000 ARS / $355 USD
+                            {translations[selectedLang].planes.desde} $500.000 ARS / $355 USD
                           </span>
                           <span className="text-[10px] font-semibold text-gray-700 block">
-                            Mantenimiento: desde $130.000 ARS / $92 USD
+                            {translations[selectedLang].planes.mantenimiento}: {translations[selectedLang].planes.desde.toLowerCase()} $130.000 ARS/{translations[selectedLang].planes.mes} / $92 USD/{translations[selectedLang].planes.mes}
                           </span>
                         </div>
 
                         <ul className="space-y-2 mb-4">
-                          {[
-                            "Control en tiempo real de productos",
-                            "Integración con Google Sheets",
-                            "Registro de entradas y salidas",
-                            "Alertas automáticas de stock bajo",
-                            "Gestión de categorías y movimientos"
-                          ].map((item, idx) => (
+                          {translations[selectedLang].planes.personalizado.stockInventario.features.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-[11px] text-black font-sans font-medium leading-tight">
                               <span className="flex-shrink-0 mt-0.5 w-3.5 h-3.5 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                                 <Check className="w-2 h-2 stroke-[3]" />
@@ -1421,11 +1300,11 @@ export default function App() {
                         <button
                           type="button"
                           onClick={() => {
-                            window.open("https://wa.me/5492664372384?text=Hola!%20Me%20interesa%20el%20Plan%20Stock%20e%20inventario%20del%20Plan%20Personalizado", "_blank");
+                            window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planStock)}`, "_blank");
                           }}
                           className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2 px-3 rounded-full text-[11px] transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center"
                         >
-                          Contratar plan
+                          {translations[selectedLang].planes.contratar}
                         </button>
                       </div>
                     </motion.div>
@@ -1440,7 +1319,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isPersonalizadoDetailsOpen ? "Ocultar detalles" : "Ver detalles"}
+                {isPersonalizadoDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
               </button>
             </div>
 
@@ -1459,12 +1338,12 @@ export default function App() {
               <div>
                 <div className="inline-block relative pb-3 mb-4">
                   <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
-                    Contáctanos
+                    {translations[selectedLang].headings.contacto}
                   </h2>
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
                 </div>
                 <p className="text-gray-800 text-sm font-sans font-medium leading-relaxed">
-                  Queremos ayudarte a materializar tu proyecto digital. Escríbenos y te responderemos a la brevedad.
+                  {translations[selectedLang].headings.contactoDesc}
                 </p>
               </div>
 
@@ -1475,7 +1354,7 @@ export default function App() {
                     WhatsApp:
                   </span>
                   <a
-                    href="https://wa.me/5492664372384?text=Hola!%20Me%20gustar%C3%ADa%20hacerles%20una%20consulta."
+                    href={`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.consulta)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
@@ -1529,42 +1408,13 @@ export default function App() {
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-block relative pb-3 mb-4">
                 <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
-                  Preguntas frecuentes
+                  {translations[selectedLang].headings.faq}
                 </h2>
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
               </div>
 
               <div className="space-y-4">
-                {[
-                  {
-                    q: "¿Cómo se realiza el pago?",
-                    a: "Aceptamos transferencias bancarias y otros medios de pago acordados al inicio del proyecto."
-                  },
-                  {
-                    q: "¿Cuánto tiempo tarda en estar lista mi página?",
-                    a: "Depende de la complejidad del proyecto.\nUna Landing Page suele estar lista en aproximadamente 7 días.\nUna Multipágina suele estar lista en alrededor de 10 días."
-                  },
-                  {
-                    q: "¿Cuántas revisiones incluye el proyecto?",
-                    a: "Incluimos varias instancias de revisión durante el desarrollo para asegurar que el resultado final cumpla con tus expectativas."
-                  },
-                  {
-                    q: "¿Qué pasa si no me gusta el resultado?",
-                    a: "Trabajamos mediante revisiones constantes a lo largo del proceso, adaptando el proyecto a tus comentarios en cada paso, para que el resultado final sea el que esperás."
-                  },
-                  {
-                    q: "¿Necesito tener hosting y dominio propios?",
-                    a: "No es necesario.\nAl crear tu página, el alojamiento (hosting) y dominio están incluidos durante el primer año y continúan incluidos con el mantenimiento mensual."
-                  },
-                  {
-                    q: "¿Puedo pedir cambios después de la entrega?",
-                    a: "Sí. A través de nuestro servicio de mantenimiento mensual puedes solicitar cambios, actualizaciones de contenido y mejoras en tu sitio."
-                  },
-                  {
-                    q: "¿Trabajan con clientes de otros países?",
-                    a: "¡Claro! Trabajamos con clientes de todo el mundo de forma remota, manteniendo una comunicación clara y constante para asegurar que cada proyecto avance según lo planeado."
-                  }
-                ].map((item, index) => {
+                {translations[selectedLang].faq.map((item, index) => {
                   const isOpen = activeFaqIndex === index;
                   return (
                     <div 
