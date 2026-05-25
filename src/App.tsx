@@ -1742,7 +1742,7 @@ export default function App() {
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
                   <h5 className="text-lg font-extrabold text-zinc-900 mb-2">Recorrido finalizado</h5>
-                  <p className="text-xs text-zinc-500 max-w-md mx-auto leading-relaxed mb-6">
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
                     Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
@@ -1879,7 +1879,7 @@ export default function App() {
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
                   <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
-                  <p className="text-xs text-zinc-550 max-w-md mx-auto leading-relaxed mb-6">
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
                     Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
@@ -2006,7 +2006,7 @@ export default function App() {
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
                   <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
-                  <p className="text-xs text-zinc-550 max-w-md mx-auto leading-relaxed mb-6">
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
                     Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
