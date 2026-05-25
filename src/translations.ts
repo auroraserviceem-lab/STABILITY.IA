@@ -435,7 +435,7 @@ export const translations = {
         { name: "Professional photos", icon: "https://img.icons8.com/?size=100&id=43604&format=png&color=000000" },
         { name: "Logo in good quality", icon: "https://img.icons8.com/?size=100&id=49436&format=png&color=000000" },
         { name: "Texts and information", icon: "https://img.icons8.com/?size=100&id=ndJssbHAnr7w&format=png&color=000000" },
-        { name: "Colores y estilo", icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000" },
+        { name: "Colors and Style", icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000" },
         { name: "Social media", icon: "https://img.icons8.com/?size=100&id=44048&format=png&color=000000" },
         { name: "WhatsApp", icon: "https://img.icons8.com/?size=100&id=43677&format=png&color=000000" },
         { name: "Address or location", icon: "https://img.icons8.com/?size=100&id=43622&format=png&color=000000" },
