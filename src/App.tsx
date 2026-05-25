@@ -97,7 +97,8 @@ export default function App() {
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
 
   const [selectedLang, setSelectedLang] = useState<"es" | "en">(() => (localStorage.getItem("lang") as "es" | "en") || "es");
-  const ROTATING_WORDS = translations[selectedLang].headings.rotatingWords;
+  const t = translations[selectedLang];
+  const ROTATING_WORDS = t.headings.rotatingWords;
   const [wordIndex, setWordIndex] = useState(0);
   const selectedBrandModel = BRANDS_MODELS[wordIndex % BRANDS_MODELS.length];
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -792,46 +793,31 @@ export default function App() {
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
               {/* Contenedor scrolleable interno con las imágenes ordenadas y textos */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
-                {[
-                  {
-                    title: "Inicio",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png"
-                  },
-                  {
-                    title: "Información del gimnasio",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png"
-                  },
-                  {
-                    title: "Nuestros planes",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png"
-                  },
-                  {
-                    title: "Galería de fotos",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png"
-                  },
-                  {
-                    title: "Nuestros profesores",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png"
-                  },
-                  {
-                    title: "Contáctanos",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png"
-                  }
-                ].map((sec, idx) => (
-                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
-                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
-                      <img 
-                        src={sec.img} 
-                        alt={`${sec.title} - Portafolio de Diseño Web Profesional de Gimnasio`} 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
-                      />
+                {t.portfolio.projects.gym.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx]} 
+                          alt={`${sec.label} - Portafolio de Diseño Web Profesional`} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
                     </div>
-                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
-                      {sec.title}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
@@ -851,54 +837,33 @@ export default function App() {
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
               {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Odontología */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
-                {[
-                  {
-                    title: "Inicio",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png"
-                  },
-                  {
-                    title: "Sobre la dentista",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png"
-                  },
-                  {
-                    title: "Tratamientos",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png"
-                  },
-                  {
-                    title: "Todos los tratamientos",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png"
-                  },
-                  {
-                    title: "Consultorio",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png"
-                  },
-                  {
-                    title: "Galería de imágenes",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png"
-                  },
-                  {
-                    title: "Agendá tu turno",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png"
-                  },
-                  {
-                    title: "Área de contacto",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png"
-                  }
-                ].map((sec, idx) => (
-                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
-                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
-                      <img 
-                        src={sec.img} 
-                        alt={`${sec.title} - Desarrollo de Sitio Web Multipágina de Odontología`} 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
-                      />
+                {t.portfolio.projects.dentistry.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx]} 
+                          alt={`${sec.label} - Desarrollo de Sitio Web Profesional`} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
                     </div>
-                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
-                      {sec.title}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
@@ -918,46 +883,31 @@ export default function App() {
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
               {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Keito */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
-                {[
-                  {
-                    title: "Inicio",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png"
-                  },
-                  {
-                    title: "Novedades",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png"
-                  },
-                  {
-                    title: "Catálogo completo",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png"
-                  },
-                  {
-                    title: "Síguenos en redes sociales",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png"
-                  },
-                  {
-                    title: "Medios de pago y más",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png"
-                  },
-                  {
-                    title: "Área de contacto",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png"
-                  }
-                ].map((sec, idx) => (
-                  <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
-                    <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
-                      <img 
-                        src={sec.img} 
-                        alt={`${sec.title} - Plataforma de E-Commerce para Tienda Online`} 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
-                      />
+                {t.portfolio.projects.ecommerce.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx]} 
+                          alt={`${sec.label} - Plataforma de E-Commerce`} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
                     </div>
-                    <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
-                      {sec.title}
-                    </span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
@@ -997,13 +947,13 @@ export default function App() {
           <div className="text-center max-w-3xl mx-auto mb-16 flex flex-col items-center">
             <div className="inline-block relative pb-3 mb-5">
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
-                {translations[selectedLang].planes.titulo}
+                {t.planes.titulo}
               </h2>
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[1.5px] bg-[#9D7BFF]" />
-            </div>
-            <p className="text-[#1A1A1A] text-sm font-sans font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-center">
-              {translations[selectedLang].planes.descripcion}
-            </p>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[1.5px] bg-[#9D7BFF]" />
+              </div>
+              <p className="text-[#1A1A1A] text-sm font-sans font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-center">
+                {t.planes.descripcion}
+              </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -1012,19 +962,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.landing.titulo}</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{t.planes.landing.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center">
                     <span className="text-sm font-extrabold text-black block font-sans">
-                      {translations[selectedLang].planes.desde} $150.000 ARS / $110 USD
+                      {t.planes.desde} $150.000 ARS / $110 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block font-sans">
-                      {translations[selectedLang].planes.mantenimiento}: $50.000 ARS/{translations[selectedLang].planes.mes} / $35 USD/{translations[selectedLang].planes.mes}
+                      {t.planes.mantenimiento}: $50.000 ARS/{t.planes.mes} / $35 USD/{t.planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    {translations[selectedLang].planes.landing.descripcion}
+                    {t.planes.landing.descripcion}
                   </p>
                 </div>
 
@@ -1039,7 +989,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {translations[selectedLang].planes.landing.features.map((item, idx) => (
+                        {t.planes.landing.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1052,11 +1002,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planLanding)}`, "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(t.whatsapp.planLanding)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        {translations[selectedLang].planes.contratar}
+                        {t.planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1070,7 +1020,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isLandingPageDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
+                {isLandingPageDetailsOpen ? t.planes.ocultarDetalles : t.planes.verDetalles}
               </button>
             </div>
 
@@ -1078,19 +1028,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.multipagina.titulo}</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{t.planes.multipagina.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      {translations[selectedLang].planes.desde} $250.000 ARS / $180 USD
+                      {t.planes.desde} $250.000 ARS / $180 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      {translations[selectedLang].planes.mantenimiento}: $90.000 ARS/{translations[selectedLang].planes.mes} / $65 USD/{translations[selectedLang].planes.mes}
+                      {t.planes.mantenimiento}: $90.000 ARS/{t.planes.mes} / $65 USD/{t.planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    {translations[selectedLang].planes.multipagina.descripcion}
+                    {t.planes.multipagina.descripcion}
                   </p>
                 </div>
 
@@ -1105,7 +1055,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {translations[selectedLang].planes.multipagina.features.map((item, idx) => (
+                        {t.planes.multipagina.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1118,11 +1068,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planMultipagina)}`, "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(t.whatsapp.planMultipagina)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        {translations[selectedLang].planes.contratar}
+                        {t.planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1136,7 +1086,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isMultipaginaDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
+                {isMultipaginaDetailsOpen ? t.planes.ocultarDetalles : t.planes.verDetalles}
               </button>
             </div>
 
@@ -1144,19 +1094,19 @@ export default function App() {
             <div className="bg-[#E6E1D8] border border-black/5 hover:border-[#9D7BFF]/35 rounded-[1.8rem] p-8 flex flex-col justify-between min-h-[300px] h-full hover:scale-[1.02] duration-300 transition-all">
               <div className="text-center flex-1 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{translations[selectedLang].planes.ecommerce.titulo}</h4>
+                  <h4 className="text-xl font-bold mb-2 tracking-tight text-black font-sans text-center">{t.planes.ecommerce.titulo}</h4>
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      {translations[selectedLang].planes.desde} $700.000 ARS / $500 USD
+                      {t.planes.desde} $700.000 ARS / $500 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      {translations[selectedLang].planes.mantenimiento}: {translations[selectedLang].planes.desde.toLowerCase()} $150.000 ARS/{translations[selectedLang].planes.mes} / $105 USD/{translations[selectedLang].planes.mes}
+                      {t.planes.mantenimiento}: {t.planes.desde.toLowerCase()} $150.000 ARS/{t.planes.mes} / $105 USD/{t.planes.mes}
                     </span>
                   </div>
 
                   <p className="text-gray-600 text-xs leading-relaxed text-center font-sans">
-                    {translations[selectedLang].planes.ecommerce.descripcion}
+                    {t.planes.ecommerce.descripcion}
                   </p>
                 </div>
 
@@ -1171,7 +1121,7 @@ export default function App() {
                       className="overflow-hidden text-left border-t border-black/10 pt-5 mt-5"
                     >
                       <ul className="space-y-3">
-                        {translations[selectedLang].planes.ecommerce.features.map((item, idx) => (
+                        {t.planes.ecommerce.features.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2.5 text-xs text-black font-sans font-medium leading-tight">
                             <span className="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-[#9D7BFF]/20 text-[#8B66FF] flex items-center justify-center">
                               <Check className="w-2.5 h-2.5 stroke-[3]" />
@@ -1184,11 +1134,11 @@ export default function App() {
                       <button
                         type="button"
                         onClick={() => {
-                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(translations[selectedLang].whatsapp.planEcommerce)}`, "_blank");
+                          window.open(`https://wa.me/5492664372384?text=${encodeURIComponent(t.whatsapp.planEcommerce)}`, "_blank");
                         }}
                         className="w-full bg-black hover:bg-[#8B66FF] text-white font-sans font-bold py-2.5 px-4 rounded-full text-xs mt-6 transition-all hover:scale-[1.03] active:scale-95 cursor-pointer block text-center shadow-md hover:shadow-[#8B66FF]/25"
                       >
-                        {translations[selectedLang].planes.contratar}
+                        {t.planes.contratar}
                       </button>
                     </motion.div>
                   )}
@@ -1202,7 +1152,7 @@ export default function App() {
                 }}
                 className="bg-black text-white hover:bg-[#9D7BFF] hover:text-black font-mono font-bold py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors mt-8 cursor-pointer w-full text-center"
               >
-                {isEcommerceDetailsOpen ? translations[selectedLang].planes.ocultarDetalles : translations[selectedLang].planes.verDetalles}
+                {isEcommerceDetailsOpen ? t.planes.ocultarDetalles : t.planes.verDetalles}
               </button>
             </div>
 
@@ -1214,10 +1164,10 @@ export default function App() {
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      {translations[selectedLang].planes.desde} $480.000 ARS / $340 USD
+                      {t.planes.desde} $480.000 ARS / $340 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      {translations[selectedLang].planes.mantenimiento} {translations[selectedLang].planes.desde.toLowerCase()} $130.000 ARS/{translations[selectedLang].planes.mes} / $92 USD/{translations[selectedLang].planes.mes}
+                      {t.planes.mantenimiento}: {t.planes.desde.toLowerCase()} $130.000 ARS/{t.planes.mes} / $92 USD/{t.planes.mes}
                     </span>
                   </div>
 
@@ -1507,15 +1457,15 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: Landing Page (Gym & Fitness)</h3>
-                    <p className="font-sans text-[11px] text-zinc-500">Presencia digital de alto rendimiento para centros de entrenamiento</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.gym.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.gym.subtitle}</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject1Open(false)}
                   className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
-                  title="Cerrar proyecto"
+                  title={t.portfolio.modal.closeProject}
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -1524,84 +1474,63 @@ export default function App() {
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Presentación Completa</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Estructura Detallada del Proyecto</h4>
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.gym.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.gym.mainDescription}</h4>
                   <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
-                    A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimiazo para la retención del usuario y conversión de leads.
+                    {t.portfolio.projects.gym.mainWalkthrough}
                   </p>
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-16">
-                  {[
-                    {
-                      label: "Inicio",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png",
-                      desc: "Sección de bienvenida con alta carga de impacto visual, llamada a la acción clara (CTA) y propuesta de valor rotunda desde el primer segundo."
-                    },
-                    {
-                      label: "Información del gimnasio",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png",
-                      desc: "Detalle de nuestra visión de entrenamiento personalizado, equipamiento de última tecnología y ambiente diseñado para inspirar superación personal."
-                    },
-                    {
-                      label: "Nuestros planes",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png",
-                      desc: "Cuadros de precios interactivos y transparentes adaptados a cada necesidad, promoviendo suscripciones ágiles e incrementando las ventas."
-                    },
-                    {
-                      label: "Galería de fotos",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png",
-                      desc: "Muestra visual inmersiva de nuestras instalaciones premium y atmósfera vibrante, generando confianza y familiaridad en los futuros miembros."
-                    },
-                    {
-                      label: "Nuestros profesores",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png",
-                      desc: "Presentación del staff de entrenadores altamente calificados, sumando la calidez humana y profesionalismo que nos diferencia."
-                    },
-                    {
-                      label: "Contáctanos",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png",
-                      desc: "Formulario limpio de contacto junto a información de localización y redes para acelerar las consultas inmediatas de prospectos."
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                        <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
-                            {index + 1}
+                  {t.portfolio.projects.gym.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM1_eqtxit.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM3_l64tyb.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM2_klkmbw.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM5_v8qtjt.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM4_b0bml0.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1779253352/GYM6_drvqov.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
-                          Sección {index + 1}
-                        </span>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Aurora Services Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
-                        <img 
-                          src={item.img} 
-                          alt={`${item.label} - Diseño Web Profesional de Gimnasio`} 
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
-                        />
-                      </div>
-                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-zinc-900 mb-2">Recorrido finalizado</h5>
+                  <h5 className="text-lg font-extrabold text-zinc-900 mb-2">{t.portfolio.modal.routeFinished}</h5>
                   <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
-                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
+                    {t.portfolio.modal.routeFinishedDesc}
                   </p>
                   <button
                     onClick={() => setIsProject1Open(false)}
                     className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cerrar</span>
+                    <span>{t.portfolio.modal.close}</span>
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -1634,15 +1563,15 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: Multipágina – Consultorio de odontología</h3>
-                    <p className="font-sans text-[11px] text-zinc-500">Plataforma digital integral para consultorios médicos y profesionales de la salud</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.dentistry.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.dentistry.subtitle}</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject2Open(false)}
                   className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
-                  title="Cerrar proyecto"
+                  title={t.portfolio.modal.closeProject}
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -1651,94 +1580,65 @@ export default function App() {
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Estructura Multipágina</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Multipágina – Consultorio de odontología con galería y formulario de contacto</h4>
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.dentistry.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.dentistry.mainDescription}</h4>
                   <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
-                    Multipágina desarrollada para un consultorio de odontología, con múltiples secciones para presentar a la dentista, describir los tratamientos, mostrar la galería de imágenes del consultorio y facilitar la gestión de turnos y el contacto.
+                    {t.portfolio.projects.dentistry.mainWalkthrough}
                   </p>
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-16">
-                  {[
-                    {
-                      label: "Inicio",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png",
-                      desc: "Página de inicio elegante con presentación del consultorio, mensajes de confianza para los pacientes y accesos directos principales."
-                    },
-                    {
-                      label: "Sobre la dentista",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png",
-                      desc: "Sección de biografía del profesional, su trayectoria académica, certificaciones y el enfoque humano en la atención odontológica."
-                    },
-                    {
-                      label: "Tratamientos",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png",
-                      desc: "Bloque principal con el catálogo descriptivo de servicios destacados de salud bucal, estética dental y ortodoncia."
-                    },
-                    {
-                      label: "Todos los tratamientos",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
-                      desc: "Página dedicada con detalles expandidos de cada tratamiento odontológico, resolviendo todas las dudas de manera clara."
-                    },
-                    {
-                      label: "Consultorio",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png",
-                      desc: "Un recorrido visual interactivo por las instalaciones para transmitir un ambiente seguro, limpio y moderno equipado de última tecnología."
-                    },
-                    {
-                      label: "Galería de imágenes",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
-                      desc: "Galería completa en alta definición de nuestras instalaciones para transmitir tranquilidad y profesionalismo a los futuros pacientes."
-                    },
-                    {
-                      label: "Agendá tu turno",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png",
-                      desc: "Sección especial diseñada para facilitar el autoservicio de reservas y agendamiento de turnos de manera ágil y digital."
-                    },
-                    {
-                      label: "Área de contacto",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png",
-                      desc: "Formulario limpio de contacto, datos de ubicación, teléfono de urgencias y mapa dinámico para la fácil llegada."
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                        <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
-                            {index + 1}
+                  {t.portfolio.projects.dentistry.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513819/1_dmk2am.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/2_odsadm.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_x6dqbi.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/4_nqrmw5.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778519186/7_qjxory.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513818/6_owzwc4.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
-                          Sección {index + 1}
-                        </span>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Aurora Services Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
-                        <img 
-                          src={item.img} 
-                          alt={`${item.label} - Desarrollo de Sitio Web Multipágina de Odontología`} 
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
-                        />
-                      </div>
-                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">{t.portfolio.modal.routeFinished}</h5>
                   <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
-                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
+                    {t.portfolio.modal.routeFinishedDesc}
                   </p>
                   <button
                     onClick={() => setIsProject2Open(false)}
                     className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cerrar</span>
+                    <span>{t.portfolio.modal.close}</span>
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -1771,15 +1671,15 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: E‑Commerce – Keito</h3>
-                    <p className="font-sans text-[11px] text-zinc-500">Tienda de ropa online con experiencia de diseño y compra premium</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.ecommerce.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.ecommerce.subtitle}</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject3Open(false)}
                   className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
-                  title="Cerrar proyecto"
+                  title={t.portfolio.modal.closeProject}
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -1788,84 +1688,63 @@ export default function App() {
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">E‑COMMERCE PRESTIGIO</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">E‑Commerce desarrollado para Keito</h4>
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.ecommerce.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.ecommerce.mainDescription}</h4>
                   <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
-                    E‑Commerce desarrollado para Keito, tienda de ropa online, con carrito de compras, múltiples páginas y soporte para todos los medios de pago, pensado para ofrecer una experiencia de compra completa y segura.
+                    {t.portfolio.projects.ecommerce.mainWalkthrough}
                   </p>
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-16">
-                  {[
-                    {
-                      label: "Inicio",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png",
-                      desc: "Página de inicio diseñada con un fuerte enfoque visual, banner rotativo y accesos directos intuitivos a las últimas tendencias de indumentaria."
-                    },
-                    {
-                      label: "Novedades",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png",
-                      desc: "Sección dedicada a los lanzamientos de temporada y ofertas exclusivas, potenciando las conversiones inmediatas mediante curaduría de tendencias."
-                    },
-                    {
-                      label: "Catálogo completo",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png",
-                      desc: "Estructura de catálogo organizada por categorías con filtros avanzados de talle, color y precio para facilitar la búsqueda idónea del usuario."
-                    },
-                    {
-                      label: "Síguenos en redes sociales",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png",
-                      desc: "Integración estética de feeds sociales y llamados a interactuar en Instagram, consolidando una comunidad activa e incrementando la confianza de marca."
-                    },
-                    {
-                      label: "Medios de pago y más",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png",
-                      desc: "Módulo interactivo detallando las pasarelas de pago integradas, facilidades de financiamiento bancario y políticas seguras de envío y devolución."
-                    },
-                    {
-                      label: "Área de contacto",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png",
-                      desc: "Formulario directo de atención al cliente y soporte post-venta personalizado junto con mapas de retiro físico y canales rápidos de mensajería."
-                    }
-                  ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
-                        <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
-                            {index + 1}
+                  {t.portfolio.projects.ecommerce.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/1_k96xxk.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/2_lvv2zu.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/6_xkyb4d.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/3_wiwzun.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026426/5_xplgy4.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778026427/7_ixmtlh.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
-                          Sección {index + 1}
-                        </span>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Aurora Services Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
-                        <img 
-                          src={item.img} 
-                          alt={`${item.label} - Desarrollo de Plataforma de E-Commerce`} 
-                          referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
-                        />
-                      </div>
-                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
-                        {item.desc}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
                 <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">{t.portfolio.modal.routeFinished}</h5>
                   <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
-                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
+                    {t.portfolio.modal.routeFinishedDesc}
                   </p>
                   <button
                     onClick={() => setIsProject3Open(false)}
                     className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cerrar</span>
+                    <span>{t.portfolio.modal.close}</span>
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>

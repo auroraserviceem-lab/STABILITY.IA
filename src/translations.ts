@@ -106,7 +106,7 @@ export const translations = {
       consultaGratuita: "CONSULTA GRATUITA",
       sobreNuestrosServicios: "SOBRE NUESTROS SERVICIOS",
       sobreNuestroProceso: "SOBRE NUESTRO PROCESO",
-      textoProceso: "Nuestro proceso está pensado para acompañarte desde la concepción del proyecto hasta la entrega y más allá. Diseñamos y desarrollamos tu sitio web de forma ordenada, con tiempos estimados transparentes, revisiones colaborativas y un acompañamiento constante antes y después del lanzamiento, para que siempre te sientas seguro y en control de tu proyecto digital.",
+      textoProceso: "Nuestro proceso está pensado para acompañarte desde la concepción del proyecto hasta la entrega y más allá. Diseñamos y desarrollamos tu sitio web de forma ordenada, con tiempos estimados transparentes, revisiones colaborativas y un acompañamiento constante antes y después del lanzamiento, para que siempre te sientas seguro y con el control de tu proyecto digital.",
       desarrollo: "Desarrollo: Diseñamos y desarrollamos tu sitio web con profesionalismo.",
       tiemposTitle: "Tiempos",
       tiempos: "Landing page: aproximadamente 7 días. Sitio multipágina: aproximadamente 10 días. Tienda / E‑commerce: tiempos según complejidad e integraciones.",
@@ -114,9 +114,70 @@ export const translations = {
       entrega: "Entrega: Una vez aprobado, publicamos tu sitio para todo el mundo.",
       soporte: "Soporte: Estamos disponibles para ayudarte ante cualquier duda post‑entrega.",
       materialTitulo: "Material Necesario",
-      rotatingWords: ["landing page", "multipagina", "e‑commerce"],
+      rotatingWords: ["landing page", "multipágina", "e‑commerce"],
       proyectosTitulo: "Proyectos que impulsan marcas",
       proyectosSubtitulo: "Landing Page – Multipágina – E‑Commerce"
+    },
+    portfolio: {
+      modal: {
+        presentation: "Presentación Completa",
+        structure: "Estructura Detallada del Proyecto",
+        walkthroughDesc: "A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimizado para la retención del usuario y conversión de leads.",
+        section: "Sección",
+        close: "Cerrar",
+        routeFinished: "Recorrido finalizado",
+        routeFinishedDesc: "Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.",
+        closeProject: "Cerrar proyecto"
+      },
+      projects: {
+        gym: {
+          tag: "Presentación Completa",
+          title: "Proyecto: Landing Page (Gym & Fitness)",
+          subtitle: "Presencia digital de alto rendimiento para centros de entrenamiento",
+          mainDescription: "Estructura Detallada del Proyecto",
+          mainWalkthrough: "A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimizado para la retención del usuario y conversión de leads.",
+          sections: [
+            { label: "Inicio", desc: "Sección de bienvenida con alta carga de impacto visual, llamada a la acción clara (CTA) y propuesta de valor rotunda desde el primer segundo." },
+            { label: "Información del gimnasio", desc: "Detalle de nuestra visión de entrenamiento personalizado, equipamiento de última tecnología y ambiente diseñado para inspirar superación personal." },
+            { label: "Nuestros planes", desc: "Cuadros de precios interactivos y transparentes adaptados a cada necesidad, promoviendo suscripciones ágiles e incrementando las ventas." },
+            { label: "Galería de fotos", desc: "Muestra visual inmersiva de nuestras instalaciones premium y atmósfera vibrante, generando confianza y familiaridad en los futuros miembros." },
+            { label: "Nuestros profesores", desc: "Presentación del staff de entrenadores altamente calificados, sumando la calidez humana y profesionalismo que nos diferencia." },
+            { label: "Contáctanos", desc: "Formulario limpio de contacto junto a información de localización y redes para acelerar las consultas inmediatas de prospectos." }
+          ]
+        },
+        dentistry: {
+          tag: "Estructura Multipágina",
+          title: "Proyecto: Multipágina – Consultorio de odontología",
+          subtitle: "Plataforma digital integral para consultorios médicos y profesionales de la salud",
+          mainDescription: "Multipágina – Consultorio de odontología con galería y formulario de contacto",
+          mainWalkthrough: "Multipágina desarrollada para un consultorio de odontología, con múltiples secciones para presentar a la dentista, describir los tratamientos, mostrar la galería de imágenes del consultorio y facilitar la gestión de turnos y el contacto.",
+          sections: [
+            { label: "Inicio", desc: "Página de inicio elegante con presentación del consultorio, mensajes de confianza para los pacientes y accesos directos principales." },
+            { label: "Sobre la dentista", desc: "Sección de biografía del profesional, su trayectoria académica, certificaciones y el enfoque humano en la atención odontológica." },
+            { label: "Tratamientos", desc: "Bloque principal con el catálogo descriptivo de servicios destacados de salud bucal, estética dental y ortodoncia." },
+            { label: "Todos los tratamientos", desc: "Página dedicada con detalles expandidos de cada tratamiento odontológico, resolviendo todas las dudas de manera clara." },
+            { label: "Consultorio", desc: "Un recorrido visual interactivo por las instalaciones para transmitir un ambiente seguro, limpio y moderno equipado de última tecnología." },
+            { label: "Galería de imágenes", desc: "Galería completa en alta definición de nuestras instalaciones para transmitir tranquilidad y profesionalismo a los futuros pacientes." },
+            { label: "Agendá tu turno", desc: "Sección especial diseñada para facilitar el autoservicio de reservas y agendamiento de turnos de manera ágil y digital." },
+            { label: "Área de contacto", desc: "Formulario limpio de contacto, datos de ubicación, teléfono de urgencias y mapa dinámico para la fácil llegada." }
+          ]
+        },
+        ecommerce: {
+          tag: "E‑COMMERCE PRESTIGIO",
+          title: "Proyecto: E‑Commerce – Keito",
+          subtitle: "Tienda de ropa online con experiencia de diseño y compra premium",
+          mainDescription: "E‑Commerce desarrollado para Keito",
+          mainWalkthrough: "E‑Commerce desarrollado para Keito, tienda de ropa online, con carrito de compras, múltiples páginas y soporte para todos los medios de pago, pensado para ofrecer una experiencia de compra completa y segura.",
+          sections: [
+            { label: "Inicio", desc: "Página de inicio diseñada con un fuerte enfoque visual, banner rotativo y accesos directos intuitivos a las últimas tendencias de indumentaria." },
+            { label: "Novedades", desc: "Sección dedicada a los lanzamientos de temporada y ofertas exclusivas, potenciando las conversiones inmediatas mediante curaduría de tendencias." },
+            { label: "Catálogo completo", desc: "Estructura de catálogo organizada por categorías con filtros avanzados de talle, color y precio para facilitar la búsqueda idónea del usuario." },
+            { label: "Síguenos en redes sociales", desc: "Integración estética de feeds sociales y llamados a interactuar en Instagram, consolidando una comunidad activa e incrementando la confianza de marca." },
+            { label: "Medios de pago y más", desc: "Módulo interactivo detallando las pasarelas de pago integradas, facilidades de financiamiento bancario y políticas seguras de envío y devolución." },
+            { label: "Área de contacto", desc: "Formulario directo de atención al cliente y soporte post-venta personalizado junto con mapas de retiro físico y canales rápidos de mensajería." }
+          ]
+        }
+      }
     },
     material: {
       titulo: "Material Necesario",
@@ -300,12 +361,73 @@ export const translations = {
       tiemposTitle: "Timelines",
       tiempos: "Landing page: approximately 7 days. Multi‑page site: approximately 10 days. Store / E‑commerce: times depending on complexity and integrations.",
       revision: "Review: We review each detail and image together until you are satisfied.",
-      entrega: "Delivery: Once approved, we publish your site for everyone.",
+      entrega: "Delivery: Once approved, publicamos tu sitio for everyone.",
       soporte: "Support: We are available to help you with any questions after delivery.",
       materialTitulo: "Required material",
       rotatingWords: ["landing page", "multi‑page", "e‑commerce"],
       proyectosTitulo: "Projects that drive brands",
       proyectosSubtitulo: "Landing page – Multi‑page – E‑commerce"
+    },
+    portfolio: {
+      modal: {
+        presentation: "Full Presentation",
+        structure: "Detailed Project Structure",
+        walkthroughDesc: "Below is a visual walkthrough of the key sections developed. Each module has been optimized for user retention and lead conversion.",
+        section: "Section",
+        close: "Close",
+        routeFinished: "Walkthrough finished",
+        routeFinishedDesc: "You can close the detailed view of this project and continue exploring our portfolio.",
+        closeProject: "Close project"
+      },
+      projects: {
+        gym: {
+          tag: "Full Presentation",
+          title: "Project: Landing Page (Gym & Fitness)",
+          subtitle: "High-performance digital presence for training centers",
+          mainDescription: "Detailed Project Structure",
+          mainWalkthrough: "Below is a visual walkthrough of the key sections developed. Each module has been optimized for user retention and lead conversion.",
+          sections: [
+            { label: "Home", desc: "Welcome section with high visual impact, clear call to action (CTA), and solid value proposition from the first second." },
+            { label: "Gym Information", desc: "Detail of our personalized training vision, latest technology equipment, and environment designed to inspire personal improvement." },
+            { label: "Our Plans", desc: "Interactive and transparent price tables adapted to every need, promoting agile subscriptions and increasing sales." },
+            { label: "Photo Gallery", desc: "Immersive visual showcase of our premium facilities and vibrant atmosphere, generating trust and familiarity in future members." },
+            { label: "Our Trainers", desc: "Presentation of highly qualified training staff, adding the human warmth and professionalism that sets us apart." },
+            { label: "Contact Us", desc: "Clean contact form along with location information and social networks to accelerate immediate prospect inquiries." }
+          ]
+        },
+        dentistry: {
+          tag: "Multi-page Structure",
+          title: "Project: Multi-page – Dentistry Office",
+          subtitle: "Comprehensive digital platform for medical offices and healthcare professionals",
+          mainDescription: "Multi-page – Dentistry office with gallery and contact form",
+          mainWalkthrough: "Multi-page developed for a dentistry office, with multiple sections to present the dentist, describe treatments, show the clinic's image gallery, and facilitate appointment management and contact.",
+          sections: [
+            { label: "Home", desc: "Elegant home page with clinic presentation, trust messages for patients, and main direct access." },
+            { label: "About the Dentist", desc: "Professional biography section, academic background, certifications, and human approach in dental care." },
+            { label: "Treatments", desc: "Main block with the descriptive catalog of highlighted oral health, dental aesthetics, and orthodontics services." },
+            { label: "All Treatments", desc: "Dedicated page with expanded details of each dental treatment, resolving all doubts clearly." },
+            { label: "Clinic", desc: "An interactive visual walkthrough of the facilities to convey a safe, clean, and modern environment equipped with the latest technology." },
+            { label: "Image Gallery", desc: "Full high-definition gallery of our facilities to convey tranquility and professionalism to future patients." },
+            { label: "Book Appointment", desc: "Special section designed to facilitate agile and digital self-service for reservations and appointment scheduling." },
+            { label: "Contact Area", desc: "Clean contact form, location data, emergency phone, and dynamic map for easy arrival." }
+          ]
+        },
+        ecommerce: {
+          tag: "PRESTIGE E‑COMMERCE",
+          title: "Project: E‑Commerce – Keito",
+          subtitle: "Online clothing store with premium design and shopping experience",
+          mainDescription: "E‑Commerce developed for Keito",
+          mainWalkthrough: "E‑Commerce developed for Keito, an online clothing store, with a shopping cart, multiple pages, and support for all payment methods, designed to offer a complete and secure shopping experience.",
+          sections: [
+            { label: "Home", desc: "Home page designed with a strong visual focus, rotating banner, and intuitive direct access to the latest clothing trends." },
+            { label: "News", desc: "Section dedicated to seasonal launches and exclusive offers, enhancing immediate conversions through trend curation." },
+            { label: "Full Catalog", desc: "Catalog structure organized by categories with advanced size, color, and price filters to facilitate the user's ideal search." },
+            { label: "Follow us on Social Media", desc: "Aesthetic integration of social feeds and calls to interact on Instagram, consolidating an active community and increasing brand trust." },
+            { label: "Payment Methods and More", desc: "Interactive module detailing integrated payment gateways, bank financing facilities, and secure shipping and return policies." },
+            { label: "Contact Area", desc: "Direct customer service form and personalized post-sales support along with physical pickup maps and fast messaging channels." }
+          ]
+        }
+      }
     },
     material: {
       titulo: "Required material",
@@ -313,7 +435,7 @@ export const translations = {
         { name: "Professional photos", icon: "https://img.icons8.com/?size=100&id=43604&format=png&color=000000" },
         { name: "Logo in good quality", icon: "https://img.icons8.com/?size=100&id=49436&format=png&color=000000" },
         { name: "Texts and information", icon: "https://img.icons8.com/?size=100&id=ndJssbHAnr7w&format=png&color=000000" },
-        { name: "Colors and style", icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000" },
+        { name: "Colores y estilo", icon: "https://img.icons8.com/?size=100&id=JL8iKYmtsqyk&format=png&color=000000" },
         { name: "Social media", icon: "https://img.icons8.com/?size=100&id=44048&format=png&color=000000" },
         { name: "WhatsApp", icon: "https://img.icons8.com/?size=100&id=43677&format=png&color=000000" },
         { name: "Address or location", icon: "https://img.icons8.com/?size=100&id=43622&format=png&color=000000" },
