@@ -141,6 +141,17 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (isProject1Open || isProject2Open || isProject3Open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isProject1Open, isProject2Open, isProject3Open]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
     }, 2800);
@@ -1630,40 +1641,40 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
           >
             <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 220 }}
-              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: Landing Page (Gym & Fitness)</h3>
-                    <p className="font-sans text-[11px] text-gray-400">Presencia digital de alto rendimiento para centros de entrenamiento</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: Landing Page (Gym & Fitness)</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">Presencia digital de alto rendimiento para centros de entrenamiento</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject1Open(false)}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
                   title="Cerrar proyecto"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
               </div>
 
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Presentación Completa</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Estructura Detallada del Proyecto</h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Presentación Completa</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Estructura Detallada del Proyecto</h4>
+                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimiazo para la retención del usuario y conversión de leads.
                   </p>
                 </div>
@@ -1701,19 +1712,19 @@ export default function App() {
                       desc: "Formulario limpio de contacto junto a información de localización y redes para acelerar las consultas inmediatas de prospectos."
                     }
                   ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
                             {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
                           Sección {index + 1}
                         </span>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
                           alt={item.label} 
@@ -1721,7 +1732,7 @@ export default function App() {
                           className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
@@ -1729,23 +1740,17 @@ export default function App() {
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
-                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-white mb-2">¿Estás listo para concretar tu propia Landing Page?</h5>
-                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
-                    Llevamos tu proyecto al nivel que imaginas con un diseño premium, veloz y centrado en resultados.
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-zinc-900 mb-2">Recorrido finalizado</h5>
+                  <p className="text-xs text-zinc-500 max-w-md mx-auto leading-relaxed mb-6">
+                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
-                    onClick={() => {
-                      setIsProject1Open(false);
-                      const contactSection = document.getElementById("deployment");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                    onClick={() => setIsProject1Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cotizar Proyecto Similar</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Cerrar</span>
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
@@ -1763,40 +1768,40 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
           >
             <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 220 }}
-              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: Multipágina – Consultorio de odontología</h3>
-                    <p className="font-sans text-[11px] text-gray-400">Plataforma digital integral para consultorios médicos y profesionales de la salud</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: Multipágina – Consultorio de odontología</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">Plataforma digital integral para consultorios médicos y profesionales de la salud</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject2Open(false)}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
                   title="Cerrar proyecto"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
               </div>
 
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Estructura Multipágina</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Multipágina – Consultorio de odontología con galería y formulario de contacto</h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Estructura Multipágina</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Multipágina – Consultorio de odontología con galería y formulario de contacto</h4>
+                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     Multipágina desarrollada para un consultorio de odontología, con múltiples secciones para presentar a la dentista, describir los tratamientos, mostrar la galería de imágenes del consultorio y facilitar la gestión de turnos y el contacto.
                   </p>
                 </div>
@@ -1844,27 +1849,27 @@ export default function App() {
                       desc: "Formulario limpio de contacto, datos de ubicación, teléfono de urgencias y mapa dinámico para la fácil llegada."
                     }
                   ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
                             {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
                           Sección {index + 1}
                         </span>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner flex justify-center items-center">
                         <img 
                           src={item.img} 
                           alt={item.label} 
                           referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          className="w-full h-auto object-cover max-h-[72vh] hover:scale-[1.01] transition-transform duration-300"
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-zinc-650 font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
@@ -1872,23 +1877,17 @@ export default function App() {
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
-                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-white mb-2">¿Querés un sitio web profesional multipágina para tu consultorio?</h5>
-                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
-                    Aumentá la confianza de tus pacientes con una presencia digital impecable, ágil y totalmente adaptada a dispositivos móviles.
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
+                  <p className="text-xs text-zinc-550 max-w-md mx-auto leading-relaxed mb-6">
+                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
-                    onClick={() => {
-                      setIsProject2Open(false);
-                      const contactSection = document.getElementById("deployment");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                    onClick={() => setIsProject2Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cotizar Sitio Médico</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Cerrar</span>
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
@@ -1906,40 +1905,40 @@ export default function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-[9999] flex items-end justify-center overflow-hidden"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
           >
             <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 220 }}
-              className="w-full max-w-5xl h-[92vh] bg-[#0c0c0e] border-t border-white/10 rounded-t-[2.5rem] shadow-2xl flex flex-col overflow-hidden"
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-zinc-950/40">
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
                 <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-purple-500 animate-pulse" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
                   <div>
-                    <h3 className="font-sans text-sm font-bold uppercase tracking-wider text-white">Proyecto: E‑Commerce – Keito</h3>
-                    <p className="font-sans text-[11px] text-gray-400">Tienda de ropa online con experiencia de diseño y compra premium</p>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">Proyecto: E‑Commerce – Keito</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">Tienda de ropa online con experiencia de diseño y compra premium</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setIsProject3Open(false)}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
                   title="Cerrar proyecto"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
               </div>
 
               {/* Scrollable Project Body */}
               <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
                 <div className="max-w-3xl mx-auto text-center mb-6">
-                  <span className="font-mono text-[10px] text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">E‑COMMERCE PRESTIGIO</span>
-                  <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">E‑Commerce desarrollado para Keito</h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">E‑COMMERCE PRESTIGIO</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">E‑Commerce desarrollado para Keito</h4>
+                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     E‑Commerce desarrollado para Keito, tienda de ropa online, con carrito de compras, múltiples páginas y soporte para todos los medios de pago, pensado para ofrecer una experiencia de compra completa y segura.
                   </p>
                 </div>
@@ -1977,19 +1976,19 @@ export default function App() {
                       desc: "Formulario directo de atención al cliente y soporte post-venta personalizado junto con mapas de retiro físico y canales rápidos de mensajería."
                     }
                   ].map((item, index) => (
-                    <div key={index} className="flex flex-col gap-4 bg-zinc-950/40 p-5 rounded-3xl border border-white/5 shadow-xl hover:border-[#9D7BFF]/20 transition-all duration-300">
-                      <div className="flex justify-between items-center pb-3 border-b border-white/5">
+                    <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                      <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
                         <div className="flex items-center gap-3">
-                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/20 text-[#9D7BFF] font-mono text-xs font-bold flex items-center justify-center">
+                          <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
                             {index + 1}
                           </span>
-                          <span className="text-base sm:text-lg font-extrabold text-white tracking-tight">{item.label}</span>
+                          <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
                         </div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-gray-500 bg-white/5 px-2.5 py-1 rounded-md">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
                           Sección {index + 1}
                         </span>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-950/80 border border-white/5 shadow-inner">
+                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
                           alt={item.label} 
@@ -1997,7 +1996,7 @@ export default function App() {
                           className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-gray-400 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
@@ -2005,23 +2004,17 @@ export default function App() {
                 </div>
 
                 {/* Bottom Call to Action inside Slide Up drawer */}
-                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/10 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
-                  <h5 className="text-lg font-extrabold text-white mb-2">¿Estás listo para tener tu propia tienda online autoadministrable?</h5>
-                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed mb-6">
-                    Multiplica tus ventas con un E‑Commerce premium, de carga ultrarrápida y compatible con todos los procesadores de pago modernos.
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">Recorrido finalizado</h5>
+                  <p className="text-xs text-zinc-550 max-w-md mx-auto leading-relaxed mb-6">
+                    Puedes cerrar la vista detallada de este proyecto y seguir explorando nuestro portafolio.
                   </p>
                   <button
-                    onClick={() => {
-                      setIsProject3Open(false);
-                      const contactSection = document.getElementById("deployment");
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                    onClick={() => setIsProject3Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
-                    <span>Cotizar Tienda Keito</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Cerrar</span>
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
