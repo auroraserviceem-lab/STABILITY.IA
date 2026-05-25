@@ -180,17 +180,19 @@ export default function App() {
     <div className="w-full bg-black min-h-screen text-white overflow-x-hidden selection:bg-[#9D7BFF] selection:text-black font-sans">
       
       {/* SECCIÓN 1: NAVBAR (Transparente y Fijo) */}
-      <nav id="app-navbar" className="w-full absolute top-0 left-0 z-50 flex justify-between items-center px-8 py-6 bg-transparent">
+      <nav id="app-navbar" className="w-full absolute top-0 left-0 z-50 flex justify-between items-center px-4 sm:px-8 py-4 sm:py-6 bg-transparent">
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-2 cursor-pointer group select-none bg-transparent border-none p-0 focus:outline-none text-left"
           title="Volver al inicio"
         >
-          <div className="w-8 h-8 bg-[#9D7BFF] rounded-sm flex items-center justify-center font-bold text-black group-hover:bg-[#B49BFF] transition-colors duration-300">
-            A
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="font-bold tracking-tighter text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1">
+          <img 
+            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1779721974/image_s39ibp.jpg" 
+            alt="Logo" 
+            className="w-8 h-8 rounded-sm object-cover"
+          />
+          <div className="flex flex-col items-center justify-center text-center">
+            <span className="font-bold tracking-tighter text-lg sm:text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1 whitespace-nowrap">
               AURORA SERVICES
             </span>
             <span className="h-[1.5px] w-[70%] bg-[#9D7BFF] rounded-full transition-all duration-300 group-hover:bg-[#B49BFF] group-hover:w-[85%]" />
@@ -287,7 +289,7 @@ export default function App() {
             onClick={() => {
               document.getElementById("faq-section")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="bg-[#9D7BFF] text-white font-bold px-6 py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-xs tracking-wider uppercase cursor-pointer"
+            className="bg-[#9D7BFF] text-white font-bold px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full hover:bg-[#8A66FF] transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/20 text-[10px] sm:text-xs tracking-wider uppercase cursor-pointer"
           >
             CONTÁCTANOS
           </button>
@@ -368,7 +370,7 @@ export default function App() {
               </motion.h1>
 
               <p className="text-sm md:text-base text-white max-w-md font-sans mb-4 leading-relaxed pointer-events-auto text-left">
-                Con diseño web profesional donde cada detalle refleja la calidad que tu marca merece.
+                Ofrecemos servicios de diseño web profesional con hosting para tu sitio, con diseños adaptativos e intuitivos. Puedes cotizar tu proyecto web hoy mismo con nuestro equipo.
               </p>
 
               {/* Row of Buttons with pointer-events-auto enabled */}
@@ -491,7 +493,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
                   <img
                     src={ind.image}
-                    alt={ind.category}
+                    alt={`Servicios de diseño web profesional en ${ind.category} - Aurora Services`}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center z-0 brightness-100 contrast-[1.05]"
                   />
@@ -570,7 +572,7 @@ export default function App() {
                 <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
                 <img
                   src="https://img.icons8.com/?size=100&id=Dr0n9Rgyl5Lp&format=png&color=ffffff"
-                  alt="Desarrollo Web"
+                  alt="Servicios de diseño web profesional y desarrollo a medida"
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
@@ -589,7 +591,7 @@ export default function App() {
                 <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
                 <img
                   src="https://img.icons8.com/?size=100&id=4bRnRUyLzrOg&format=png&color=ffffff"
-                  alt="Diseño Visual"
+                  alt="Diseño visual personalizado e identidad de marca"
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
@@ -608,7 +610,7 @@ export default function App() {
                 <span className="text-[#9D7BFF] text-sm shrink-0 font-sans">✔️</span>
                 <img
                   src="https://img.icons8.com/?size=100&id=43657&format=png&color=ffffff"
-                  alt="Soporte"
+                  alt="Hosting confiable para tu sitio con soporte continuo"
                   referrerPolicy="no-referrer"
                   className="h-6 w-6 object-contain shrink-0 filter brightness-100"
                 />
@@ -658,7 +660,7 @@ export default function App() {
                 <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
                   <img
                     src="https://img.icons8.com/?size=100&id=Dr0n9Rgyl5Lp&format=png&color=000000"
-                    alt="Desarrollo"
+                    alt="Servicios de desarrollo web y diseño web profesional"
                     referrerPolicy="no-referrer"
                     className="w-6 h-6 object-contain"
                   />
@@ -732,7 +734,7 @@ export default function App() {
                 <div className="p-2 bg-[#9D7BFF]/10 rounded-xl shrink-0 mt-0.5">
                   <img
                     src="https://img.icons8.com/?size=100&id=44804&format=png&color=000000"
-                    alt="Soporte"
+                    alt="Soporte personalizado y hosting para tu sitio web"
                     referrerPolicy="no-referrer"
                     className="w-6 h-6 object-contain"
                   />
@@ -750,7 +752,7 @@ export default function App() {
             <div className="lg:col-span-7 relative rounded-[2rem] min-h-[440px] h-full overflow-hidden border border-black/10 shadow-inner">
               <img 
                 src="https://images.unsplash.com/photo-1651684195895-38708dc94cfa?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                alt="Nuestro Proceso" 
+                alt="Nuestro proceso de diseño web profesional con revisiones ilimitadas" 
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -765,7 +767,7 @@ export default function App() {
             <div className="md:col-span-7 bg-white rounded-[2.5rem] overflow-hidden border border-black/5 relative shadow-lg min-h-[380px]">
               <img 
                 src="https://images.unsplash.com/photo-1764044371545-dfd065b01e6f?q=80&w=1169&auto=format&fit=crop" 
-                alt="Material Necesario" 
+                alt="Materiales y contenido para cotizar proyecto web y lanzar tu sitio" 
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
@@ -897,7 +899,7 @@ export default function App() {
                     <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                       <img 
                         src={sec.img} 
-                        alt={sec.title} 
+                        alt={`${sec.title} - Portafolio de Diseño Web Profesional de Gimnasio`} 
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                       />
@@ -964,7 +966,7 @@ export default function App() {
                     <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                       <img 
                         src={sec.img} 
-                        alt={sec.title} 
+                        alt={`${sec.title} - Desarrollo de Sitio Web Multipágina de Odontología`} 
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                       />
@@ -1023,7 +1025,7 @@ export default function App() {
                     <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                       <img 
                         src={sec.img} 
-                        alt={sec.title} 
+                        alt={`${sec.title} - Plataforma de E-Commerce para Tienda Online`} 
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
                       />
@@ -1456,9 +1458,9 @@ export default function App() {
             <div className="lg:col-span-5 space-y-8 text-left">
               <div>
                 <div className="inline-block relative pb-3 mb-4">
-                  <h3 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
+                  <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
                     Contáctanos
-                  </h3>
+                  </h2>
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
                 </div>
                 <p className="text-gray-800 text-sm font-sans font-medium leading-relaxed">
@@ -1526,9 +1528,9 @@ export default function App() {
             {/* Columna derecha – Preguntas frecuentes (FAQ) */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="inline-block relative pb-3 mb-4">
-                <h3 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
+                <h2 className="text-4xl md:text-6xl font-extrabold tracking-tighter text-[#1A1A1A] leading-tight">
                   Preguntas frecuentes
-                </h3>
+                </h2>
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1.5px] bg-[#9D7BFF]" />
               </div>
 
@@ -1560,7 +1562,7 @@ export default function App() {
                   },
                   {
                     q: "¿Trabajan con clientes de otros países?",
-                    a: "¡Claro! Trabajamos con clientes de todo el mundo mediante reuniones virtuales y herramientas colaborativas, manteniendo la comunicación clara y constante."
+                    a: "¡Claro! Trabajamos con clientes de todo el mundo de forma remota, manteniendo una comunicación clara y constante para asegurar que cada proyecto avance según lo planeado."
                   }
                 ].map((item, index) => {
                   const isOpen = activeFaqIndex === index;
@@ -1674,7 +1676,7 @@ export default function App() {
                 <div className="max-w-3xl mx-auto text-center mb-6">
                   <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Presentación Completa</span>
                   <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Estructura Detallada del Proyecto</h4>
-                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     A continuación se presenta un recorrido visual por las secciones clave desarrolladas. Cada módulo ha sido optimiazo para la retención del usuario y conversión de leads.
                   </p>
                 </div>
@@ -1727,12 +1729,12 @@ export default function App() {
                       <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
-                          alt={item.label} 
+                          alt={`${item.label} - Diseño Web Profesional de Gimnasio`} 
                           referrerPolicy="no-referrer"
                           className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
@@ -1801,7 +1803,7 @@ export default function App() {
                 <div className="max-w-3xl mx-auto text-center mb-6">
                   <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">Estructura Multipágina</span>
                   <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Multipágina – Consultorio de odontología con galería y formulario de contacto</h4>
-                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     Multipágina desarrollada para un consultorio de odontología, con múltiples secciones para presentar a la dentista, describir los tratamientos, mostrar la galería de imágenes del consultorio y facilitar la gestión de turnos y el contacto.
                   </p>
                 </div>
@@ -1864,12 +1866,12 @@ export default function App() {
                       <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
-                          alt={item.label} 
+                          alt={`${item.label} - Desarrollo de Sitio Web Multipágina de Odontología`} 
                           referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500"
+                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-zinc-650 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
@@ -1938,7 +1940,7 @@ export default function App() {
                 <div className="max-w-3xl mx-auto text-center mb-6">
                   <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">E‑COMMERCE PRESTIGIO</span>
                   <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">E‑Commerce desarrollado para Keito</h4>
-                  <p className="text-xs sm:text-sm text-zinc-650 font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
                     E‑Commerce desarrollado para Keito, tienda de ropa online, con carrito de compras, múltiples páginas y soporte para todos los medios de pago, pensado para ofrecer una experiencia de compra completa y segura.
                   </p>
                 </div>
@@ -1991,12 +1993,12 @@ export default function App() {
                       <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
-                          alt={item.label} 
+                          alt={`${item.label} - Desarrollo de Plataforma de E-Commerce`} 
                           referrerPolicy="no-referrer"
                           className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                         />
                       </div>
-                      <p className="text-xs sm:text-sm text-zinc-600 font-sans leading-relaxed px-1">
+                      <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
                         {item.desc}
                       </p>
                     </div>
