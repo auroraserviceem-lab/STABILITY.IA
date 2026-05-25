@@ -941,7 +941,7 @@ export default function App() {
                   },
                   {
                     title: "Todos los tratamientos",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png"
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png"
                   },
                   {
                     title: "Consultorio",
@@ -949,7 +949,7 @@ export default function App() {
                   },
                   {
                     title: "Galería de imágenes",
-                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png"
+                    img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png"
                   },
                   {
                     title: "Agendá tu turno",
@@ -1825,7 +1825,7 @@ export default function App() {
                     },
                     {
                       label: "Todos los tratamientos",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513817/3_-_SECCION_A_PARTE_DE_NUESTROS_TRATAMIENTOS_ibbqns.png",
                       desc: "Página dedicada con detalles expandidos de cada tratamiento odontológico, resolviendo todas las dudas de manera clara."
                     },
                     {
@@ -1835,7 +1835,7 @@ export default function App() {
                     },
                     {
                       label: "Galería de imágenes",
-                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
+                      img: "https://res.cloudinary.com/dkc39tw6r/image/upload/v1778513820/5_-_SECCION_A_PARTE_DE_GALERIA_DE_CONSULTORIO_fpl00w.png",
                       desc: "Galería completa en alta definición de nuestras instalaciones para transmitir tranquilidad y profesionalismo a los futuros pacientes."
                     },
                     {
@@ -1861,12 +1861,12 @@ export default function App() {
                           Sección {index + 1}
                         </span>
                       </div>
-                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner flex justify-center items-center">
+                      <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                         <img 
                           src={item.img} 
                           alt={item.label} 
                           referrerPolicy="no-referrer"
-                          className="w-full h-auto object-cover max-h-[72vh] hover:scale-[1.01] transition-transform duration-300"
+                          className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500"
                         />
                       </div>
                       <p className="text-xs sm:text-sm text-zinc-650 font-sans leading-relaxed px-1">
