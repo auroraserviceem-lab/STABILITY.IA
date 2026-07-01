@@ -99,7 +99,7 @@ export const translations = {
       nuestroPortafolio: "NUESTRO PORTAFOLIO",
       nuestrosServicios: "Nuestros Servicios",
       nuestroProceso: "Nuestro Proceso",
-      descripcionSobre: "Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras. Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.",
+      descripcionSobre: "Services Aurora nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras. Con presencia en Argentina, México y Ecuador, nuestro equipo combina talento y perseverancia para transformar cada proyecto en una experiencia digital única, donde la tecnología y la calidez se encuentran para impulsar tu éxito.",
       garantiaSatisfaccion: "Garantía de satisfacción total",
       garantiaTexto: "Si no quedás conforme con el resultado, realizamos todas las revisiones que sean necesarias sin costo adicional hasta que el proyecto sea exactamente lo que necesitás. Tu satisfacción es nuestra prioridad.",
       analisisIdea: "Analizamos tu idea y qué tipo de sitio se adapta mejor a tu negocio: landing page, multipágina o e-commerce.",
@@ -198,7 +198,7 @@ export const translations = {
       support: { title: "Soporte", desc: "Tu sitio web necesita mantenimiento continuo. Ofrecemos actualizaciones de seguridad, seguimiento de rendimiento y soporte técnico especializado para asegurar una presencia digital estable, segura y siempre operativa." }
     },
     hero: {
-      tag: "aurora services",
+      tag: "services aurora",
       title: "Creamos tu",
       description: "Ofrecemos servicios de diseño web profesional con hosting para tu sitio, con diseños adaptativos e intuitivos. Puedes cotizar tu proyecto web hoy mismo con nuestro equipo.",
       boton: "Inicia tu proyecto"
@@ -349,7 +349,7 @@ export const translations = {
       nuestroPortafolio: "OUR PORTFOLIO",
       nuestrosServicios: "Our Services",
       nuestroProceso: "Our Process",
-      descripcionSobre: "Aurora Services was born in Argentina to take high-level web development beyond borders. With presence in Argentina, Mexico, and Ecuador, our team combines talent and perseverance to transform each project into a unique digital experience, where technology and warmth meet to drive your success.",
+      descripcionSobre: "Services Aurora was born in Argentina to take high-level web development beyond borders. With presence in Argentina, Mexico, and Ecuador, our team combines talent and perseverance to transform each project into a unique digital experience, where technology and warmth meet to drive your success.",
       garantiaSatisfaccion: "Total Satisfaction Guarantee",
       garantiaTexto: "If you are not satisfied with the result, we perform all necessary revisions at no additional cost until the project is exactly what you need. Your satisfaction is our priority.",
       analisisIdea: "We analyze your idea and what type of site best suits your business: landing page, multi-page, or e-commerce.",
@@ -448,7 +448,7 @@ export const translations = {
       support: { title: "Support", desc: "Your website needs continuous maintenance. We offer security updates, performance monitoring, and specialized technical support to ensure a stable, secure, and always operational digital presence." }
     },
     hero: {
-      tag: "aurora services",
+      tag: "services aurora",
       title: "We create your",
       description: "We offer professional web design services with hosting for your site, with adaptive and intuitive designs. You can quote your web project right now with our team.",
       boton: "Start your project"

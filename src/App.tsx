@@ -178,7 +178,7 @@ export default function App() {
           />
           <div className="flex flex-col items-center justify-center text-center">
             <span className="font-bold tracking-tighter text-lg sm:text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1 whitespace-nowrap">
-              AURORA SERVICES
+              SERVICES AURORA
             </span>
             <span className="h-[1.5px] w-[70%] bg-[#9D7BFF] rounded-full transition-all duration-300 group-hover:bg-[#B49BFF] group-hover:w-[85%]" />
           </div>
@@ -980,10 +980,10 @@ export default function App() {
                   
                   <div className="mb-4 space-y-1 text-center">
                     <span className="text-sm font-extrabold text-black block font-sans">
-                      {t.planes.desde} $150.000 ARS / $110 USD
+                      {t.planes.desde} $250.000 ARS / $169,14 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block font-sans">
-                      {t.planes.mantenimiento}: $50.000 ARS/{t.planes.mes} / $35 USD/{t.planes.mes}
+                      {t.planes.mantenimiento}: $90.000 ARS/{t.planes.mes} / $60,89 USD/{t.planes.mes}
                     </span>
                   </div>
 
@@ -1046,10 +1046,10 @@ export default function App() {
                   
                   <div className="mb-4 space-y-1 text-center font-sans">
                     <span className="text-sm font-extrabold text-black block">
-                      {t.planes.desde} $250.000 ARS / $180 USD
+                      {t.planes.desde} $350.000 ARS / $202,97 USD
                     </span>
                     <span className="text-xs font-semibold text-gray-700 block">
-                      {t.planes.mantenimiento}: $90.000 ARS/{t.planes.mes} / $65 USD/{t.planes.mes}
+                      {t.planes.mantenimiento}: $120.000 ARS/{t.planes.mes} / $81,19 USD/{t.planes.mes}
                     </span>
                   </div>
 
@@ -1314,49 +1314,22 @@ export default function App() {
               <div className="space-y-6 pt-2">
                 {/* WhatsApp */}
                 <div className="group">
-                  <span className="block text-[11px] font-mono uppercase text-[#8B66FF] tracking-wider font-bold mb-2">
+                  <span className="block text-[11px] font-mono uppercase text-[#8B66FF] tracking-wider font-bold mb-1">
                     WhatsApp:
                   </span>
-                  <div className="flex flex-col gap-3">
-                    {/* Principal with Link */}
-                    <div className="flex items-center gap-2.5">
-                      <a
-                        href={`https://wa.me/5492664688717?text=${encodeURIComponent(translations[selectedLang].whatsapp.consulta)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
-                      >
-                        <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                          </svg>
-                        </span>
-                        <span>+54 9 2664 68-8717</span>
-                        <span className="text-[10px] font-mono uppercase bg-[#8B66FF]/10 text-[#8B66FF] px-2 py-0.5 rounded ml-2">Principal</span>
-                      </a>
-                    </div>
-                    {/* Other static numbers */}
-                    <div className="flex flex-col gap-2.5 pl-10.5">
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                        <span className="text-base md:text-lg font-bold text-black font-sans select-none">
-                          +54 9 2664 37-2384
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                        <span className="text-base md:text-lg font-bold text-black font-sans select-none">
-                          +54 9 2665-068122
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                        <span className="text-base md:text-lg font-bold text-black font-sans select-none">
-                          +54 9 266489-9462
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <a
+                    href={`https://wa.me/5492664688717?text=${encodeURIComponent(translations[selectedLang].whatsapp.consulta)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 text-base md:text-lg font-bold text-black hover:text-[#8B66FF] transition-colors font-sans"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#8B66FF]/10 text-[#8B66FF] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.704 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                      </svg>
+                    </span>
+                    +54 9 2664 68-8717
+                  </a>
                 </div>
 
                 {/* E-mail */}
@@ -1465,7 +1438,7 @@ export default function App() {
           
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
             <div>
-              <span>© {new Date().getFullYear()} Aurora Services Web. Todos los derechos reservados.</span>
+              <span>© {new Date().getFullYear()} Services Aurora Web. Todos los derechos reservados.</span>
             </div>
             <div className="flex gap-6">
               <a href="https://instagram.com/auroraservicesweb" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
@@ -1548,7 +1521,7 @@ export default function App() {
                         <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                           <img 
                             src={images[index]} 
-                            alt={`${item.label} - Aurora Services Web`} 
+                            alt={`${item.label} - Services Aurora Web`} 
                             referrerPolicy="no-referrer"
                             className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                           />
@@ -1656,7 +1629,7 @@ export default function App() {
                         <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                           <img 
                             src={images[index]} 
-                            alt={`${item.label} - Aurora Services Web`} 
+                            alt={`${item.label} - Services Aurora Web`} 
                             referrerPolicy="no-referrer"
                             className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                           />
@@ -1762,7 +1735,7 @@ export default function App() {
                         <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                           <img 
                             src={images[index]} 
-                            alt={`${item.label} - Aurora Services Web`} 
+                            alt={`${item.label} - Services Aurora Web`} 
                             referrerPolicy="no-referrer"
                             className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
                           />
