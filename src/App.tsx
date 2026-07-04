@@ -941,9 +941,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Tarjeta 4 (Arquitectura & Construcción) con imágenes y botón "Abrir proyecto" */}
+            {/* Tarjeta 4 (Óptica — Lentes & Anteojos) con imágenes y botón "Abrir proyecto" */}
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
-              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Arquitectura */}
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Óptica */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
                 {t.portfolio.projects.architecture.sections.map((sec, idx) => {
                   const images = [
@@ -983,9 +983,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Tarjeta 5 (Hotel Boutique & Spa) con imágenes y botón "Abrir proyecto" */}
+            {/* Tarjeta 5 (Fábrica de Sillones — Muebles a Medida) con imágenes y botón "Abrir proyecto" */}
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
-              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Hotel */}
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Fábrica de Sillones */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
                 {t.portfolio.projects.hotel.sections.map((sec, idx) => {
                   const images = [
@@ -998,7 +998,7 @@ export default function App() {
                     <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
                       <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                         <img 
-                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
+                          src={images[idx % images.length].replace('/upload/', '/upload/f_auto,q_auto/')} 
                           alt={`${sec.label} - Services Aurora Web`} 
                           referrerPolicy="no-referrer"
                           loading="lazy"
@@ -1026,9 +1026,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Tarjeta 6 (Clínica & Bienestar) con imágenes y botón "Abrir proyecto" */}
+            {/* Tarjeta 6 (Tienda de Calzado & Ropa) con imágenes y botón "Abrir proyecto" */}
             <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
-              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Clínica */}
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Tienda de Calzado & Ropa */}
               <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
                 {t.portfolio.projects.medical.sections.map((sec, idx) => {
                   const images = [
@@ -1040,7 +1040,7 @@ export default function App() {
                     <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
                       <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
                         <img 
-                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
+                          src={images[idx % images.length].replace('/upload/', '/upload/f_auto,q_auto/')} 
                           alt={`${sec.label} - Services Aurora Web`} 
                           referrerPolicy="no-referrer"
                           loading="lazy"
@@ -1933,7 +1933,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Immersive slide-up drawer for the Architecture & Construction project */}
+      {/* Immersive slide-up drawer for the Optics project */}
       <AnimatePresence>
         {isProject4Open && (
           <motion.div
@@ -2036,7 +2036,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Immersive slide-up drawer for the Boutique Hotel & Spa project */}
+      {/* Immersive slide-up drawer for the Sofa Factory project */}
       <AnimatePresence>
         {isProject5Open && (
           <motion.div
@@ -2105,7 +2105,7 @@ export default function App() {
                         </div>
                         <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                           <img 
-                            src={images[index]} 
+                            src={images[index % images.length]} 
                             alt={`${item.label} - Services Aurora Web`} 
                             referrerPolicy="no-referrer"
                             className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
@@ -2140,7 +2140,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Immersive slide-up drawer for the Clinic & Wellness project */}
+      {/* Immersive slide-up drawer for the Fashion Store project */}
       <AnimatePresence>
         {isProject6Open && (
           <motion.div
@@ -2208,7 +2208,7 @@ export default function App() {
                         </div>
                         <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
                           <img 
-                            src={images[index]} 
+                            src={images[index % images.length]} 
                             alt={`${item.label} - Services Aurora Web`} 
                             referrerPolicy="no-referrer"
                             className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
