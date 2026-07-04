@@ -176,6 +176,43 @@ export const translations = {
             { label: "Medios de pago y más", desc: "Módulo interactivo detallando las pasarelas de pago integradas, facilidades de financiamiento bancario y políticas seguras de envío y devolución." },
             { label: "Área de contacto", desc: "Formulario directo de atención al cliente y soporte post-venta personalizado junto con mapas de retiro físico y canales rápidos de mensajería." }
           ]
+        },
+        architecture: {
+          tag: "DISEÑO Y CONSTRUCCIÓN",
+          title: "Proyecto: Arquitectura & Construcción",
+          subtitle: "Plataforma premium para estudios de diseño, arquitectura y desarrollos inmobiliarios",
+          mainDescription: "Diseño y Construcción - Arquitectura Moderna",
+          mainWalkthrough: "Sitio web de alta gama desarrollado para un prestigioso estudio de arquitectura y construcción, enfocado en mostrar proyectos residenciales con alta fidelidad visual, detalles de servicios técnicos y contacto inmediato.",
+          sections: [
+            { label: "Inicio", desc: "Sección de portada impactante con imágenes de proyectos terminados, tipografía elegante y un enfoque visual de vanguardia." },
+            { label: "Nuestros Proyectos", desc: "Galería interactiva mostrando obras residenciales y comerciales con especificaciones técnicas y materialización de obra premium." },
+            { label: "Contacto y Presupuesto", desc: "Formulario de consulta directa y localización para presupuestar obras y coordinar reuniones de asesoría." }
+          ]
+        },
+        hotel: {
+          tag: "HOTEL BOUTIQUE & SPA",
+          title: "Proyecto: Hotel Boutique & Spa",
+          subtitle: "Plataforma de reservas de lujo y experiencia inmersiva para hotelería premium",
+          mainDescription: "Hotel Boutique - Experiencia de Lujo",
+          mainWalkthrough: "Sitio web de diseño ultra-premium desarrollado para un hotel boutique y spa exclusivo, enfocado en capturar la tranquilidad, exclusividad y confort a través de una experiencia visual envolvente.",
+          sections: [
+            { label: "Inicio", desc: "Sección de bienvenida con fotografía de alta fidelidad, tipografía sofisticada y acceso directo a la reserva de habitaciones." },
+            { label: "Nuestras Suites", desc: "Galería interactiva detallando las habitaciones exclusivas, comodidades premium y vistas excepcionales de nuestro complejo." },
+            { label: "Experiencias & Spa", desc: "Presentación de los servicios de spa de bienestar, tratamientos holísticos y actividades gastronómicas diseñadas para el relax absoluto." },
+            { label: "Reservas & Contacto", desc: "Formulario intuitivo y seguro para coordinar estadías, fechas especiales y contacto directo con atención personalizada." }
+          ]
+        },
+        medical: {
+          tag: "CLÍNICA & BIENESTAR",
+          title: "Proyecto: Clínica & Bienestar",
+          subtitle: "Plataforma premium para clínicas médicas, consultorios y centros de bienestar",
+          mainDescription: "Clínica & Bienestar - Salud de Vanguardia",
+          mainWalkthrough: "Sitio web de alta gama desarrollado para una clínica médica y dental especializada, enfocado en transmitir confianza, profesionalismo y facilitar la reserva de turnos en línea.",
+          sections: [
+            { label: "Inicio", desc: "Sección de portada elegante con mensaje de confianza, acceso rápido a turnos y presentación de especialidades." },
+            { label: "Especialidades", desc: "Detalle completo de tratamientos, equipamiento tecnológico de vanguardia y staff de profesionales calificados." },
+            { label: "Reservas & Contacto", desc: "Formulario de agendamiento de citas en línea, ubicación del centro de salud y canales directos de atención." }
+          ]
         }
       }
     },
@@ -425,6 +462,43 @@ export const translations = {
             { label: "Follow us on Social Media", desc: "Aesthetic integration of social feeds and calls to interact on Instagram, consolidating an active community and increasing brand trust." },
             { label: "Payment Methods and More", desc: "Interactive module detailing integrated payment gateways, bank financing facilities, and secure shipping and return policies." },
             { label: "Contact Area", desc: "Direct customer service form and personalized post-sales support along with physical pickup maps and fast messaging channels." }
+          ]
+        },
+        architecture: {
+          tag: "DESIGN & CONSTRUCTION",
+          title: "Project: Architecture & Construction",
+          subtitle: "Premium platform for design studios, architecture, and real estate developments",
+          mainDescription: "Design and Construction - Modern Architecture",
+          mainWalkthrough: "High-end website developed for a prestigious architecture and construction studio, focused on showing residential projects with high visual fidelity, details of technical services, and immediate contact.",
+          sections: [
+            { label: "Home", desc: "Stunning homepage section with images of completed projects, elegant typography, and a cutting-edge visual focus." },
+            { label: "Our Projects", desc: "Interactive gallery showing residential and commercial works with technical specifications and premium materials." },
+            { label: "Contact & Quote", desc: "Direct inquiry form and map location to request quotes and schedule meetings with architects." }
+          ]
+        },
+        hotel: {
+          tag: "BOUTIQUE HOTEL & SPA",
+          title: "Project: Boutique Hotel & Spa",
+          subtitle: "Luxury booking platform and immersive experience for premium hospitality",
+          mainDescription: "Boutique Hotel - Luxury Experience",
+          mainWalkthrough: "Ultra-premium website designed for an exclusive boutique hotel and spa, focused on capturing tranquility, exclusivity, and comfort through an immersive visual experience.",
+          sections: [
+            { label: "Home", desc: "Welcome section with high-fidelity photography, sophisticated typography, and direct access to room reservations." },
+            { label: "Our Suites", desc: "Interactive gallery detailing exclusive rooms, premium amenities, and exceptional views of our complex." },
+            { label: "Experiences & Spa", desc: "Presentation of wellness spa services, holistic treatments, and culinary activities designed for absolute relaxation." },
+            { label: "Reservations & Contact", desc: "Intuitive and secure form to coordinate stays, special dates, and direct contact with personalized assistance." }
+          ]
+        },
+        medical: {
+          tag: "CLINIC & WELLNESS",
+          title: "Project: Clinic & Wellness",
+          subtitle: "Premium platform for medical clinics, practices, and wellness centers",
+          mainDescription: "Clinic & Wellness - Cutting-edge Healthcare",
+          mainWalkthrough: "High-end website developed for a specialized medical and dental clinic, focused on conveying trust, professionalism, and facilitating online appointment booking.",
+          sections: [
+            { label: "Home", desc: "Elegant homepage section with a trust message, quick appointment access, and presentation of specialties." },
+            { label: "Specialties", desc: "Full detail of treatments, state-of-the-art technological equipment, and qualified professional staff." },
+            { label: "Bookings & Contact", desc: "Online appointment scheduling form, healthcare center location, and direct communication channels." }
           ]
         }
       }

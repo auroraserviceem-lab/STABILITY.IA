@@ -11,7 +11,8 @@ import {
   Instagram,
   Star,
   Check,
-  X
+  X,
+  Plus
 } from "lucide-react";
 
 // Types for the interactive model configuration
@@ -74,6 +75,9 @@ export default function App() {
   const [isProject1Open, setIsProject1Open] = useState(false);
   const [isProject2Open, setIsProject2Open] = useState(false);
   const [isProject3Open, setIsProject3Open] = useState(false);
+  const [isProject4Open, setIsProject4Open] = useState(false);
+  const [isProject5Open, setIsProject5Open] = useState(false);
+  const [isProject6Open, setIsProject6Open] = useState(false);
   const [isLandingPageDetailsOpen, setIsLandingPageDetailsOpen] = useState(false);
   const [isMultipaginaDetailsOpen, setIsMultipaginaDetailsOpen] = useState(false);
   const [isEcommerceDetailsOpen, setIsEcommerceDetailsOpen] = useState(false);
@@ -105,7 +109,7 @@ export default function App() {
   }, [selectedLang]);
 
   useEffect(() => {
-    if (isProject1Open || isProject2Open || isProject3Open) {
+    if (isProject1Open || isProject2Open || isProject3Open || isProject4Open || isProject5Open || isProject6Open) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -113,7 +117,7 @@ export default function App() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isProject1Open, isProject2Open, isProject3Open]);
+  }, [isProject1Open, isProject2Open, isProject3Open, isProject4Open, isProject5Open, isProject6Open]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -936,6 +940,166 @@ export default function App() {
                 </button>
               </div>
             </div>
+
+            {/* Tarjeta 4 (Arquitectura & Construcción) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Arquitectura */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {t.portfolio.projects.architecture.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931741/1_q2nr3r.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931740/2_lovsse.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931742/3_FINAL_ngpncn.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
+                          alt={`${sec.label} - Services Aurora Web`} 
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject4Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>{t.planes.abrirProyecto}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Tarjeta 5 (Hotel Boutique & Spa) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Hotel */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {t.portfolio.projects.hotel.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940561/1_s3l4dy.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940559/3_m9ojlc.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940558/2_ygvzqs.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940556/4_cmwdcc.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
+                          alt={`${sec.label} - Services Aurora Web`} 
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject5Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>{t.planes.abrirProyecto}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Tarjeta 6 (Clínica & Bienestar) con imágenes y botón "Abrir proyecto" */}
+            <div className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col group">
+              {/* Contenedor scrolleable interno con las imágenes ordenadas y textos de Clínica */}
+              <div className="absolute inset-0 overflow-y-auto scrollbar-none p-5 pb-24 flex flex-col gap-6 scroll-smooth">
+                {t.portfolio.projects.medical.sections.map((sec, idx) => {
+                  const images = [
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940961/1_rg8po5.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940961/2_luhex4.png",
+                    "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940959/3_nd1fzu.png"
+                  ];
+                  return (
+                    <div key={idx} className="w-full flex flex-col gap-2 rounded-xl bg-zinc-900/50 p-2.5 border border-white/5">
+                      <div className="overflow-hidden rounded-lg aspect-[16/10] bg-zinc-950 relative">
+                        <img 
+                          src={images[idx].replace('/upload/', '/upload/f_auto,q_auto/')} 
+                          alt={`${sec.label} - Services Aurora Web`} 
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                        />
+                      </div>
+                      <span className="font-sans text-[11px] font-semibold text-[#ffffff] text-center tracking-wide uppercase mt-1">
+                        {sec.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Botón de "Abrir proyecto" que abre la ventana emergente hacia arriba */}
+              <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/90 to-transparent z-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setIsProject6Open(true)}
+                  className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-6 rounded-full transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#9D7BFF]/25 flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>{t.planes.abrirProyecto}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Tarjetas vacías para futuros proyectos (2 restantes) */}
+            {[1, 2].map((num) => (
+              <div key={num} className="aspect-[2/3] relative rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-zinc-950 flex flex-col justify-center items-center p-8 text-center group hover:border-[#9D7BFF]/30 transition-all duration-300">
+                {/* Grid pattern background */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20 pointer-events-none" />
+                
+                {/* Glowing decorative orb in background */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-[#9D7BFF]/5 blur-3xl pointer-events-none group-hover:bg-[#9D7BFF]/10 transition-colors duration-500" />
+
+                <div className="relative z-10 flex flex-col items-center">
+                  {/* Decorative Icon */}
+                  <div className="w-16 h-16 rounded-3xl bg-zinc-900 border border-white/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-[#9D7BFF]/20 group-hover:bg-[#9D7BFF]/5 transition-all duration-300">
+                    <Plus className="w-6 h-6 text-zinc-500 group-hover:text-[#9D7BFF] transition-colors duration-300" />
+                  </div>
+                  
+                  {/* Badge */}
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#9D7BFF] bg-[#9D7BFF]/10 px-3 py-1 rounded-full font-bold mb-3">
+                    {selectedLang === "es" ? "Próximamente" : "Coming Soon"}
+                  </span>
+
+                  {/* Text */}
+                  <h3 className="text-xl font-extrabold text-white tracking-tight mb-2">
+                    {selectedLang === "es" ? "Futuro Proyecto" : "Future Project"}
+                  </h3>
+                  <p className="text-xs text-zinc-400 font-sans max-w-[200px] leading-relaxed">
+                    {selectedLang === "es" 
+                      ? "Tu próximo éxito digital podría estar aquí. ¡Consúltanos hoy!" 
+                      : "Your next digital success could be here. Contact us today!"}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Textos ordenados secuencialmente debajo de las tres tarjetas */}
@@ -1756,6 +1920,316 @@ export default function App() {
                   </p>
                   <button
                     onClick={() => setIsProject3Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>{t.portfolio.modal.close}</span>
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Immersive slide-up drawer for the Architecture & Construction project */}
+      <AnimatePresence>
+        {isProject4Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.architecture.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.architecture.subtitle}</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject4Open(false)}
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title={t.portfolio.modal.closeProject}
+                >
+                  <X className="w-5 h-5 stroke-[2.5]" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.architecture.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.architecture.mainDescription}</h4>
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    {t.portfolio.projects.architecture.mainWalkthrough}
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {t.portfolio.projects.architecture.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931741/1_q2nr3r.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931740/2_lovsse.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782931742/3_FINAL_ngpncn.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
+                          </span>
+                        </div>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Services Aurora Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">{t.portfolio.modal.routeFinished}</h5>
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
+                    {t.portfolio.modal.routeFinishedDesc}
+                  </p>
+                  <button
+                    onClick={() => setIsProject4Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>{t.portfolio.modal.close}</span>
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Immersive slide-up drawer for the Boutique Hotel & Spa project */}
+      <AnimatePresence>
+        {isProject5Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.hotel.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.hotel.subtitle}</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject5Open(false)}
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title={t.portfolio.modal.closeProject}
+                >
+                  <X className="w-5 h-5 stroke-[2.5]" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.hotel.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.hotel.mainDescription}</h4>
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    {t.portfolio.projects.hotel.mainWalkthrough}
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {t.portfolio.projects.hotel.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940561/1_s3l4dy.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940559/3_m9ojlc.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940558/2_ygvzqs.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940556/4_cmwdcc.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
+                          </span>
+                        </div>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Services Aurora Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">{t.portfolio.modal.routeFinished}</h5>
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
+                    {t.portfolio.modal.routeFinishedDesc}
+                  </p>
+                  <button
+                    onClick={() => setIsProject5Open(false)}
+                    className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                  >
+                    <span>{t.portfolio.modal.close}</span>
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Immersive slide-up drawer for the Clinic & Wellness project */}
+      <AnimatePresence>
+        {isProject6Open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-[9999] p-4 sm:p-6 md:p-10 flex items-center justify-center overflow-hidden"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.95, y: 20, opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 250 }}
+              className="w-full max-w-5xl h-[88vh] sm:h-[92vh] bg-[#F9FAFB] border border-zinc-200 shadow-2xl rounded-[2.5rem] flex flex-col overflow-hidden"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 sm:px-10 py-5 border-b border-zinc-200 bg-white sticky top-0 z-30">
+                <div className="flex items-center gap-3">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9D7BFF] animate-pulse" />
+                  <div>
+                    <h3 className="font-sans text-sm sm:text-base font-extrabold tracking-tight text-zinc-900">{t.portfolio.projects.medical.title}</h3>
+                    <p className="font-sans text-[11px] text-zinc-500">{t.portfolio.projects.medical.subtitle}</p>
+                  </div>
+                </div>
+                
+                <button
+                  onClick={() => setIsProject6Open(false)}
+                  className="w-10 h-10 rounded-full bg-zinc-100 hover:bg-zinc-200 border border-zinc-200 text-zinc-700 flex items-center justify-center transition-all duration-200 cursor-pointer hover:rotate-90 active:scale-95"
+                  title={t.portfolio.modal.closeProject}
+                >
+                  <X className="w-5 h-5 stroke-[2.5]" />
+                </button>
+              </div>
+
+              {/* Scrollable Project Body */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8 md:p-12 space-y-12 pb-24 scroll-smooth scrollbar-thin">
+                <div className="max-w-3xl mx-auto text-center mb-6">
+                  <span className="font-mono text-[10px] text-[#7C3AED] bg-[#9D7BFF]/10 px-3 py-1 rounded-full uppercase font-bold tracking-widest inline-block mb-3">{t.portfolio.projects.medical.tag}</span>
+                  <h4 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">{t.portfolio.projects.medical.mainDescription}</h4>
+                  <p className="text-xs sm:text-sm text-black font-sans mt-2 max-w-xl mx-auto leading-relaxed">
+                    {t.portfolio.projects.medical.mainWalkthrough}
+                  </p>
+                </div>
+
+                <div className="max-w-4xl mx-auto space-y-16">
+                  {t.portfolio.projects.medical.sections.map((item, index) => {
+                    const images = [
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940961/1_rg8po5.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940961/2_luhex4.png",
+                      "https://res.cloudinary.com/dkc39tw6r/image/upload/v1782940959/3_nd1fzu.png"
+                    ];
+                    return (
+                      <div key={index} className="flex flex-col gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-zinc-200 shadow-md hover:border-[#9D7BFF]/30 transition-all duration-300">
+                        <div className="flex justify-between items-center pb-3 border-b border-zinc-100">
+                          <div className="flex items-center gap-3">
+                            <span className="w-6 h-6 rounded-full bg-[#9D7BFF]/10 text-[#7C3AED] font-mono text-xs font-bold flex items-center justify-center">
+                              {index + 1}
+                            </span>
+                            <span className="text-base sm:text-lg font-extrabold text-zinc-900 tracking-tight">{item.label}</span>
+                          </div>
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md">
+                            {t.portfolio.modal.section} {index + 1}
+                          </span>
+                        </div>
+                        <div className="overflow-hidden rounded-2xl bg-zinc-100 border border-zinc-200/50 shadow-inner">
+                          <img 
+                            src={images[index]} 
+                            alt={`${item.label} - Services Aurora Web`} 
+                            referrerPolicy="no-referrer"
+                            className="w-full h-auto object-cover max-h-[70vh] hover:scale-[1.01] transition-transform duration-500" 
+                          />
+                        </div>
+                        <p className="text-xs sm:text-sm text-black font-sans leading-relaxed px-1">
+                          {item.desc}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Call to Action inside Slide Up drawer */}
+                <div className="bg-[#9D7BFF]/5 rounded-3xl border border-[#9D7BFF]/20 p-8 max-w-4xl mx-auto text-center mt-12 mb-16">
+                  <h5 className="text-lg font-extrabold text-[#7C3AED] mb-2">{t.portfolio.modal.routeFinished}</h5>
+                  <p className="text-xs text-black max-w-md mx-auto leading-relaxed mb-6">
+                    {t.portfolio.modal.routeFinishedDesc}
+                  </p>
+                  <button
+                    onClick={() => setIsProject6Open(false)}
                     className="bg-[#9D7BFF] hover:bg-[#8B66FF] text-white font-sans font-bold text-xs py-2.5 px-8 rounded-full hover:scale-105 active:scale-95 transition-all cursor-pointer inline-flex items-center gap-1.5"
                   >
                     <span>{t.portfolio.modal.close}</span>
