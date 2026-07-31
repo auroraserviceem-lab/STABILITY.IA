@@ -288,13 +288,25 @@ export default function App() {
       {/* SECCIÓN 2: HERO ASIMÉTRICO DE CAPAS SUPERPUESTAS (Réplica Imagen 1) */}
       <section id="hero" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-center">
         
-        {/* Cinematic Backdrop with Subtle Violet Grid/Texture Detail */}
-        <div className="absolute inset-0 w-full h-full z-10 select-none overflow-hidden bg-gradient-to-b from-black via-[#0a0a0d] to-black">
+        {/* Cinematic Backdrop with Hero Photo */}
+        <div className="absolute inset-0 w-full h-full z-10 select-none overflow-hidden bg-black flex items-center justify-center">
+          {/* Hero background image in full original resolution and sharpness */}
+          <img 
+            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1785507554/image_msmkyi.jpg"
+            alt="Hero Services Aurora Web"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center"
+            style={{ imageRendering: 'auto' }}
+          />
+          {/* Subtle soft gradient at top/bottom/left edges to ensure header & edges blend smoothly without dimming the image */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent pointer-events-none" />
+
           {/* Subtle glowing radial accent in the background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(157,123,255,0.07),transparent_70%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(157,123,255,0.1),transparent_70%)] pointer-events-none" />
           
           {/* Grid pattern with low-opacity #9D7BFF strokes */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <defs>
               <pattern id="micro-grid" width="40" height="40" patternUnits="userSpaceOnUse">
                 <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9D7BFF" strokeWidth="0.5" />
@@ -305,7 +317,7 @@ export default function App() {
           </svg>
 
           {/* Elegant oblique trace lines for extra depth and cinematic style */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
             <line x1="-10%" y1="10%" x2="110%" y2="90%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
             <line x1="-10%" y1="40%" x2="110%" y2="120%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
           </svg>
@@ -322,7 +334,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full py-12 lg:py-0">
             
             {/* Left Col: Capa de Texto (Z-30): Contenedor Asimétrico Editorial ALINEADO A LA IZQUIERDA */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
+            <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
               
               {/* Tag indicator */}
               <div className="inline-flex items-center gap-2 mb-2 select-none bg-[#9D7BFF]/15 border border-[#9D7BFF]/30 px-3.5 py-1.5 rounded-full">
