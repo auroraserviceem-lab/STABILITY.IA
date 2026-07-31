@@ -176,9 +176,10 @@ export default function App() {
           title="Volver al inicio"
         >
           <img 
-            src="https://res.cloudinary.com/dkc39tw6r/image/upload/f_auto,q_auto/v1779721974/image_s39ibp.jpg" 
-            alt="Logo" 
-            className="w-8 h-8 rounded-sm object-cover"
+            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1785508229/favicon-512x512_jdiafm.png" 
+            alt="Logo Services Aurora" 
+            referrerPolicy="no-referrer"
+            className="w-8 h-8 rounded-lg object-contain shrink-0"
           />
           <div className="flex flex-col items-center justify-center text-center">
             <span className="font-bold tracking-tighter text-lg sm:text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1 whitespace-nowrap">
