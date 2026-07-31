@@ -1,6 +1,6 @@
 {
-  "name": "Brand Studio",
-  "description": "Premium, highly animated asymmetric landing page for creative brand production, powered by Stability AI design patterns.",
+  "name": "Services Aurora - Gradient Mesh Web",
+  "description": "Hero section con fondo animado tipo gradient mesh de seda fluida (Stripe style) usando HTML5 Canvas con paleta de colores personalizada.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

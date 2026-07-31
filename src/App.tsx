@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { translations } from "./translations";
+import { GradientMeshHero } from "./components/GradientMeshHero";
 import { 
   ArrowUp,
   ArrowUpRight, 
@@ -176,10 +177,9 @@ export default function App() {
           title="Volver al inicio"
         >
           <img 
-            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1785508229/favicon-512x512_jdiafm.png" 
-            alt="Logo Services Aurora" 
-            referrerPolicy="no-referrer"
-            className="w-8 h-8 rounded-lg object-contain shrink-0"
+            src="https://res.cloudinary.com/dkc39tw6r/image/upload/f_auto,q_auto/v1779721974/image_s39ibp.jpg" 
+            alt="Logo" 
+            className="w-8 h-8 rounded-sm object-cover"
           />
           <div className="flex flex-col items-center justify-center text-center">
             <span className="font-bold tracking-tighter text-lg sm:text-xl text-white group-hover:text-[#9D7BFF] transition-colors duration-300 leading-none pb-1 whitespace-nowrap">
@@ -286,48 +286,11 @@ export default function App() {
         </div>
       </nav>
 
-      {/* SECCIÓN 2: HERO ASIMÉTRICO DE CAPAS SUPERPUESTAS (Réplica Imagen 1) */}
-      <section id="hero" className="relative w-full min-h-screen bg-black overflow-hidden flex flex-col justify-center">
+      {/* SECCIÓN 2: HERO CON FONDO GRADIENT MESH ANIMADO (TELA/SEDA FLUIDA ESTILO STRIPE) */}
+      <section id="hero" className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center bg-[#080D1A]">
         
-        {/* Cinematic Backdrop with Hero Photo */}
-        <div className="absolute inset-0 w-full h-full z-10 select-none overflow-hidden bg-black flex items-center justify-center">
-          {/* Hero background image in full original resolution and sharpness */}
-          <img 
-            src="https://res.cloudinary.com/dkc39tw6r/image/upload/v1785507554/image_msmkyi.jpg"
-            alt="Hero Services Aurora Web"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center"
-            style={{ imageRendering: 'auto' }}
-          />
-          {/* Subtle soft gradient at top/bottom/left edges to ensure header & edges blend smoothly without dimming the image */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/10 to-transparent pointer-events-none" />
-
-          {/* Subtle glowing radial accent in the background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(157,123,255,0.1),transparent_70%)] pointer-events-none" />
-          
-          {/* Grid pattern with low-opacity #9D7BFF strokes */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-            <defs>
-              <pattern id="micro-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#9D7BFF" strokeWidth="0.5" />
-                <circle cx="40" cy="40" r="1.2" fill="#9D7BFF" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#micro-grid)" />
-          </svg>
-
-          {/* Elegant oblique trace lines for extra depth and cinematic style */}
-          <svg className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-            <line x1="-10%" y1="10%" x2="110%" y2="90%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
-            <line x1="-10%" y1="40%" x2="110%" y2="120%" stroke="#9D7BFF" strokeWidth="1" strokeDasharray="5,5" />
-          </svg>
-        </div>
-
-        {/* Background outline text layer */}
-        <div className="absolute left-10 top-1/2 -translate-y-1/2 z-0 transform rotate-90 origin-left select-none pointer-events-none hidden xl:block">
-          <p className="text-[120px] font-black text-outline uppercase tracking-tighter">HYPERFOCUS</p>
-        </div>
+        {/* Fondo animado Gradient Mesh (#1E3A8A, #60A5FA, #A855F7, #F97316) */}
+        <GradientMeshHero />
 
         {/* Centered Main Layout Frame (Two column layout on lg+ with left aligned editorial and right side floating card) */}
         <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-12 min-h-screen flex flex-col justify-center items-center z-30 pt-28 lg:pt-0">
@@ -335,7 +298,7 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full py-12 lg:py-0">
             
             {/* Left Col: Capa de Texto (Z-30): Contenedor Asimétrico Editorial ALINEADO A LA IZQUIERDA */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+            <div className="lg:col-span-7 flex flex-col items-start text-left gap-5 w-full">
               
               {/* Tag indicator */}
               <div className="inline-flex items-center gap-2 mb-2 select-none bg-[#9D7BFF]/15 border border-[#9D7BFF]/30 px-3.5 py-1.5 rounded-full">
